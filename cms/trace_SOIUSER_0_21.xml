@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TRACE PUBLIC "trace.dtd" "trace.dtd">
+<TRACE timestamp="1461852186039" dateTimeFormat="yyyy.MM.dd HH:mm:ss z">
+    <LOGIN user="SOIUSER" factory="21" timestamp="1461852186038"/>
+    <SOCREATE soiName="SECURITY" soiVersion="3" name="122" timestamp="1461852186040" factory="21"/>
+    <COMMAND name="USER_RIGHT.CHECK" timestamp="1461852186056" so="122">
+        <SVLOBJECT>
+            <STRING name="USERNAME" val="ADMX"/>
+            <STRING name="PASSWORD" val="*"/>
+            <LIST name="REQUESTED_PERMISSIONS">
+                <SVLOBJECT>
+                    <STRING name="PERMISSION" val="Billing Server"/>
+                </SVLOBJECT>
+            </LIST>
+        </SVLOBJECT>
+        <RESULT>
+            <SVLOBJECT>
+                <LONG name="PERIOD_OF_VALIDITY" val="3600"/>
+                <STRING name="USERNAME" val="ADMX"/>
+                <LIST name="USER_PERMISSIONS">
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="PAYMENT_RESULT.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="LETTER.CREATE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="Billing Server"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BONUSPOINT_CONVERSION.EXECUTE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="REWARD_FEE.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="REFERENCED_TRANSACTION.SEARCH"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BILLING_END_DATES.SEARCH"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BILLDOCUMENT.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BILLPROCESS.CREATE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BILLPROCESS.WRITE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BONUSPOINT_CONVERSION.CHECK"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="DEBITSBYCREDIT.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="COLLECTED_BILLPROCESS.CREATE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="PROMOTION_PACKAGE_REWARD.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BsvFullAccessRights"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="ADVERTISING_TEXT.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="CREDITSBYDEBIT.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="REFERENCED_TRANSACTION.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="EXTERNAL_DOCUMENT.CREATE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BUSINESS_TRANSACTIONS.SEARCH"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BILLDOCUMENT_REFERENCE.SEARCH"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="SESSION.CHANGE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="CUSTOMER_BONUSPOINT.CREATE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="COLLECTIBLE_HISTORY.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="DOC_TYPES.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="DOCUMENTRECEIPT_STATUS.WRITE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="SE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="LEGEND_PAGE.CREATE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BILLDOCUMENT_REFERENCE.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="SYSTEM_SETTING.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="CUSTOMER_COLLECTIONIND.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="POSTINGPERIOD.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BUSINESS_TRANSACTION.WRITE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="DOCUMENT.CREATE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="COLLECTIBLE_CREATE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BUSINESS_TRANSACTION.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="PermChangeOnBehalfOfUser"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="COLLECTIBLE.DELETE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BILLCYCLE_HISTORY.SEARCH"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="DOCUMENTRECEIPT_STATUS.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="PAYMENT.WRITE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BILLPROCESS.SEARCH"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="DOCUMENTRECEIPT_STATUS.SEARCH"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="DUNNING_HISTORY.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="CUSTOMER_BONUSPOINT.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="COLLECTIBLE.WRITE"/>
+                    </SVLOBJECT>
+                </LIST>
+                <LIST name="ROLES">
+                    <SVLOBJECT>
+                        <LONG name="ROLE_ID" val="1"/>
+                        <STRING name="ROLE_ID_PUB" val="ROLE_SUPERVISOR"/>
+                    </SVLOBJECT>
+                </LIST>
+            </SVLOBJECT>
+        </RESULT>
+    </COMMAND>
+    <COMMAND name="USER_RIGHT.CHECK" timestamp="1461852525005" so="122">
+        <SVLOBJECT>
+            <STRING name="USERNAME" val="ADMX"/>
+            <STRING name="PASSWORD" val="*"/>
+            <LIST name="REQUESTED_PERMISSIONS">
+                <SVLOBJECT>
+                    <STRING name="PERMISSION" val="Billing Server"/>
+                </SVLOBJECT>
+            </LIST>
+        </SVLOBJECT>
+        <RESULT>
+            <SVLOBJECT>
+                <LONG name="PERIOD_OF_VALIDITY" val="3600"/>
+                <STRING name="USERNAME" val="ADMX"/>
+                <LIST name="USER_PERMISSIONS">
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="PAYMENT_RESULT.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="LETTER.CREATE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="Billing Server"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BONUSPOINT_CONVERSION.EXECUTE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="REWARD_FEE.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="REFERENCED_TRANSACTION.SEARCH"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BILLING_END_DATES.SEARCH"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BILLDOCUMENT.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BILLPROCESS.CREATE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BILLPROCESS.WRITE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BONUSPOINT_CONVERSION.CHECK"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="DEBITSBYCREDIT.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="COLLECTED_BILLPROCESS.CREATE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="PROMOTION_PACKAGE_REWARD.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BsvFullAccessRights"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="ADVERTISING_TEXT.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="CREDITSBYDEBIT.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="REFERENCED_TRANSACTION.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="EXTERNAL_DOCUMENT.CREATE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BUSINESS_TRANSACTIONS.SEARCH"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BILLDOCUMENT_REFERENCE.SEARCH"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="SESSION.CHANGE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="CUSTOMER_BONUSPOINT.CREATE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="COLLECTIBLE_HISTORY.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="DOC_TYPES.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="DOCUMENTRECEIPT_STATUS.WRITE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="SE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="LEGEND_PAGE.CREATE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BILLDOCUMENT_REFERENCE.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="SYSTEM_SETTING.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="CUSTOMER_COLLECTIONIND.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="POSTINGPERIOD.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BUSINESS_TRANSACTION.WRITE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="DOCUMENT.CREATE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="COLLECTIBLE_CREATE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BUSINESS_TRANSACTION.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="PermChangeOnBehalfOfUser"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="COLLECTIBLE.DELETE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BILLCYCLE_HISTORY.SEARCH"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="DOCUMENTRECEIPT_STATUS.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="PAYMENT.WRITE"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="BILLPROCESS.SEARCH"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="DOCUMENTRECEIPT_STATUS.SEARCH"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="DUNNING_HISTORY.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="CUSTOMER_BONUSPOINT.READ"/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <STRING name="USER_PERMISSION" val="COLLECTIBLE.WRITE"/>
+                    </SVLOBJECT>
+                </LIST>
+                <LIST name="ROLES">
+                    <SVLOBJECT>
+                        <LONG name="ROLE_ID" val="1"/>
+                        <STRING name="ROLE_ID_PUB" val="ROLE_SUPERVISOR"/>
+                    </SVLOBJECT>
+                </LIST>
+            </SVLOBJECT>
+        </RESULT>
+    </COMMAND>
+    <LOGOUT user="SOIUSER" factory="21" timestamp="1461855186205"/>
+</TRACE>

@@ -1,0 +1,41 @@
+<!ELEMENT CollectionReport ( Date*, ( CollectionDataPerBu* | CollectionDataPerCo* ) ) >
+<!--
+    Dates are
+    - period start date (Type=START)
+    - period end date (Type=END)
+--> 
+
+<!ELEMENT CollectionDataPerBu (CollectionDataPerCo*)>
+<!ATTLIST CollectionDataPerBu
+    BuId	CDATA	#REQUIRED
+    BuShdes	CDATA	#REQUIRED
+>
+
+<!ELEMENT CollectionDataPerCo (Charge*, CollectionDataPerSN*)>
+<!--
+    Charges in this context are:
+    - amount billed (Id=705)
+    - amount paid (Id=706)
+    - amount open (Id=707)
+-->
+<!ATTLIST CollectionDataPerCo
+     CoId		CDATA		#REQUIRED
+     CustId		CDATA		#REQUIRED
+>
+
+<!ELEMENT CollectionDataPerSN (Charge*)>
+<!--
+    Charges in this context are:
+    - amount billed (Id=705)
+    - amount paid (Id=706)
+    - amount open (Id=707)
+-->
+<!ATTLIST CollectionDataPerSN 
+    SN		CDATA		#REQUIRED
+    AS		CDATA 	#REQUIRED
+>
+<!--
+  SN	is service public identifier
+  AS is article string
+-->
+

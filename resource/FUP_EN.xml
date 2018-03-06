@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+  Copyright (c) 2012 Ericsson
+
+  All rights reserved.
+
+  File:    FUP_EN.xml
+
+  Owner:   Matthias Fehrenbacher
+
+  @(#) ABSTRACT : XML configuration file
+  @(#) BSCS iX R4, Bill Formatting Server
+
+  This documnet contains UDR attribute descriptions
+  in the base configuartion for free units.
+  VERSION = @(#) ./lhsj_main/bscs/batch/src/bgh/LAYOUT/FUP_EN.xml, , CBIO_PCP1503, CBIO_PCP1503_150728 @@CBIO_PCP1503_150728 28-Jul-2015
+
+-->
+<!DOCTYPE UDR [
+<!ELEMENT UDR (FUP*)>
+<!ELEMENT FUP EMPTY>
+<!ATTLIST FUP
+    Id       CDATA #REQUIRED
+    xml:lang (DE|EN|FR|IT|AR) #IMPLIED
+    Des      CDATA #IMPLIED
+>
+]>
+<UDR>
+  <!-- A -->
+  <FUP Id="Amt" xml:lang="EN" Des="Amount"/>
+  <FUP Id="AmtCurrCode" xml:lang="EN" Des="Currency Code"/>
+  <!-- B -->
+  <FUP Id="BPROD" xml:lang="EN" Des="Bundle Product"/>
+  <!-- C -->
+  <FUP Id="ChPlan" xml:lang="EN" Des="Charge Plan"/>
+  <FUP Id="Clicks" xml:lang="EN" Des="Clicks"/>
+  <FUP Id="CoId" xml:lang="EN" Des="Contract"/>
+  <!-- F -->
+  <FUP Id="FUAccHistId" xml:lang="EN" Des="History Id"/>
+  <FUP Id="FUAccId" xml:lang="EN" Des="Account"/>
+  <FUP Id="FUE" xml:lang="EN" Des="Element"/>
+  <FUP Id="FUEV" xml:lang="EN" Des="Version"/>
+  <FUP Id="FUOption" xml:lang="EN" Des="Type"/>
+  <FUP Id="FUP" xml:lang="EN" Des="Package"/>
+  <FUP Id="FUPrepayInd" xml:lang="EN" Des="Prepaid Charge"/>
+  <FUP Id="ForFreeAmt" xml:lang="EN" Des="Foreign Free Charge Amount"/>
+  <FUP Id="ForFreeAmtCuCod" xml:lang="EN" Des="Foreign Free Charge Currency"/>
+  <FUP Id="ForFreeTaxAmt" xml:lang="EN" Des="Foreign Tax Amount"/>
+  <FUP Id="FreeChargeRate" xml:lang="EN" Des="Free Charge Rate"/>
+  <!-- P -->
+  <FUP Id="Profile" xml:lang="EN" Des="Profile"/>
+  <FUP Id="PurSeqNo" xml:lang="EN" Des="Sequence No."/>
+  <!-- R -->
+  <FUP Id="RatVol" xml:lang="EN" Des="rated Volume"/>
+  <FUP Id="RoundedVol" xml:lang="EN" Des="Vol. rounded"/>
+  <!-- S -->
+  <FUP Id="SN" xml:lang="EN" Des="Service"/>
+  <!-- T -->
+  <FUP Id="TaxAmt" xml:lang="EN" Des="Tax"/>
+  <!-- U -->
+  <FUP Id="UM" xml:lang="EN" Des="Unit of Measurement"/>
+</UDR>

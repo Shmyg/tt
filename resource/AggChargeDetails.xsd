@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+  Copyright (c) 2010 LHS Telekom GmbH & Co. KG
+
+  The copyright in this work is vested in LHS. The information contained in this work
+  (either in whole or in part) is confidential and must not be modified, reproduced,
+  disclosed or disseminated to others or used for purposes other than that for which
+  it is supplied, without the prior written permission of LHS.  If this work or any
+  part hereof is furnished to a third party by virtue of a contract with that party,
+  use of this work by such party shall be governed by the express contractual terms
+  between LHS, which is party to that contract and the said party.
+
+  The information in this document is subject to change without notice and should not
+  be construed as a commitment by LHS. LHS assumes no responsibility for any errors
+  that may appear in this document. With the appearance of a new version of this
+  document all older versions become invalid.
+
+  All rights reserved.
+
+  File:    AggChargeDetails.xsd
+
+  Owner:   Matthias Fehrenbacher
+
+  @(#) ABSTRACT : XML validation
+  @(#) BSCS iX R4, Bill Formatting Server
+
+  This schema validates summary pages.
+  VERSION = @(#) ./lhsj_main/bscs/batch/src/bgh/LAYOUT/AggChargeDetails.xsd, , CBIO_PCP1503, CBIO_PCP1503_150728 @@CBIO_PCP1503_150728 28-Jul-2015
+
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+  <xs:include schemaLocation="SUM_UDR.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  <!--
+
+       AggChargeDetails
+
+  -->
+  <xs:element name="AggChargeDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="CustomerPR"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+
+       CustomerPR
+
+  -->
+  <xs:element name="CustomerPR">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="AggInfo"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.CustomerPR"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.CustomerPR">
+    <xs:attribute name="Id" use="required" type="xs:string"/>
+    <xs:attribute name="CustCode" use="optional" type="xs:string"/>
+    <xs:attribute name="Reseller" default="N">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="Y"/>
+          <xs:enumeration value="N"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="PartyType" use="optional" type="xs:token"/>
+  </xs:attributeGroup>
+  <!--
+
+       AggInfo
+
+  -->
+  <xs:element name="AggInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="SumUdr"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.AggInfo"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.AggInfo">
+    <xs:attribute name="BundleId" use="required" type="xs:string"/>
+    <xs:attribute name="BundleDes" use="required" type="xs:string"/>
+    <xs:attribute name="AggPackId" use="required" type="xs:string"/>
+    <xs:attribute name="AggPackDes" use="required" type="xs:string"/>
+    <xs:attribute name="AggKey" use="required" type="xs:string"/>
+    <xs:attribute name="AggCycle" default="1">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="1"/>
+          <xs:enumeration value="2"/>
+          <xs:enumeration value="3"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Purpose" default="C">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="C"/>
+          <xs:enumeration value="D"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!--
+
+       SumUdr
+
+  -->
+  <xs:element name="SumUdr">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="RECORD_INFO"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+
+       RECORD_INFO
+       (attributes are configured in SUM_UDR.xsd)
+  -->
+  <xs:element name="RECORD_INFO">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="BASE_INFO"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.RECORD_INFO"/>
+    </xs:complexType>
+  </xs:element>
+  <!--
+
+       BASE_INFO
+       (attributes are configured in SUM_UDR.xsd)
+  -->
+  <xs:element name="BASE_INFO">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="CHARGE_INFO"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.BASE_INFO"/>
+    </xs:complexType>
+  </xs:element>
+  <!--
+
+       CHARGE_INFO
+       (attributes are configured in SUM_UDR.xsd)
+  -->
+  <xs:element name="CHARGE_INFO">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="FREE_UNIT_INFO"/>
+        <xs:element minOccurs="0" ref="PROMOTION_INFO"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.CHARGE_INFO"/>
+    </xs:complexType>
+  </xs:element>
+  <!--
+
+       FREE_UNIT_INFO
+       (attributes are configured in SUM_UDR.xsd)
+  -->
+  <xs:element name="FREE_UNIT_INFO">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.FREE_UNIT_INFO"/>
+    </xs:complexType>
+  </xs:element>
+  <!--
+
+       PROMOTION_INFO
+       (attributes are configured in SUM_UDR.xsd)
+  -->
+  <xs:element name="PROMOTION_INFO">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.PROMOTION_INFO"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

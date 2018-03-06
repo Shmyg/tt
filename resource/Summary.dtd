@@ -1,0 +1,416 @@
+<!ELEMENT Summary (Sums, CustRef*, FUAccInfoPerCo*, BalSshPerCo*, FUDiscountInfoPerCo*, CCHDiscountInfoPerCo*, CSDiscountInfoPerCo*, BalAdPerCo*, PromoCreditsPerCo*, BundleInfoPerCo*)>
+
+<!-- First DiscountInfo is FU Discount, second one is CCH Discount
+-->
+<!ELEMENT Sums (Charge*)>
+<!-- Charge Ids are
+     - 177
+     - 277
+     - 812
+     - 910
+     - 911
+     - 912
+     - 913
+     - 914
+     Charges with id 177, 277, 812 and 912 might also be given for prepaid charges
+-->
+
+
+<!ELEMENT CustRef (Addr, Charge*, SumItem*, Contract*, Date*)>
+<!ATTLIST CustRef
+    Id                  CDATA   #REQUIRED
+    CustCode            CDATA   #REQUIRED
+    Reseller            (Y|N)   "N"
+    PartyType           CDATA   #REQUIRED
+    BillSeqNo           CDATA   #REQUIRED
+>
+<!-- Charge Ids are
+     - 830
+     - 835
+     - 930
+     - 933
+     - 934
+     - 935
+     - 936
+     Charges with id 830, 930, 835 and 935 might also be given for prepaid charges
+-->  
+     
+
+<!ELEMENT Contract (BOPAlt?, (DN|DNBlock)*, Charge+, PerCTInfo*, SIM*)>
+<!ATTLIST Contract
+    Id              CDATA   #REQUIRED
+    MRKT            CDATA   #REQUIRED
+    SM              CDATA   #REQUIRED
+    BOPInd          (Y|N)   "N"      >
+<!-- Charge Ids are
+     - 831
+     - 931
+     Charges might also be given for prepaid charges
+-->  
+
+<!-- Storage media list -->
+<!ELEMENT SIM EMPTY>
+<!ATTLIST SIM
+  SIMNum  CDATA   #REQUIRED
+  Imsi    CDATA   #REQUIRED
+  PortId  CDATA   #REQUIRED >
+
+<!ELEMENT PerCTInfo (Charge+, SumItem*)>
+<!ATTLIST PerCTInfo
+    CT  (A|O|P|S|U) #REQUIRED
+    PT  (P|A)       "P"
+>
+<!--
+    PT (Payment Type) with values
+    - P (postpaid)
+    - A (advance = prepaid)  
+    Charge Ids in this context are
+     - 832
+     - 837 (ATM)
+     - 838
+     - 932
+     - 937 (ATM)
+     - 938
+    Charges in sections where PT is A will also be marked with 'A'
+-->
+
+
+<!ELEMENT SumItem (AggInfo?, AggSet?, GL*, Charge*, Txt?, Price?, SrvStatus*, SrvParams?, PromoItem*)>
+<!ATTLIST SumItem
+    PT                          (P|A)    "P"
+    ArticleString               CDATA    #REQUIRED
+    LZString                    CDATA    #REQUIRED
+    NumItems                    CDATA    #REQUIRED
+    Quantity                    CDATA    #IMPLIED
+    NumDays                     CDATA    #IMPLIED
+    CollInd                     (Y|N)    "N"
+    BillSeqNo                   CDATA    #REQUIRED
+    ChargingPeriod              CDATA    #IMPLIED
+    IndividualChargingPeriod    (Y|N)    #IMPLIED
+    ChargeStartDate             CDATA    #IMPLIED
+    ChargeEndDate               CDATA    #IMPLIED
+> 
+
+<!--
+    PT (Payment Type) with values
+    - P (postpaid)
+    - A (advance = prepaid)
+    LZString corresponds to sub-article string
+    NumDays only in case that CT is ACCESS
+    Charge ids are
+    - 98 (item original amount with VAT but without discount)
+    - 99 (item original amount without VAT and without discount)
+    - 125 (item without VAT)
+    - 203 (item with VAT)
+    CollInd indicates, whether amount has been collected on behalf
+
+    Charges in SumItem where PT is A will also be marked with 'A'
+    Txt is Fee remark, in case that SumItem is a fee
+    Quantity of VAS is printed
+
+    The following attributes are printed only in case PC13849 is switched on
+    and CT is ACCESS:
+    ChargingPeriod: definition (string with 2 pieces): 2 Months, 15 Days, etc.
+    IndividualChargingPeriod: Y or N for recurring charges
+    ChargeStartDate (YYYYMMDD): first start date covered in SumItem
+    ChargeEndDate   (YYYYMMDD): last end date covered in SumItem
+-->
+
+<!ELEMENT AggInfo EMPTY>
+<!ATTLIST AggInfo
+    AI_1        CDATA   #IMPLIED
+    AI_2        CDATA   #IMPLIED
+    AI_3        CDATA   #IMPLIED
+    AI_4        CDATA   #IMPLIED
+    AI_5        CDATA   #IMPLIED
+    AI_6        CDATA   #IMPLIED
+    AI_7        CDATA   #IMPLIED
+    AI_8        CDATA   #IMPLIED
+    AI_9        CDATA   #IMPLIED
+    AI_VOL_UM   CDATA   #IMPLIED
+>
+<!--
+    Applies to PC 12990 only.
+
+    AI_1 -- Number of calls or messages, contributing to summary item, fully discounted by free units
+    AI_2 -- Number of calls or messages, contributing to summary item, not at all discounted by free units
+    AI_3 -- Number of calls or messages, contributing to summary item, partly discounted by free units
+    AI_4 -- Number of zero rated calls or messages, contributing to summary item, having rated volume greater than zero
+    AI_5 -- Number of zero rated calls or messages, contributing to summary item, having rated volume equal zero
+    AI_6 -- Rounded volume of calls or messages contributing to summary item
+    AI_7 -- Reduction of rounded volume due to application of free units
+    AI_8 -- Rated volume of calls or messages contributing to summary item
+    AI_9 -- Zero rated volume of calls or messages contributing to summary item
+    AI_VOL_UM -- Code of unit of measure of volume of calls or messages contributing to summary item
+
+    The information is aggregated for both elements CustRef (per customer) and PerCtInfo (per contract)
+    and it will be generated only for the charge type usage (article string where charge type = "U"
+-->
+
+
+<!-- Free unit account -->
+<!ELEMENT FUAccInfoPerCo (BOPAlt?, FUAccInfo*)>
+<!ATTLIST FUAccInfoPerCo
+    CoId    CDATA   #REQUIRED
+>
+
+<!ELEMENT FUAccInfo (FUAcc, Date+, FUNum*, Charge+)>
+<!-- Dates are 
+    - accounting start date (Type ='START')
+    - and accounting end date (Type = 'END')
+    - expire date of carry over application (Type = 'END_FU_CO' - only in case of carry over)
+    Charges are 
+    - current reduced FU amount (Id = 54)
+    - total reduced FU amount (Id = 55)
+    (In case of price plan accounts the reduced amount is the difference between the old
+    and the new price)
+    
+    In case of technical free unit accounts there are in addition 2 FUNum elements.
+    
+    In case of monetary free unit accounts there are in addition the following charges
+    (no FUNum elements):
+    - original FU amount (Id = 56)
+    - granted FU amount (Id = 57)
+    - carry over FU amount (Id = 58)
+    
+    In case of price plan free unit accounts the number of FUNum and Charge elements depends
+    on the evaluation and the application UoM.
+    
+    Price plan free unit account with technical evaluation UoM:
+    - 1 FUNum element with attribute UME set to evaluation UoM.
+    
+    Price plan free unit account with monetary evaluation UoM:
+    - 3 Charge elements:
+      - original FU amount (Id = 56) with amount = 0
+      - granted FU amount (Id = 57): amount of accumulated evaluation quantity
+      - carry over FU amount (Id = 58) with amount = 0
+    
+    Price plan free unit account with technical application UoM:
+    - 1 FUNum element with attribute UMA set to application UoM.
+    
+    Price plan free unit account with monetary application UoM:
+    - 2 Charge elements:
+      - Current repriced amount (Id = 527)
+      - Total repriced amount (Id = 528)
+    
+    In case of any type of price plan account:
+    - amount of mark-up fees applied (Id = 526)
+--> 
+
+
+<!-- free unit account -->
+<!ELEMENT FUAcc EMPTY >
+<!ATTLIST FUAcc
+    ChPlan      CDATA   #IMPLIED
+    Id          CDATA   #REQUIRED
+    HistId      CDATA   #REQUIRED
+    FUP         CDATA   #REQUIRED
+    FUE         CDATA   #REQUIRED
+    FUEV        CDATA   #REQUIRED
+    FUOption    CDATA   #IMPLIED
+    PRO         CDATA   #IMPLIED
+    UM          CDATA   #REQUIRED
+>
+
+
+<!-- FU info if account uses a non monetary unit as UoM 
+--> 
+<!ELEMENT FUNum EMPTY>
+<!-- In case of technical free unit accounts there are 2 FUNum elements with different
+     attributes:
+     1. - Orig
+        - Granted
+        - CarryOver
+        - UME: unit of measurement for evaluation (same as UM in FUAcc)
+     2. - CurrUsed
+        - TotalUsed
+        - UMA: unit of measurement for application (same as UM in FUAcc and same as UME)
+        
+     In case of price plan free unit accounts there can be 0, 1 or 2 FUNum elements:
+     0 when both evaluation and application UoM are monetary.
+     1 when either the evaluation UoM or the application UoM is technical.
+     2 when both evaluation and application UoM are technical.
+     
+     FUNum attributes in case of technical evaluation UoM:
+     - Orig: is set to 0
+     - Granted: number of accumulated evaluation quantity
+     - CarryOver: is set to 0
+     - UME: unit of measurement for evaluation
+     
+     FUNum attributes in case of technical application UoM:
+     - CurrUsed: current sum of repriced application quantity that was multiplied with 
+       the special price per unit
+     - TotalUsed: total sum of repriced application quantity
+     - UMA: unit of measurement for application
+--> 
+<!ATTLIST FUNum
+    Orig        CDATA   #IMPLIED
+    Granted     CDATA   #IMPLIED
+    CurrUsed    CDATA   #IMPLIED
+    TotalUsed   CDATA   #IMPLIED
+    CarryOver   CDATA   #IMPLIED
+    UME         CDATA   #IMPLIED
+    UMA         CDATA   #IMPLIED
+>
+
+
+<!-- Balance snapshots for a contract -->
+<!ELEMENT BalSshPerCo (BalSsh*)>
+<!ATTLIST BalSshPerCo
+    CoId        CDATA   #REQUIRED
+>
+
+
+<!-- Balance snapshot -->
+<!ELEMENT BalSsh (Date*, Bal, BalVols)>
+<!-- Dates are
+     - balance snapshot date (BAL_REF)
+     - balance product deactivation date (SRV_END)
+     - cost control balance next reset date (BAL_RESET)
+     - balance start date (SRV_START)
+     Charges are 
+     - balance accumulated usage net    (Id = 21)
+     - balance accumulated credit net   (Id = 22)
+     - balance remaining credit net     (Id = 23)
+     - balance accumulated usage gross  (Id = 31)
+     - balance accumulated credit gross (Id = 32)
+     - balance remaining credit gross   (Id = 33)
+-->
+
+<!ATTLIST BalSsh
+    BalSeqNo    CDATA   #IMPLIED
+    PricingAlt  CDATA   #IMPLIED
+>
+
+<!ELEMENT FUDiscountInfoPerCo (BOPAlt?, FUDiscountInfo*)>
+<!ATTLIST FUDiscountInfoPerCo
+    CoId    CDATA   #REQUIRED
+>
+
+<!ELEMENT FUDiscountInfo (Charge*, DiscountValue*)>
+<!-- Charge* describe monetary discount information, aggregated for the FUP
+     Charge Ids are
+     56  - Original Amount
+     55  - Discounted Amount
+     DiscountValue* describe aggregated non-monetary values
+     One element Discount Value is provided per unit of meassurement
+-->
+<!ATTLIST FUDiscountInfo
+        FUP            CDATA #REQUIRED
+>
+<!--
+    FUP  is free unit package, for which the discount aggregation was performed
+-->
+
+
+<!ELEMENT CCHDiscountInfoPerCo (CCHDiscountInfo*)>
+<!ATTLIST CCHDiscountInfoPerCo
+    CoId    CDATA   #REQUIRED
+>
+
+<!ELEMENT CCHDiscountInfo (Charge*, DiscountValue*)>
+<!-- Charge* describe monetary discount information, aggregated for the const control service
+     Charge Ids are
+     56  - Original Amount
+     55  - Discounted Amount
+     DiscountValue* describe aggregated non-monetary values
+     One element Discount Value is provided per unit of meassurement
+-->
+<!ATTLIST CCHDiscountInfo
+        SN             CDATA #REQUIRED
+>
+<!--
+    SN   is cost control service, for which the discount aggregation was performed
+-->
+
+<!ELEMENT CSDiscountInfoPerCo (CSDiscountInfo*)>
+<!ATTLIST CSDiscountInfoPerCo
+    CoId    CDATA   #REQUIRED
+>
+
+<!ELEMENT CSDiscountInfo (Charge*, DiscountValue*)>
+<!ATTLIST CSDiscountInfo
+        SN             CDATA #REQUIRED
+>
+
+<!-- Balance adjustments for a contract -->
+<!ELEMENT BalAdPerCo (BalAd*)>
+<!ATTLIST BalAdPerCo
+    CoId    CDATA   #REQUIRED
+>
+
+<!-- Cost Control balance adjustment info -->
+<!ELEMENT BalAd (Bal, BalVols, Date*)>
+<!ATTLIST BalAd
+        No              CDATA       #REQUIRED
+        Type            (C|D|A|M|B|T|E|G|Y) #REQUIRED
+        AdjAmt          CDATA       #REQUIRED
+        Reason          CDATA       #IMPLIED
+        Comment         CDATA       #REQUIRED
+        TransType       CDATA       #IMPLIED
+>
+<!-- The adjustment amount (attribute AdjAmt
+     is given in the unit specified in element Bal;
+     The same applies for the amounts given in BalVols
+     Date is balance snapshot date (BAL_REF)
+     Type might be
+         C - credit
+         D - debit
+         A - add amount to balance aggregate
+         M - substract amount from balance aggregate
+         B - implicit balance as a result of promotion action 
+         Y - Modify only validity period and next reset date of a balance.
+         T - transfer
+         E - expiration of purchased bundle and associated counter balances
+         G - balance or offer deleted
+-->
+
+
+<!-- promotion credit info for a contract -->
+<!ELEMENT PromoCreditsPerCo (PromoCreditPerBal*)>
+<!ATTLIST PromoCreditsPerCo
+    CoId    CDATA   #REQUIRED
+>
+
+<!-- promotion credit granted to a prepaid balance -->
+<!ELEMENT PromoCreditPerBal (Bal, Charge, PromoItem*)> 
+<!-- 
+  - Bal identifies prepaid balance
+  - Charge is total credit amount for Bal, 
+    Charge id used id 700 (change of prepaid credit due to credits)
+  - PromoItem describes promotion action contributing to Bal
+-->
+
+<!ELEMENT BundleInfoPerCo (BundleInfo*)>
+<!ATTLIST BundleInfoPerCo
+    CoId    CDATA   #REQUIRED
+>
+
+<!ELEMENT BundleInfo (Date*, BundledProd*)>
+<!-- Dates used are:
+    - START (valid from date)
+    - END (valid to date)
+    - PURCHASE (bundle purchase date)
+    BundledProd* specify the contained bundled products
+-->  
+
+<!ATTLIST BundleInfo
+    SN          CDATA        #REQUIRED
+    PRO         CDATA        #REQUIRED
+    SeqNo       CDATA        #REQUIRED
+    BundId      CDATA        #REQUIRED
+    BundVers    CDATA        #REQUIRED
+    Status      (N|P|A|E|T)  #REQUIRED
+>
+<!-- Possible values for Status are
+   - N - no state
+   - P - purchased
+   - A - active
+   - E - expired
+   - T - terminated
+-->
+
+<!ELEMENT BundledProd EMPTY>
+<!ATTLIST BundledProd
+    BPROD          CDATA   #REQUIRED
+>

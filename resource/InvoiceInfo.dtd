@@ -1,0 +1,138 @@
+<!ELEMENT InvoiceInfo (ConvRate*, BPStat?, PromoDetails*, AdvTxt*, MailIt*, FUAccInfoPerCo*, BalSshPerCo*, FUDiscountInfoPerCo*, CCHDiscountInfoPerCo*, CSDiscountInfoPerCo*, BalAdPerCo*, PromoCreditsPerCo*, BundleInfoPerCo*, SapPerCo*)>
+
+<!-- CUX -->
+<!ELEMENT ConvRate (Date, Currency, Currency)> 
+<!ATTLIST ConvRate
+    Rate                CDATA   #IMPLIED
+    ConvType            CDATA   #IMPLIED
+    Details             CDATA   #IMPLIED
+>
+
+
+<!ELEMENT Currency EMPTY>
+<!ATTLIST Currency
+        Type            (1|2|3|4)   #REQUIRED
+        CurrCode        CDATA       #REQUIRED
+        Scale           CDATA       #REQUIRED
+>
+<!-- The values for attribute Type have the following meaning:
+     1 - home currency
+     2 - primary document currency
+     3 - secondary document currency
+     4 - financial transaction currency
+-->
+
+
+<!-- Promotion details: top element of all promotion results -->
+<!ELEMENT PromoDetails (PromoResult*)>
+
+<!ELEMENT PromoResult (BOPAlt?, PromoElemRef, PromoEvalResult*, PromoApplResult*)>
+
+<!-- PromoElemRef is defined in Common.dtd. The mechanism has been
+     removed from the attribute list since it
+     is not used for comparison, furthermore, it's contained in each
+     result: -->
+<!-- MechId CDATA #REQUIRED -->
+
+<!-- promotion evaluation result: the result of an evaluation
+     mechanism, its id, and an indicator whether the evaluation has
+     finished or is still going on -->
+
+<!ELEMENT PromoEvalResult EMPTY>
+<!ATTLIST PromoEvalResult
+           MechId CDATA #REQUIRED
+           Result CDATA #REQUIRED
+           CurrCode CDATA    #IMPLIED
+           UoM      CDATA    #IMPLIED
+           Finished (YES|NO) #REQUIRED
+>
+
+<!-- promotion application result: the mechanism id, the application value, the
+     application type (relative or absolute), the amount applied by
+     the mechanism so far, an indicator whether the application has
+     finished
+-->
+<!ELEMENT PromoApplResult (Reward*, BonPnt?, Charge?, PromoCreditsPerCo*)>
+<!ATTLIST PromoApplResult
+           MechId CDATA #REQUIRED
+           ApplValue CDATA #REQUIRED
+           ApplType (REL|ABS)	#REQUIRED
+           Finished (YES|NO)	#REQUIRED
+>
+<!-- Charge is amount applied -->
+
+<!-- Previously last QTY segments in invoice-->
+<!ELEMENT BPStat EMPTY>
+<!ATTLIST BPStat
+        New             CDATA   #REQUIRED
+        Sum             CDATA   #REQUIRED
+        Max             CDATA   #REQUIRED
+        Exp             CDATA   #REQUIRED
+>
+<!-- New - bonus points granted in the current bill run
+     Sum - sum of actual bonus points a customer has
+     Max - maximal amount of bonus points a customer can get
+     Exp - bonus points to be expired by the next bill run
+-->     
+
+
+<!-- Bonus points applied by a mechanism
+     the number of points granted and the date when they where granted     
+-->
+<!ELEMENT BonPnt (Date)>
+<!ATTLIST BonPnt
+        Num             CDATA           #REQUIRED
+>
+
+
+<!ELEMENT Reward ( Charge | RewAction | AdvTxt )>
+<!ATTLIST Reward
+        BonPnt          CDATA           #REQUIRED
+>
+<!-- BonPnt is number of bonus point spent for reward 
+     (Charge |Txt) describes fee with remark
+-->
+
+
+<!ELEMENT       RewAction EMPTY>
+<!ATTLIST       RewAction
+        Entity          ( TM | FUP |PP )                #REQUIRED
+        Action          ( ADD | DEL | CH | ACT | DEA )  #REQUIRED
+        Old             CDATA                           #IMPLIED
+        New             CDATA                           #IMPLIED
+>
+<!-- For action 'ADD' New denotes the TM, FUP or PP to add or delete.
+     For action 'CH' (change) Old is the value before the change and New the value after.
+     For all other actions the attribute Old specifies the entity.
+     Actions ACT and DEA are only allowed for entity PP (promotion package) and denote
+     activation and de-activation, respectively.
+-->
+
+
+<!-- advertisement text -->
+<!ELEMENT AdvTxt (#PCDATA)>
+
+
+<!-- MailingItem -->
+<!ELEMENT MailIt (#PCDATA)>
+
+<!-- Shared Account Packages of a contract -->
+<!ELEMENT SapPerCo (Sap+)>
+<!ATTLIST SapPerCo
+    CoId        CDATA   #REQUIRED
+    Role		(O|C)   "O"
+>
+<!-- Roles are
+     - owner of an SAP
+     - consumer of an SAP
+-->
+
+<!-- Shared Account Package -->
+<!ELEMENT Sap (Date+)>
+<!-- Dates are
+     - valid from date (VALID_FROM) - mandatory
+     - valid to date (VALID_TO ) - optional
+-->
+<!ATTLIST Sap
+    Package	CDATA   #REQUIRED
+>

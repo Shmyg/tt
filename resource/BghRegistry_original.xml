@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+  Copyright (c) 2011 Ericsson Telekommunikation GmbH & Co. KG
+                     Solution Area Billing & Customer Care
+
+  The copyright in this work is vested in LHS. The information contained in this work
+  (either in whole or in part) is confidential and must not be modified, reproduced,
+  disclosed or disseminated to others or used for purposes other than that for which
+  it is supplied, without the prior written permission of LHS.  If this work or any
+  part hereof is furnished to a third party by virtue of a contract with that party,
+  use of this work by such party shall be governed by the express contractual terms
+  between LHS, which is party to that contract and the said party.
+
+  The information in this document is subject to change without notice and should not
+  be construed as a commitment by LHS. LHS assumes no responsibility for any errors
+  that may appear in this document. With the appearance of a new version of this
+  document all older versions become invalid.
+
+  All rights reserved.
+
+  File:    BghRegistry.xml
+
+  Owner:   Matthias Fehrenbacher
+
+  @(#) ABSTRACT : BGH Plug-In's / JVM / LIBWWW settings
+  @(#) BSCS iX R4, Bill Formatting Server
+
+  This document contains the BGH Plug-In's / JVM / LIBWWW settings.
+  VERSION = @(#) ./lhsj_main/bscs/batch/src/bgh/LAYOUT/BghRegistry.xml, , CBIO_PCP1503, CBIO_PCP1503_150728 @@CBIO_PCP1503_150728 28-Jul-2015
+
+-->
+
+<!DOCTYPE ComponentRegistry [
+
+<!ELEMENT ComponentRegistry (Node*)>
+
+<!ELEMENT Node (KeyValue|Node)*>
+<!ATTLIST Node
+    name   CDATA        #REQUIRED
+>
+
+<!ELEMENT KeyValue  EMPTY >
+<!ATTLIST KeyValue
+    key   CDATA     #REQUIRED
+    type  (Boolean | Float | Integer | String | Date) "String"
+    value CDATA     #REQUIRED
+    comment CDATA   #IMPLIED 
+>
+
+]>
+
+<!--  Component Registry for BGH -->
+<ComponentRegistry>
+
+    <Node name="BGH">
+
+            <Node name="libpplug_xalan" >
+                <KeyValue key="BGH_PPLUG_XALAN_TRACE"           value="${BSCS_LOG}/bgh/Xalan"      type="String"  comment="Path and Name prefix of trace file"    />            
+                <KeyValue key="BGH_DONT_VALIDATE_XML"           value="false"                      type="Boolean" comment="DTD or XSD validation"                 />
+                <KeyValue key="BGH_DONTREGROUP"                 value="false"                      type="Boolean" comment="Regrouping"                            />
+                <KeyValue key="BGH_XALAN_VERBOSE"               value="false"                      type="Boolean" comment="Verbose mode XSLT processor"           />
+            </Node>
+
+            <Node name="libpplug_fop" >
+                <KeyValue key="BGH_PPLUG_FOP_TRACE"             value="${BSCS_LOG}/bgh/Fop"        type="String"  comment="Path and Name prefix of trace file"    />
+                <KeyValue key="BGH_DONT_VALIDATE_XML"           value="false"                      type="Boolean" comment="DTD or XSD validation"                 />
+                <KeyValue key="BGH_DONTREGROUP"                 value="false"                      type="Boolean" comment="Regrouping"                            />
+                <KeyValue key="BGH_DROP_TMP"                    value="true"                       type="Boolean" comment="Drop intermediate XSL-FO files"        />
+                <KeyValue key="BGH_XALAN_VERBOSE"               value="false"                      type="Boolean" comment="Verbose mode XSLT processor"           />
+            </Node>
+
+            <Node name="libpplug_batch" >
+                <KeyValue key="BGH_PPLUG_BATCH_TRACE"           value="${BSCS_LOG}/bgh/Batch"      type="String"  comment="Path and Name prefix of trace file"    />
+                <KeyValue key="BGH_PPLUG_BATCH_READ"            value="${BSCS_WORKDIR}/DOCS/READ"     type="String"  comment="Path for batch read"                   />
+                <KeyValue key="BGH_PPLUG_BATCH_WRITE"           value="${BSCS_WORKDIR}/DOCS/WRITE"    type="String"  comment="Path for batch write"                  />
+                <KeyValue key="BGH_PPLUG_BATCH_SIZE"            value="100"                        type="Integer" comment="Batch size in KByte"                   />
+                <KeyValue key="BGH_PPLUG_BATCH_COLLECTION_TIME" value="0"                          type="Integer" comment="Batch collection time in seconds"      />
+                <KeyValue key="BGH_DONT_VALIDATE_XML"           value="false"                      type="Boolean" comment="DTD or XSD validation"                 />
+                <KeyValue key="BGH_DONTREGROUP"                 value="false"                      type="Boolean" comment="Regrouping"                            />
+                <KeyValue key="BGH_XALAN_VERBOSE"               value="false"                      type="Boolean" comment="Verbose mode XSLT processor"           />
+            </Node>
+
+            <Node name="libpplug_gnomexml" >
+                <KeyValue key="BGH_PPLUG_GNOME_TRACE"           value="${BSCS_LOG}/bgh/Gnome"      type="String"  comment="Path and Name prefix of trace file"    />
+                <KeyValue key="BGH_DONT_VALIDATE_XML"           value="false"                      type="Boolean" comment="DTD or XSD validation"                 />
+                <KeyValue key="BGH_DONTREGROUP"                 value="false"                      type="Boolean" comment="Regrouping"                            />
+		<!-- here an exlicit libarary version might be set, if not set then preloaded version will be used. Should be set here only if no version is preloaded
+                <KeyValue key="BGH_LIBXML"                      value="libxml2.so.2"               type="String"  comment="(Path and) Name of libxml2.so"         />
+                <KeyValue key="BGH_LIBXSL"                      value="libxslt.so.1"               type="String"  comment="(Path and) Name of libxslt.so"         />
+                <KeyValue key="BGH_LIBEXSL"                     value="libexslt.so.0"              type="String"  comment="(Path and) Name of libexslt.so"        />
+		-->
+            </Node>
+
+            <Node name="libpplug_gxmlfop">
+                <KeyValue key="BGH_PPLUG_GFOP_TRACE"            value="${BSCS_LOG}/bgh/Gfop"       type="String"  comment="Path and Name prefix of trace file"    />
+                <KeyValue key="BGH_DONT_VALIDATE_XML"           value="false"                      type="Boolean" comment="DTD or XSD validation"                 />
+                <KeyValue key="BGH_DONTREGROUP"                 value="false"                      type="Boolean" comment="Regrouping"                            />
+                <KeyValue key="BGH_DROP_TMP"                    value="true"                       type="Boolean" comment="Drop intermediate XSL-FO files"        />
+		<!-- here an exlicit libarary version might be set, if not set then preloaded version will be used. Should be set here only if no version is preloaded
+                <KeyValue key="BGH_LIBXML"                      value="libxml2.so.2"               type="String"  comment="(Path and) Name of libxml2.so"         />
+                <KeyValue key="BGH_LIBXSL"                      value="libxslt.so.1"               type="String"  comment="(Path and) Name of libxslt.so"         />
+                <KeyValue key="BGH_LIBEXSL"                     value="libexslt.so.0"              type="String"  comment="(Path and) Name of libexslt.so"        />
+		-->
+            </Node>
+
+            <Node name="libpplug_edp" >
+                <KeyValue key="BGH_PPLUG_EDP_TRACE"             value="${BSCS_LOG}/bgh/Edp"        type="String"  comment="Path and Name prefix of trace file"    />
+                <KeyValue key="BGH_DONT_VALIDATE_XML"           value="false"                      type="Boolean" comment="DTD or XSD validation"                 />
+                <KeyValue key="BGH_DONTREGROUP"                 value="false"                      type="Boolean" comment="Regrouping"                            />
+                <KeyValue key="BGH_DROP_TMP"                    value="true"                       type="Boolean" comment="Drop intermediate XML files"           />
+                <KeyValue key="LIBWWW_TIMEOUT"                  value="600"                        type="Integer" comment="HTTP response timeout in seconds"      />
+                <KeyValue key="LIBWWW_URL"                      value="http://192.168.1.1:1790/"   type="String"  comment="IP address : port for HTTP connection" />
+                <KeyValue key="LIBWWW_BODY_WRITE_DELAY"         value="21"                         type="Integer" comment="HTTP body write delay in milliseconds" />
+                <KeyValue key="BGH_XALAN_VERBOSE"               value="false"                      type="Boolean" comment="Verbose mode XSLT processor"           />
+            </Node>
+
+            <Node name="libpplug_gedp" >
+                <KeyValue key="BGH_PPLUG_GEDP_TRACE"            value="${BSCS_LOG}/bgh/Gedp"       type="String"  comment="Path and Name prefix of trace file"    />
+                <KeyValue key="BGH_DONT_VALIDATE_XML"           value="false"                      type="Boolean" comment="DTD or XSD validation"                 />
+                <KeyValue key="BGH_DONTREGROUP"                 value="false"                      type="Boolean" comment="Regrouping"                            />
+                <KeyValue key="BGH_DROP_TMP"                    value="true"                       type="Boolean" comment="Drop intermediate XML files"           />
+                <KeyValue key="LIBWWW_TIMEOUT"                  value="600"                        type="Integer" comment="HTTP response timeout in seconds"      />
+                <KeyValue key="LIBWWW_URL"                      value="http://192.168.1.1:1790/"   type="String"  comment="IP address : port for HTTP connection" />
+                <KeyValue key="LIBWWW_BODY_WRITE_DELAY"         value="21"                         type="Integer" comment="HTTP body write delay in milliseconds" />
+            </Node>
+
+            <!-- libwww settings -->
+            <Node name="libedp" >
+
+                <Node name="returncodes" >
+                
+                    <!-- return values -->
+                    <KeyValue key="0"                           value="HT_OK"                      type="String"  comment="Generic success"                           />
+                    <KeyValue key="1"                           value="HT_ALL"                     type="String"  comment="Used by Net Manager"                       />
+                    <KeyValue key="100"                         value="HT_CONTINUE"                type="String"  comment="Continue an operation"                     />
+                    <KeyValue key="101"                         value="HT_UPGRADE"                 type="String"  comment="Switching protocols"                       />
+                    <KeyValue key="102"                         value="HT_PROCESSING"              type="String"  comment="Processing"                                />
+                    <KeyValue key="200"                         value="HT_LOADED"                  type="String"  comment="Everything's OK"                           />
+                    <KeyValue key="201"                         value="HT_CREATED"                 type="String"  comment="New object is created"                     />
+                    <KeyValue key="202"                         value="HT_ACCEPTED"                type="String"  comment="Accepted"                                  />
+                    <KeyValue key="204"                         value="HT_NO_DATA"                 type="String"  comment="OK but no data was loaded"                 />
+                    <KeyValue key="205"                         value="HT_RESET_CONTENT"           type="String"  comment="Reset content"                             />
+                    <KeyValue key="206"                         value="HT_PARTIAL_CONTENT"         type="String"  comment="Partial Content"                           />
+                    <KeyValue key="207"                         value="HT_MULTI_STATUS"            type="String"  comment="Multi-Status"                              />
+                    <KeyValue key="300"                         value="HT_MULTIPLE_CHOICES"        type="String"  comment="Multiple choices"                          />
+                    <KeyValue key="301"                         value="HT_PERM_REDIRECT"           type="String"  comment="Permanent redirection"                     />
+                    <KeyValue key="302"                         value="HT_FOUND"                   type="String"  comment="Found"                                     />
+                    <KeyValue key="303"                         value="HT_SEE_OTHER"               type="String"  comment="See other"                                 />
+                    <KeyValue key="304"                         value="HT_NOT_MODIFIED"            type="String"  comment="Not Modified"                              />
+                    <KeyValue key="305"                         value="HT_USE_PROXY"               type="String"  comment="Use Proxy"                                 />
+                    <KeyValue key="306"                         value="HT_PROXY_REDIRECT"          type="String"  comment="Proxy Redirect"                            />
+                    <KeyValue key="307"                         value="HT_TEMP_REDIRECT"           type="String"  comment="Temporary redirect"                        />
+                    <KeyValue key="900"                         value="HT_IGNORE"                  type="String"  comment="Ignore this in the Net manager"            />
+                    <KeyValue key="901"                         value="HT_CLOSED"                  type="String"  comment="The socket was closed"                     />
+                    <KeyValue key="902"                         value="HT_PENDING"                 type="String"  comment="Wait for connection"                       />
+                    <KeyValue key="903"                         value="HT_RELOAD"                  type="String"  comment="If we must reload the document"            />
+                    <KeyValue key="-1"                          value="HT_ERROR"                   type="String"  comment="Generic failure"                           />
+                    <KeyValue key="-401"                        value="HT_NO_ACCESS"               type="String"  comment="Unauthorized"                              />
+                    <KeyValue key="-403"                        value="HT_FORBIDDEN"               type="String"  comment="Access forbidden"                          />
+                    <KeyValue key="-404"                        value="HT_NOT_FOUND"               type="String"  comment="Not found"                                 />
+                    <KeyValue key="-406"                        value="HT_NOT_ACCEPTABLE"          type="String"  comment="Not Acceptable"                            />
+                    <KeyValue key="-407"                        value="HT_NO_PROXY_ACCESS"         type="String"  comment="Proxy Authentication Failed"               />
+                    <KeyValue key="-409"                        value="HT_CONFLICT"                type="String"  comment="Conflict"                                  /> 
+                    <KeyValue key="-411"                        value="HT_LENGTH_REQUIRED"         type="String"  comment="Length required"                           /> 
+                    <KeyValue key="-412"                        value="HT_PRECONDITION_FAILED"     type="String"  comment="Precondition failed"                       />
+                    <KeyValue key="-413"                        value="HT_TOO_BIG"                 type="String"  comment="Request entity too large"                  />
+                    <KeyValue key="-414"                        value="HT_URI_TOO_BIG"             type="String"  comment="Request-URI too long"                      />
+                    <KeyValue key="-415"                        value="HT_UNSUPPORTED"             type="String"  comment="Unsupported"                               />
+                    <KeyValue key="-416"                        value="HT_BAD_RANGE"               type="String"  comment="Request Range not satisfiable"             />
+                    <KeyValue key="-417"                        value="HT_EXPECTATION_FAILED"      type="String"  comment="Expectation Failed"                        />
+                    <KeyValue key="-418"                        value="HT_REAUTH"                  type="String"  comment="Reauthentication required"                 />
+                    <KeyValue key="-419"                        value="HT_PROXY_REAUTH"            type="String"  comment="Proxy Reauthentication required"           />
+                    <KeyValue key="-422"                        value="HT_UNPROCESSABLE"           type="String"  comment="Unprocessable Entity"                      />
+                    <KeyValue key="-423"                        value="HT_LOCKED"                  type="String"  comment="Locked"                                    />
+                    <KeyValue key="-424"                        value="HT_FAILED_DEPENDENCY"       type="String"  comment="Failed Dependency"                         />
+                    <KeyValue key="-503"                        value="HT_RETRY"                   type="String"  comment="If service isn't available"                />
+                    <KeyValue key="-505"                        value="HT_BAD_VERSION"             type="String"  comment="Bad protocol version"                      />
+                    <KeyValue key="-507"                        value="HT_INSUFFICIENT_STORAGE"    type="String"  comment="Insufficient Storage"                      />
+                    <KeyValue key="-900"                        value="HT_INTERNAL"                type="String"  comment="Weird -- should never happen"              />
+                    <KeyValue key="-901"                        value="HT_WOULD_BLOCK"             type="String"  comment="If we are in a select"                     />
+                    <KeyValue key="-902"                        value="HT_INTERRUPTED"             type="String"  comment="Note the negative value!"                  />
+                    <KeyValue key="-903"                        value="HT_PAUSE"                   type="String"  comment="If we want to pause a stream"              />
+                    <KeyValue key="-904"                        value="HT_RECOVER_PIPE"            type="String"  comment="Recover pipe line"                         />
+                    <KeyValue key="-905"                        value="HT_TIMEOUT"                 type="String"  comment="Connection timeout"                        />
+                    <KeyValue key="-906"                        value="HT_NO_HOST"                 type="String"  comment="Can't locate host"                         />
+
+                </Node>
+
+                <Node name="trace">
+                
+                    <!-- trace message mask 
+
+                                             value
+                       SHOW_ANCHOR_TRACE   - a
+                       SHOW_BIND_TRACE     - b
+                       SHOW_CACHE_TRACE    - c
+                       SHOW_MUX_TRACE      - e
+                       SHOW_UTIL_TRACE     - f
+                       SHOW_SGML_TRACE     - g
+                       SHOW_AUTH_TRACE     - h
+                       SHOW_PICS_TRACE     - i
+                       SHOW_APP_TRACE      - l
+                       SHOW_MEM_TRACE      - m
+                       SHOW_CORE_TRACE     - o
+                       SHOW_PROTOCOL_TRACE - p
+                       SHOW_SQL_TRACE      - q
+                       SHOW_STREAM_TRACE   - s
+                       SHOW_THREAD_TRACE   - t
+                       SHOW_URI_TRACE      - u
+                       SHOW_XML_TRACE      - x
+                       SHOW_ALL_TRACE      - *
+                       
+                    -->
+                    <KeyValue key="SHOW_TRACE"                  value=""                          type="String"  comment="per default disabled"                       />
+
+                </Node>
+
+            </Node>
+
+            <Node name="JavaVMOption">
+                <!-- can be enhanced / modified by the user -->
+                <!-- <KeyValue     key="-Djava.class.path="          value="${BSCS_JAR}/bgh.jar:${CLASSPATH}"   type="String"  comment="CLASSPATH must contain the FOP 0.93 jar archives"/> -->
+
+                <KeyValue     key="-Djava.class.path="          value="${BSCS_JAR}/bgh.jar:${BSCS_3PP_JAR}/bgh/avalon-framework-4.2.0.jar:${BSCS_3PP_JAR}/bgh/batik-all-1.6.jar:${BSCS_3PP_JAR}/bgh/commons-io-1.1.jar:${BSCS_3PP_JAR}/bgh/commons-logging-1.0.4.jar:
+              ${BSCS_3PP_JAR}/bgh/serializer-2.7.0.jar:${BSCS_3PP_JAR}/bgh/xalan-2.7.0.jar:${BSCS_3PP_JAR}/bgh/xercesImpl-2.7.1.jar:${BSCS_3PP_JAR}/bgh/xml-apis-1.3.02.jar:${BSCS_3PP_JAR}/bgh/xmlgraphics-commons-1.1.jar:${BSCS_3PP_JAR}/bgh/fop.jar:
+              ${CLASSPATH}"   type="String"  comment="CLASSPATH must contain the FOP 0.93 jar archives"/>
+
+                <KeyValue     key="-Djava.awt.headless="        value="true" type="String"  comment="must be set if no X11 window server is available"/>
+<!--                
+                <KeyValue     key="-Xms"                        value="64m"                       type="String"  comment="min. heap size"                                  />
+                <KeyValue     key="-Xmx"                        value="256m"                      type="String"  comment="max. heap size"                                  />
+                <KeyValue     key="-Xcheck:"                    value="jni"                       type="String"  comment="perform additional checks for JNI functions"     />
+                <KeyValue     key="-verbose:"                   value="jni"                       type="String"  comment="enable verbose output"                           />
+                <KeyValue     key="-verbose:"                   value="class"                     type="String"  comment="enable verbose output"                           />                
+-->
+            </Node>
+
+            <Node name="FOP">
+              <KeyValue key="FOP_TRACE"                         value="${BSCS_LOG}/bgh/"          type="String"  comment="Path for FOP trace file"                         />
+            </Node>
+
+    </Node>
+    
+</ComponentRegistry>

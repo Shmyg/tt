@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--    
+The Registry defines the main structure of the Registry tree.
+ -->
+<!DOCTYPE Registry [
+
+<!ELEMENT Registry (Link*)>
+
+<!ELEMENT Link EMPTY >
+<!ATTLIST Link  
+    location CDATA #REQUIRED
+>
+]>
+
+<Registry>
+
+    <!-- Location of CMN framework registry file-->
+    <Link location="FUNC_FRMWK_CMN_Registry.xml" />
+        
+    <!-- Location of component registry file. -->
+    <!-- Must be last to allow overwriting of CMN framework settings. -->
+    <Link location="BghRegistry.xml" />
+
+</Registry>

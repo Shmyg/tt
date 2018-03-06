@@ -1,0 +1,54 @@
+<!-- ******************************************************************************************** -->
+<!ELEMENT Document (  
+    (Invoice | InvoiceInfo | Summary | CallDetails | CallDetailStatement |
+     BalancePage | DepositRequest | AddressPage | Legend | CollectionReport | 
+     ChargeNotification | CollectionPage | Letter | ChargeDetails | RecordDetail |
+     AggChargeDetails | CustomerInfo |
+     PaymentInstruction), Date?)>
+
+<!ATTLIST Document 
+    Sender                      CDATA   #REQUIRED
+    Id                          CDATA   #REQUIRED
+    BAId                        CDATA   #IMPLIED
+    CoId                        CDATA   #IMPLIED
+    BillSeqNo                   CDATA   #REQUIRED
+>
+
+<!ENTITY % Common SYSTEM "Common.dtd">  
+%Common;	
+<!ENTITY % Invoice SYSTEM "Invoice.dtd">  
+%Invoice;
+<!ENTITY % InvoiceInfo SYSTEM "InvoiceInfo.dtd">  
+%InvoiceInfo;
+<!ENTITY % Summary SYSTEM "Summary.dtd">  
+%Summary;
+<!ENTITY % CallDetails SYSTEM "CallDetails.dtd">  
+%CallDetails;
+<!ENTITY % CallDetailStatement SYSTEM "CallDetailStatement.dtd">  
+%CallDetailStatement;
+<!ENTITY % BalancePage SYSTEM "BalancePage.dtd">  
+%BalancePage;
+<!ENTITY % DepositRequest SYSTEM "DepositRequest.dtd">  
+%DepositRequest;
+<!ENTITY % AddressPage SYSTEM "AddressPage.dtd">  
+%AddressPage;
+<!ENTITY % Legend SYSTEM "Legend.dtd">  
+%Legend;
+<!ENTITY % CollectionReport SYSTEM "CollectionReport.dtd">  
+%CollectionReport;
+<!ENTITY % ChargeNotification SYSTEM "Notification.dtd">
+%ChargeNotification;
+<!ENTITY % ChargeDetails SYSTEM "ChargeDetails.dtd">
+%ChargeDetails;
+<!ENTITY % CollectionPage SYSTEM "CollectionPage.dtd">
+%CollectionPage;
+<!ENTITY % Letter SYSTEM "Letter.dtd">
+%Letter;
+<!ENTITY % RecordDetail SYSTEM "RecordDetail.dtd">  
+%RecordDetail;
+<!ENTITY % AggChargeDetails SYSTEM "AggChargeDetails.dtd">
+%AggChargeDetails;
+<!ENTITY % CustomerInfo SYSTEM "CustomerInfo.dtd">
+%CustomerInfo;
+<!ENTITY % PaymentInstruction SYSTEM "PaymentInstruction.dtd">  
+%PaymentInstruction;

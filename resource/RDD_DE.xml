@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+  Copyright (c) 2012 Ericsson
+
+  All rights reserved.
+
+  File:    RDD_DE.xml
+
+  Owner:   Matthias Fehrenbacher
+
+  @(#) ABSTRACT : XML configuration file
+  @(#) BSCS iX R4, Bill Formatting Server
+
+  This document contains BIR item descriptions for top-up actions.
+  VERSION = @(#) ./lhsj_main/bscs/batch/src/bgh/LAYOUT/RDD_DE.xml, , CBIO_PCP1503, CBIO_PCP1503_150728 @@CBIO_PCP1503_150728 28-Jul-2015
+
+-->
+
+<!DOCTYPE UDR [
+<!ELEMENT UDR (RDD*)>
+<!ELEMENT RDD EMPTY>
+<!ATTLIST RDD
+    Id       CDATA #REQUIRED
+    xml:lang (DE|EN|FR|IT|AR) #IMPLIED
+    Des      CDATA #IMPLIED
+>
+]>
+
+<UDR>
+<!-- T -->
+<RDD Id="TUAACC" xml:lang="DE" Des=""/>
+<RDD Id="TUAAEP" xml:lang="DE" Des="Aktive / Passive LC Periode"/>
+<RDD Id="TUAAEPT" xml:lang="DE" Des=""/>
+<RDD Id="TUAAmt" xml:lang="DE" Des="Aktions-Betrag"/>
+<RDD Id="TUACO" xml:lang="DE" Des=""/>
+<RDD Id="TUACurr" xml:lang="DE" Des=""/>
+<RDD Id="TUAELEM" xml:lang="DE" Des="Element"/>
+<RDD Id="TUAFROM" xml:lang="DE" Des="Periode"/>
+<RDD Id="TUAMECH" xml:lang="DE" Des="Mechanismus"/>
+<RDD Id="TUAMOD" xml:lang="DE" Des="Modell"/>
+<RDD Id="TUAPA" xml:lang="DE" Des="Preis-Alternative"/>
+<RDD Id="TUAPCK" xml:lang="DE" Des="Paket"/>
+<RDD Id="TUAPEP" xml:lang="DE" Des=""/>
+<RDD Id="TUAPEPT" xml:lang="DE" Des=""/>
+<RDD Id="TUAPIND" xml:lang="DE" Des=""/>
+<RDD Id="TUAPRO" xml:lang="DE" Des="Nutzungs - Profil"/>
+<RDD Id="TUAS" xml:lang="DE" Des="Status"/>
+<RDD Id="TUASN" xml:lang="DE" Des="Service"/>
+<RDD Id="TUAT" xml:lang="DE" Des="Typ / Discount"/>
+<RDD Id="TUATM" xml:lang="DE" Des="Tarif - Modell"/>
+<RDD Id="TUATO" xml:lang="DE" Des=""/>
+<RDD Id="TUAUOM" xml:lang="DE" Des=""/>
+<RDD Id="TUAVOL" xml:lang="DE" Des=""/>
+<RDD Id="TURAEP" xml:lang="DE" Des="Aktive / Passive LC Periode"/>
+<RDD Id="TURAEPT" xml:lang="DE" Des=""/>
+<RDD Id="TURCO" xml:lang="DE" Des=""/>
+<RDD Id="TURPEP" xml:lang="DE" Des=""/>
+<RDD Id="TURPEPT" xml:lang="DE" Des=""/>
+<RDD Id="TURPRO" xml:lang="DE" Des=""/>
+<RDD Id="TURSN" xml:lang="DE" Des=""/>
+<RDD Id="TURSubid" xml:lang="DE" Des=""/>
+<RDD Id="TURTLCF" xml:lang="DE" Des="Trigger Life Cycle"/>
+<RDD Id="TURTS" xml:lang="DE" Des=""/>
+<RDD Id="TURVOAmt" xml:lang="DE" Des="Betrag"/>
+<RDD Id="TURVOCurr" xml:lang="DE" Des=""/>
+<RDD Id="TURVOT" xml:lang="DE" Des="Gutschrift - Typ"/>
+<RDD Id="TURid" xml:lang="DE" Des=""/>
+</UDR>

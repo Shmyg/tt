@@ -1,0 +1,12 @@
+<!ELEMENT CallDetails (ContrCalls*)>
+<!ATTLIST CallDetails
+        BAId    CDATA                           #REQUIRED
+>
+<!ELEMENT ContrCalls (ServCalls*)>
+<!ATTLIST ContrCalls
+        Id      CDATA                           #REQUIRED
+>
+<!ELEMENT ServCalls (Call*|ChDet*)>
+<!ATTLIST ServCalls
+        SN      CDATA                           #REQUIRED
+>

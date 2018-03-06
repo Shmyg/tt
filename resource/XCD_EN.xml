@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+  Copyright (c) 2012 Ericsson
+
+  All rights reserved.
+
+  File:    XCD_EN.xml
+
+  Owner:   Matthias Fehrenbacher
+
+  @(#) ABSTRACT : XML configuration file
+  @(#) BSCS iX R4, Bill Formatting Server
+
+  This document contains UDR attribute descriptions
+  in the base configuartion.
+  VERSION = @(#) ./lhsj_main/bscs/batch/src/bgh/LAYOUT/XCD_EN.xml, , CBIO_PCP1503, CBIO_PCP1503_150728 @@CBIO_PCP1503_150728 28-Jul-2015
+
+-->
+
+<!DOCTYPE UDR [
+<!ELEMENT UDR (XCD*)>
+<!ELEMENT XCD EMPTY>
+<!ATTLIST XCD
+    Id       CDATA #REQUIRED
+    xml:lang (DE|EN|FR|IT|AR) #IMPLIED
+    Des      CDATA #IMPLIED
+>
+]>
+
+<UDR>
+  <!-- A -->
+  <XCD Id="AIUR" xml:lang="EN" Des="Air Interface User Rate"/>
+  <XCD Id="ANP" xml:lang="EN" Des="Assigned Number Plan"/>
+  <XCD Id="APN" xml:lang="EN" Des="A-Party"/>
+  <XCD Id="AUC" xml:lang="EN" Des="Authorization Code"/>
+  <!-- B -->
+  <XCD Id="BOPAltInd" xml:lang="EN" Des="BOP Alternative indicator"/>
+  <XCD Id="BOPDZP" xml:lang="EN" Des="BOP Dest. Zone"/>
+  <XCD Id="BOPPCK" xml:lang="EN" Des="BOP Package"/>
+  <XCD Id="BOPPurp" xml:lang="EN" Des="BOP Purpose"/>
+  <XCD Id="BOPSN" xml:lang="EN" Des="BOP Service"/>
+  <XCD Id="BOPSP" xml:lang="EN" Des="BOP Service Package"/>
+  <XCD Id="BOPSeqNoRP" xml:lang="EN" Des="Sequence No."/>
+  <XCD Id="BOPSeqNoSP" xml:lang="EN" Des="BOP Service Package Sequence No."/>
+  <XCD Id="BOPTM" xml:lang="EN" Des="BOP Tariff Model"/>
+  <XCD Id="BOPTMV" xml:lang="EN" Des="BOP Tariff Model Version"/>
+  <XCD Id="BOPTZ" xml:lang="EN" Des="BOP Tariff Zone"/>
+  <XCD Id="BOPURP" xml:lang="EN" Des="BOP Rate Plan Type"/>
+  <XCD Id="BU" xml:lang="EN" Des="Business Unit"/>
+  <XCD Id="BilledIND" xml:lang="EN" Des="billed"/>
+  <XCD Id="BundPurInd" xml:lang="EN" Des="Bundle Purchase Indicator"/>
+  <XCD Id="BundUsgInd" xml:lang="EN" Des="Bundle Usage Indicator"/>
+  <!-- C -->
+  <XCD Id="CAI" xml:lang="EN" Des="Call Action Identifier"/>
+  <XCD Id="CC" xml:lang="EN" Des="Currency Code"/>
+  <XCD Id="CCA" xml:lang="EN" Des="Channel Coding Acceptable"/>
+  <XCD Id="CCU" xml:lang="EN" Des="Channel Coding Used"/>
+  <XCD Id="CGI" xml:lang="EN" Des="Cell Global Identifier"/>
+  <XCD Id="CLIR" xml:lang="EN" Des="CLIR Status"/>
+  <XCD Id="CMSC" xml:lang="EN" Des="MSC Address"/>
+  <XCD Id="CO" xml:lang="EN" Des="Contract"/>
+  <XCD Id="CQA" xml:lang="EN" Des="Chargeable Quantity Amount"/>
+  <XCD Id="CQC" xml:lang="EN" Des="Chargeable Quantity Currency"/>
+  <XCD Id="CQUM" xml:lang="EN" Des="Chargeable Quantity Unit"/>
+  <XCD Id="CQV" xml:lang="EN" Des="Chargeable Quantity Volume"/>
+  <XCD Id="CRI" xml:lang="EN" Des="Charge Refund Indicator"/>
+  <XCD Id="CRN" xml:lang="EN" Des="CAMEL Ref. No."/>
+  <XCD Id="CRTs" xml:lang="EN" Des="Date"/>
+  <XCD Id="CT" xml:lang="EN" Des="Call Type"/>
+  <XCD Id="CTI" xml:lang="EN" Des="Call Termination Indicator"/>
+  <XCD Id="CTs" xml:lang="EN" Des="Date / Time"/>
+  <XCD Id="CU" xml:lang="EN" Des="Originator"/>
+  <XCD Id="CUG" xml:lang="EN" Des="CUG Index"/>
+  <XCD Id="Cat" xml:lang="EN" Des="Catalogue"/>
+  <XCD Id="CatEl" xml:lang="EN" Des="Catalogue Element"/>
+  <XCD Id="ChC" xml:lang="EN" Des="Charging Characteristic"/>
+  <XCD Id="ChType" xml:lang="EN" Des="Charge Type"/>
+  <XCD Id="ChrgEndTime" xml:lang="EN" Des="Charge Interval End Time"/>
+  <XCD Id="ChrgPrmVF" xml:lang="EN" Des="Charge Parameter Valid From"/>
+  <XCD Id="ChrgStartTime" xml:lang="EN" Des="Period"/>
+  <XCD Id="ContractedIND" xml:lang="EN" Des="contr."/>
+  <XCD Id="CpName" xml:lang="EN" Des="Content Provider"/>
+  <!-- D -->
+  <XCD Id="DAUM" xml:lang="EN" Des="Unit of Measurement for Data Volumes"/>
+  <XCD Id="DAV" xml:lang="EN" Des="Data Volume"/>
+  <XCD Id="DAmt" xml:lang="EN" Des="disc. Amount"/>
+  <XCD Id="DC" xml:lang="EN" Des="Clicks"/>
+  <XCD Id="DCat" xml:lang="EN" Des="Day Category"/>
+  <XCD Id="DES" xml:lang="EN" Des="Dest. Type"/>
+  <XCD Id="DLV" xml:lang="EN" Des="Down/Byte"/>
+  <XCD Id="DRV" xml:lang="EN" Des="rated Volume"/>
+  <XCD Id="DRdV" xml:lang="EN" Des="disc."/>
+  <XCD Id="DUM" xml:lang="EN" Des="Unit of Measurement for Duration Volumes"/>
+  <XCD Id="DV" xml:lang="EN" Des="Duration Volume"/>
+  <XCD Id="DZP" xml:lang="EN" Des="Zone Point"/>
+  <!-- E -->
+  <XCD Id="EC" xml:lang="EN" Des="External Carrier"/>
+  <XCD Id="ET" xml:lang="EN" Des="Event Type"/>
+  <XCD Id="ExtAmt" xml:lang="EN" Des="External Amount"/>
+  <XCD Id="ExtCurrCode" xml:lang="EN" Des="External Currency"/>
+  <XCD Id="ExtTax" xml:lang="EN" Des="External Tax"/>
+  <!-- F -->
+  <XCD Id="FNUR" xml:lang="EN" Des="Fixed Network User Rate"/>
+  <XCD Id="FileName" xml:lang="EN" Des="File-Name"/>
+  <XCD Id="ForAmt" xml:lang="EN" Des="Foreign Charge Amount"/>
+  <XCD Id="ForAmtCurrCode" xml:lang="EN" Des="Foreign Charge Currency"/>
+  <XCD Id="ForTaxAmt" xml:lang="EN" Des="Foreign Tax Amount"/>
+  <!-- I -->
+  <XCD Id="ICR" xml:lang="EN" Des="Interconnect Rate"/>
+  <XCD Id="IPY" xml:lang="EN" Des="Initiating Party"/>
+  <XCD Id="Id" xml:lang="EN" Des="Record Id"/>
+  <!-- L -->
+  <XCD Id="LZ" xml:lang="EN" Des="Logical Zone"/>
+  <!-- M -->
+  <XCD Id="MCCODE" xml:lang="EN" Des="Micro Cell Code"/>
+  <XCD Id="MCFAF" xml:lang="EN" Des="Friends and Family Indicator"/>
+  <XCD Id="MCInd" xml:lang="EN" Des="Micro Cell Indicator"/>
+  <XCD Id="MCPKEY" xml:lang="EN" Des="Micro Cell"/>
+  <XCD Id="MCS" xml:lang="EN" Des="Micro Cell Scaling Factor"/>
+  <XCD Id="MCTYPE" xml:lang="EN" Des="Micro Cell Type"/>
+  <XCD Id="MKT" xml:lang="EN" Des="Market"/>
+  <XCD Id="MNC" xml:lang="EN" Des="Max. Number of Channels"/>
+  <XCD Id="MUV" xml:lang="EN" Des="Unit of Measurement for Message Volumes"/>
+  <XCD Id="MV" xml:lang="EN" Des="Message Volume"/>
+  <!-- N -->
+  <XCD Id="NCU" xml:lang="EN" Des="Number of Channels Used"/>
+  <XCD Id="NI" xml:lang="EN" Des="Record Type"/>
+  <XCD Id="NN" xml:lang="EN" Des="Network Name"/>
+  <XCD Id="NQSD" xml:lang="EN" Des="Delay of negotiated QuoS"/>
+  <XCD Id="NQSMT" xml:lang="EN" Des="Mean Throughput of negotiated QuoS"/>
+  <XCD Id="NQSP" xml:lang="EN" Des="Precedence of negotiated QuoS"/>
+  <XCD Id="NQSPT" xml:lang="EN" Des="Peak Throughput of negotiated QuoS"/>
+  <XCD Id="NQSR" xml:lang="EN" Des="Reliability of negotiated QuoS"/>
+  <XCD Id="No" xml:lang="EN" Des="No."/>
+  <XCD Id="NumDays" xml:lang="EN" Des="Active Days"/>
+  <XCD Id="Numit" xml:lang="EN" Des="Quantity"/>
+  <!-- O -->
+  <XCD Id="OAmt" xml:lang="EN" Des="undisc. Amount"/>
+  <XCD Id="OC" xml:lang="EN" Des="Clicks undisc."/>
+  <XCD Id="OPN" xml:lang="EN" Des="Other Party"/>
+  <XCD Id="ORV" xml:lang="EN" Des="Consumed Quantity"/>
+  <XCD Id="ORdV" xml:lang="EN" Des="Round. Vol. undisc."/>
+  <!-- P -->
+  <XCD Id="PRIO" xml:lang="EN" Des="Priority Code"/>
+  <XCD Id="PRO" xml:lang="EN" Des="Profile"/>
+  <XCD Id="PrInd" xml:lang="EN" Des="Prepaid"/>
+  <XCD Id="Price" xml:lang="EN" Des="Price"/>
+  <XCD Id="PriceCurr" xml:lang="EN" Des="Price Currency"/>
+  <XCD Id="PrmValueId" xml:lang="EN" Des="Service Info"/>
+  <XCD Id="PurSeqNo" xml:lang="EN" Des="Purchase Sequence No."/>
+  <XCD Id="PurchId" xml:lang="EN" Des="Purchase No."/>
+  <!-- R -->
+  <XCD Id="RCI" xml:lang="EN" Des="R-Charging"/>
+  <XCD Id="REM" xml:lang="EN" Des="Remark"/>
+  <XCD Id="RQSD" xml:lang="EN" Des="Delay of requested QuoS"/>
+  <XCD Id="RQSMT" xml:lang="EN" Des="Mean Throughput of requested QuoS"/>
+  <XCD Id="RQSP" xml:lang="EN" Des="Precedence of requested QuoS"/>
+  <XCD Id="RQSPT" xml:lang="EN" Des="Peak Throughput of requested QuoS"/>
+  <XCD Id="RQSR" xml:lang="EN" Des="Reliability of requested QuoS"/>
+  <XCD Id="RRT" xml:lang="EN" Des="Rerate Type"/>
+  <XCD Id="RT" xml:lang="EN" Des="Rate"/>
+  <XCD Id="RTON" xml:lang="EN" Des="Rate Party Type of Number"/>
+  <XCD Id="RapSeqNo" xml:lang="EN" Des="RAP Sequence No."/>
+  <!-- S -->
+  <XCD Id="SCI" xml:lang="EN" Des="Service Center Id"/>
+  <XCD Id="SN" xml:lang="EN" Des="Service"/>
+  <XCD Id="SP" xml:lang="EN" Des="Package"/>
+  <XCD Id="STD" xml:lang="EN" Des="Suppress Transaction Description"/>
+  <XCD Id="SeqNo" xml:lang="EN" Des="Sequence No."/>
+  <XCD Id="SrvChSType" xml:lang="EN" Des="Service Charge Subtype"/>
+  <XCD Id="SrvChType" xml:lang="EN" Des="Service Charge Type"/>
+  <XCD Id="SrvSt" xml:lang="EN" Des="Status"/>
+  <XCD Id="SubId" xml:lang="EN" Des="Record Id"/>
+  <!-- T -->
+  <XCD Id="TBQ" xml:lang="EN" Des="Time Band Qualifier"/>
+  <XCD Id="TID" xml:lang="EN" Des="Transaction Id"/>
+  <XCD Id="TIDPA" xml:lang="EN" Des="Pricing Alternative"/>
+  <XCD Id="TM" xml:lang="EN" Des="Tariff Model"/>
+  <XCD Id="TMV" xml:lang="EN" Des="Tariff Model Version"/>
+  <XCD Id="TSD" xml:lang="EN" Des="Transaction Short Description"/>
+  <XCD Id="TT" xml:lang="EN" Des="Tariff Time"/>
+  <XCD Id="TTR" xml:lang="EN" Des="TAP Tax Rate"/>
+  <XCD Id="TZ" xml:lang="EN" Des="Tariff Zone"/>
+  <XCD Id="TapSeqNo" xml:lang="EN" Des="TAP Sequence No."/>
+  <XCD Id="TimeSliceLB" xml:lang="EN" Des="Time Slice Start"/>
+  <XCD Id="TimeSliceRB" xml:lang="EN" Des="Time Slice End"/>
+  <!-- U -->
+  <XCD Id="UM" xml:lang="EN" Des="Unit Call Volumes"/>
+  <XCD Id="UQSHP" xml:lang="EN" Des="Handling Priority of negotiated UMTS QuoS"/>
+  <XCD Id="UQSMBRD" xml:lang="EN" Des="Max. Bit Rate Downlink of negotiated UMTS QuoS"/>
+  <XCD Id="UQSMBRU" xml:lang="EN" Des="Max. Bit Rate Uplink of negotiated UMTS QuoS"/>
+  <XCD Id="UQSTC" xml:lang="EN" Des="Traffic Class of negotiated UMTS QuoS"/>
+  <XCD Id="URP" xml:lang="EN" Des="Used Rate Plan Type"/>
+  <XCD Id="USN" xml:lang="EN" Des="Service"/>
+  <XCD Id="UT" xml:lang="EN" Des="Type"/>
+  <XCD Id="UV" xml:lang="EN" Des="Up/Byte"/>
+  <!-- X -->
+  <XCD Id="XDCat" xml:lang="EN" Des="Xfile Day Category"/>
+  <XCD Id="XDisc" xml:lang="EN" Des="Xfile discount"/>
+  <XCD Id="XTBQ" xml:lang="EN" Des="Time Band Qualifier"/>
+</UDR>

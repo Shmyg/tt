@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+  Copyright (c) 2010 LHS Telekom GmbH & Co. KG
+
+  The copyright in this work is vested in LHS. The information contained in this work
+  (either in whole or in part) is confidential and must not be modified, reproduced,
+  disclosed or disseminated to others or used for purposes other than that for which
+  it is supplied, without the prior written permission of LHS.  If this work or any
+  part hereof is furnished to a third party by virtue of a contract with that party,
+  use of this work by such party shall be governed by the express contractual terms
+  between LHS, which is party to that contract and the said party.
+
+  The information in this document is subject to change without notice and should not
+  be construed as a commitment by LHS. LHS assumes no responsibility for any errors
+  that may appear in this document. With the appearance of a new version of this
+  document all older versions become invalid.
+
+  All rights reserved.
+
+  File:    BillingDocument.xsd
+
+  Owner:   Matthias Fehrenbacher
+
+  @(#) ABSTRACT : XML validation
+  @(#) BSCS iX R4, Bill Formatting Server
+
+  This schema validates billing document pages.
+  VERSION = @(#) ./lhsj_main/bscs/batch/src/bgh/LAYOUT/BillingDocument.xsd, , CBIO_PCP1503, CBIO_PCP1503_150728 @@CBIO_PCP1503_150728 28-Jul-2015
+
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+  <xs:include schemaLocation="Common.xsd"/>
+  <xs:include schemaLocation="Invoice.xsd"/>
+  <xs:include schemaLocation="InvoiceInfo.xsd"/>
+  <xs:include schemaLocation="Summary.xsd"/>
+  <xs:include schemaLocation="CallDetails.xsd"/>
+  <xs:include schemaLocation="CallDetailStatement.xsd"/>
+  <xs:include schemaLocation="BalancePage.xsd"/>
+  <xs:include schemaLocation="DepositRequest.xsd"/>
+  <xs:include schemaLocation="AddressPage.xsd"/>
+  <xs:include schemaLocation="Legend.xsd"/>
+  <xs:include schemaLocation="CollectionReport.xsd"/>
+  <xs:include schemaLocation="Notification.xsd"/>
+  <xs:include schemaLocation="ChargeDetails.xsd"/>
+  <xs:include schemaLocation="CollectionPage.xsd"/>
+  <xs:include schemaLocation="Letter.xsd"/>
+  <xs:include schemaLocation="RecordDetail.xsd"/>
+  <xs:include schemaLocation="AggChargeDetails.xsd"/>
+  <xs:include schemaLocation="CustomerInfo.xsd"/>
+  <xs:include schemaLocation="PaymentInstruction.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  <xs:element name="Document">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice>
+          <xs:element ref="Invoice"/>
+          <xs:element ref="InvoiceInfo"/>
+          <xs:element ref="Summary"/>
+          <xs:element ref="CallDetails"/>
+          <xs:element ref="CallDetailStatement"/>
+          <xs:element ref="BalancePage"/>
+          <xs:element ref="DepositRequest"/>
+          <xs:element ref="AddressPage"/>
+          <xs:element ref="Legend"/>
+          <xs:element ref="CollectionReport"/>
+          <xs:element ref="ChargeNotification"/>
+          <xs:element ref="CollectionPage"/>
+          <xs:element ref="Letter"/>
+          <xs:element ref="ChargeDetails"/>
+          <xs:element ref="RecordDetail"/>
+          <xs:element ref="AggChargeDetails"/>
+          <xs:element ref="CustomerInfo"/>
+          <xs:element ref="PaymentInstruction"/>
+        </xs:choice>
+        <xs:element minOccurs="0" ref="Date"/>
+      </xs:sequence>      
+      <xs:attributeGroup ref="attlist.Document"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Document">
+    <xs:attribute name="Sender" use="required" type="xs:string"/>
+    <xs:attribute name="Id" use="required" type="xs:string"/>
+    <xs:attribute name="BAId" type="xs:string"/>
+    <xs:attribute name="CoId" type="xs:string"/>
+    <xs:attribute name="BillSeqNo" use="required" type="xs:long"/>
+  </xs:attributeGroup>
+</xs:schema>

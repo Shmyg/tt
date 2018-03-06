@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+  Copyright (c) 2010 LHS Telekom GmbH & Co. KG
+
+  The copyright in this work is vested in LHS. The information contained in this work
+  (either in whole or in part) is confidential and must not be modified, reproduced,
+  disclosed or disseminated to others or used for purposes other than that for which
+  it is supplied, without the prior written permission of LHS.  If this work or any
+  part hereof is furnished to a third party by virtue of a contract with that party,
+  use of this work by such party shall be governed by the express contractual terms
+  between LHS, which is party to that contract and the said party.
+
+  The information in this document is subject to change without notice and should not
+  be construed as a commitment by LHS. LHS assumes no responsibility for any errors
+  that may appear in this document. With the appearance of a new version of this
+  document all older versions become invalid.
+
+  All rights reserved.
+
+  File:    CallDetailStatement.xsd
+
+  Owner:   Matthias Fehrenbacher
+
+  @(#) ABSTRACT : XML validation
+  @(#) BSCS iX R4, Bill Formatting Server
+
+  This schema validates call detail statement pages.
+  VERSION = @(#) ./lhsj_main/bscs/batch/src/bgh/LAYOUT/CallDetailStatement.xsd, , CBIO_PCP1503, CBIO_PCP1503_150728 @@CBIO_PCP1503_150728 28-Jul-2015
+
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  <xs:element name="CallDetailStatement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="3" ref="Date"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="DN"/>
+          <xs:element ref="DNBlock"/>
+        </xs:choice>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="CallsPerPeriod"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.CallDetailStatement"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.CallDetailStatement">
+    <xs:attribute name="CoId" use="required" type="xs:string"/>
+    <xs:attribute name="MRKT" use="required" type="xs:string"/>
+    <xs:attribute name="SM" use="required" type="xs:string"/>
+  </xs:attributeGroup>
+  <!--
+    Dates and DNs are only printed on the first call detail statement page.
+    
+    Dates are
+    - period start date (Type=START)
+    - period end date   (Type=END)
+    - last billed date  (Type=LB_DATE)
+  -->
+  <xs:element name="CallsPerPeriod">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="2" ref="Date"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="BOPAlt"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ContrCalls"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.CallsPerPeriod"/>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    Dates are
+    - period start date   (Type=START)
+    - period end date     (Type=END)
+  -->
+  <xs:attributeGroup name="attlist.CallsPerPeriod">
+    <xs:attribute name="SeqNo" use="required" type="xs:nonNegativeInteger"/>
+  </xs:attributeGroup>
+</xs:schema>
+<!--
+  SeqNo is period sequence number, because one period might be split
+  over several call detail statement pages
+-->

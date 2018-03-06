@@ -1,0 +1,4 @@
+<!ELEMENT ChargeDetails (ContrCalls*)>
+<!ATTLIST ChargeDetails
+        BAId    CDATA                           #REQUIRED
+>

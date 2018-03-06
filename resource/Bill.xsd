@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+  Copyright (c) 2011 Ericsson Telekom GmbH & Co. KG
+
+  The copyright in this work is vested in LHS. The information contained in this work
+  (either in whole or in part) is confidential and must not be modified, reproduced,
+  disclosed or disseminated to others or used for purposes other than that for which
+  it is supplied, without the prior written permission of LHS.  If this work or any
+  part hereof is furnished to a third party by virtue of a contract with that party,
+  use of this work by such party shall be governed by the express contractual terms
+  between LHS, which is party to that contract and the said party.
+
+  The information in this document is subject to change without notice and should not
+  be construed as a commitment by LHS. LHS assumes no responsibility for any errors
+  that may appear in this document. With the appearance of a new version of this
+  document all older versions become invalid.
+
+  All rights reserved.
+
+  File:    Bill.xsd
+
+  Owner:   Matthias Fehrenbacher
+
+  @(#) ABSTRACT : XML validation
+  @(#) BSCS iX R4, Bill Formatting Server
+
+  This schema validates billing document pages.
+  VERSION = @(#) ./lhsj_main/bscs/batch/src/bgh/LAYOUT/Bill.xsd, , CBIO_PCP1503, CBIO_PCP1503_150728 @@CBIO_PCP1503_150728 28-Jul-2015
+
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+  <xs:include schemaLocation="BillingDocument.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  <xs:element name="Bill">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Header"/>
+        <xs:element maxOccurs="unbounded" ref="Document"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Header">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.Header"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Header">
+    <xs:attribute name="RefNum" use="required" type="xs:string"/>
+    <xs:attribute name="BU"     use="required" type="xs:string"/>
+    <xs:attribute name="Format" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="htm"/>
+          <xs:enumeration value="pdf"/>
+          <xs:enumeration value="ps"/>
+          <xs:enumeration value="xml"/>
+          <xs:enumeration value="rtf"/>
+          <xs:enumeration value="csv"/>
+          <xs:enumeration value="txt"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute ref="xml:lang" use="required"/>
+    <xs:attribute name="RetStat" use="required" type="xs:string"/>
+    <xs:attribute name="Ind" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="0"/>
+          <xs:enumeration value="1"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>    
+    <xs:attribute name="Type" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="INV"/>
+          <xs:enumeration value="REC"/>
+          <xs:enumeration value="DPR"/>
+          <xs:enumeration value="CDS"/>
+          <xs:enumeration value="PCM"/>
+          <xs:enumeration value="CRP"/>
+          <xs:enumeration value="DN"/>
+          <xs:enumeration value="LET"/>
+          <xs:enumeration value="NOT"/>
+          <xs:enumeration value="LEG"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="PostprocMethod" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="E"/>
+          <xs:enumeration value="S"/>
+          <xs:enumeration value="L"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>  
+  </xs:attributeGroup>
+</xs:schema>

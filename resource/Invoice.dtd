@@ -1,0 +1,137 @@
+<!ELEMENT Invoice (DebitNote?, Date+, PaymentTerm?, CashDiscount*, InvoiceItem*, InvoiceTotals, Tax*, DiscountTotals?)>
+<!-- Dates are
+    - invoicing date            (Type=INV)
+    - charge period start date  (Type=START)
+    - charge period end date    (Type=END)
+    - invoice due date          (Type=DUE_DATE)
+-->
+
+<!ATTLIST Invoice
+    BillingMode (REG|SIM|INF) #REQUIRED
+    InvType     (INV|REC|PCM|DN) #REQUIRED
+>
+<!ELEMENT DebitNote (DocRef+)>
+<!ATTLIST DebitNote
+    ExtSystemId     CDATA    #REQUIRED
+    Purpose         CDATA    #REQUIRED
+>
+<!ELEMENT DocRef EMPTY>
+<!ATTLIST DocRef
+    RefNum          CDATA    #REQUIRED
+>
+<!ELEMENT InvoiceItem (AggSet, GL*, SrvStatus?, SrvParams?, Charge*, Txt*, Price*, Tax*, PromoItem*, Date?, Contr*)>
+<!ATTLIST InvoiceItem
+    NumItem         CDATA   #REQUIRED
+    ArticleString   CDATA   #REQUIRED
+    Quantity        CDATA   #IMPLIED
+    CT              (A|O|P|S|U|T|B) #REQUIRED
+    CollInd         (Y|N)       "N"
+    PrepaidTransaction (Y|N)    "N"
+    Debit              (Y|N)    "Y"
+    BillSeqNo       CDATA   #REQUIRED
+    Jurisdiction     CDATA   #IMPLIED
+    CustomerCategory CDATA   #IMPLIED
+>
+<!--
+    CollInd indicates, whether amount has been collected on behalf
+    Charges are
+     - original amount with VAT     (Id=98)
+     - original amount without VAT  (Id=99)
+     - without VAT                  (Id=125)
+     - with VAT                     (Id=203)
+    Txt contain bill format of fee and remark in case that charge is a fee
+    Quantity of VAS is printed
+-->
+
+
+<!ELEMENT InvoiceTotals (Charge+)>
+<!--
+    Charges are
+    11      Sum of previous charges which are relevant for the billing period
+    76      Old current balance (current balance at real start)
+    77      Invoice
+    78      New current balance
+    79      Net Invoice
+    178     To pay
+    961     Previous balance amount
+    969     Current balance at virtual start date
+    977     Total debit net invoice
+    978     Total credit net invoice
+    980     Rounding differences
+-->
+
+
+<!ELEMENT Tax (Charge*)>
+<!ATTLIST Tax
+    ItemType                    (1|3|7) #REQUIRED
+    Cat                         CDATA   #IMPLIED
+    LegalCode                   CDATA   #IMPLIED
+    Rate                        CDATA   #IMPLIED
+    CalcMethod                  (A|R|M) #IMPLIED
+    Retained                    (Y|N)   #IMPLIED
+    Exemption                   (S|E)   #IMPLIED
+    TaxCodeValidFrom            CDATA   #IMPLIED
+>
+<!-- Tax type is always VAT
+
+     ItemType values have the following meaning
+     - 1    individual tax for one item
+     - 3    total of each tax category
+     - 7    tax
+
+     CalcMethod values have the following meaning
+     - A    absolut tax amount
+     - R    relative tax amount
+     - M    mixed tax amount
+
+     Retained values have the following meaning
+     - Y    transaction amount is retained (withdrawn from open amount)
+     - N    transaction amount is not retained
+
+     Exemption values have the following meaning
+     - S    default
+     - E    in case item is free of taxes
+
+     Charges are (possibly also in secondary currency)
+     - VAT for discount     (Id=124)
+     - charge without VAT   (Id=125)
+-->
+
+
+<!-- cash discount -->
+<!ELEMENT CashDiscount (Charge, Date)>
+<!-- Date is discount date, i.e. the specified discount is granted,
+     if the invoice is paid before this date (Type = 'DISCOUNT')
+     Charge is discount amount (Id = 'DISCOUNT')
+-->
+<!ATTLIST CashDiscount
+    Days    CDATA   #REQUIRED>
+<!-- Payment date is always
+     - not relative to any discount
+     - relative to invoice date
+     Days indicate the number of workdays minus one until payment date
+-->
+
+<!ELEMENT PaymentTerm EMPTY>
+<!ATTLIST PaymentTerm
+    TermShname  CDATA   #REQUIRED
+>
+
+<!ELEMENT DiscountTotals (Charge*, DiscountValue*)>
+<!--
+     Charge* are monetary amount
+     Charge Ids are
+     56  - Original Amount
+     55  - Discounted Amount
+     DiscountValue* describe non-monetary totals
+     One element Discount Value is provided per unit of meassurement
+-->
+
+<!ELEMENT Contr >
+<!ATTLIST               Contr
+        Id      CDATA   #IMPLIED
+>
+
+<!--
+     Contract identification used as aggregation key
+-->

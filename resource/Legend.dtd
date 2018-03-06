@@ -1,0 +1,55 @@
+<!ELEMENT Legend (TypeDesc*)>
+
+<!ELEMENT TypeDesc EMPTY>
+<!ATTLIST TypeDesc
+  Type  ( AR | BMODE | BOP | BPROD | BPURP | BU | CC | CCE | CP | CPD | CPL | CURR | DD |
+          EC | FAF | FTX | FUP | GMC | MRKT | PL | PM | PMC | PME | PP | PRO | PT | PTT | PMT |
+          RT | SN | SP | TM | TT | TZ | UM | UT | ZD | PA | TUAT | VT | TCA | TCO | SAP )  #REQUIRED
+    Id        CDATA  #REQUIRED
+    PKey      CDATA  #REQUIRED
+    xml:lang  CDATA  #REQUIRED
+    ShDes     CDATA  #REQUIRED
+    LongDes   CDATA  #REQUIRED>
+
+<!-- the values for Type have the following meaning
+  AR     Adjustment Reason
+  BMODE  BOP Mode
+  BOP    BOP Package
+  BPROD  Bundle Product
+  BPURP  BOP Purpose
+  BU     Business Unit
+  CC     Catalogue Code
+  CCE    Catalogue Code Element
+  CP     Content Provider
+  CPD    Charge Plan Definition
+  CPL    Catalogue Price List
+  CURR   Currency
+  DD     Data Domain
+  EC     External Carrier
+  FAF    Friends and Family
+  FTX    Financial Transaction
+  FUP    Free Unit Package
+  GMC    Global Micro Cell
+  MRKT   Market
+  PL     Network
+  PM     Promotion Model (Rule Model)
+  PMC    Promorion Mechanism (Rule Mechanism)
+  PME    Promotion Model Element (Rule Element)
+  PP     Promotion Package
+  PRO    Network Profile
+  PTT    Payment Transaction Type
+  RT     Rate Type
+  SN     Service
+  SP     Service Package
+  TM     Tariff Model
+  TT     Tariff Time
+  TZ     Tariff Zone
+  UM     Unit of Measurement
+  UT     Usage Type
+  ZD     Zone Destination Point
+  PA     Pricing Alternative
+  TUAT   Top Up Action Type
+  VT     Voucher Type
+  SAP    Shared Account Package
+  
+  -->

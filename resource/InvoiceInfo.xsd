@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+  Copyright (c) 2013 Ericsson
+
+  All rights reserved.
+
+  File:    InvoiceInfo.xsd
+
+  Owner:   Matthias Fehrenbacher
+
+  @(#) ABSTRACT : XML validation
+  @(#) BSCS iX R4, Bill Formatting Server
+
+  This schema validates invoice info pages.
+  VERSION = @(#) ./lhsj_main/bscs/batch/src/bgh/LAYOUT/InvoiceInfo.xsd, , CBIO_PCP1503, CBIO_PCP1503_150728 @@CBIO_PCP1503_150728 28-Jul-2015
+
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  <xs:element name="InvoiceInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ConvRate"/>
+        <xs:element minOccurs="0" ref="BPStat"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="PromoDetails"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="AdvTxt"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="MailIt"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="FUAccInfoPerCo"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="BalSshPerCo"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="FUDiscountInfoPerCo"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="CCHDiscountInfoPerCo"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="CSDiscountInfoPerCo"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="BalAdPerCo"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="PromoCreditsPerCo"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="BundleInfoPerCo"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="SapPerCo"/>         
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!-- currency conversion -->
+  <xs:element name="ConvRate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Date"/>
+        <xs:element ref="Currency"/>
+        <xs:element ref="Currency"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.ConvRate"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.ConvRate">
+    <xs:attribute name="Rate" type="xs:double"/>
+    <xs:attribute name="ConvType" type="xs:positiveInteger"/>
+    <xs:attribute name="Details" type="xs:string"/>
+  </xs:attributeGroup>
+  <xs:element name="Currency">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.Currency"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Currency">
+    <xs:attribute name="Type" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="1"/>
+          <xs:enumeration value="2"/>
+          <xs:enumeration value="3"/>
+          <xs:enumeration value="4"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CurrCode" use="required" type="xs:token"/>
+    <xs:attribute name="Scale" use="required" type="xs:nonNegativeInteger"/>
+  </xs:attributeGroup>
+  <!--
+    The values for attribute Type have the following meaning:
+    1 - home currency
+    2 - primary document currency
+    3 - secondary document currency
+    4 - financial transaction currency
+  -->
+  <!-- Promotion details: top element of all promotion results -->
+  <xs:element name="PromoDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="PromoResult"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PromoResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="BOPAlt"/>
+        <xs:element ref="PromoElemRef"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="PromoEvalResult"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="PromoApplResult"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    PromoElemRef is defined in Common.xsd. The mechanism has been
+    removed from the attribute list since it
+    is not used for comparison, furthermore, it's contained in each
+    result.
+  -->
+  <!--
+    promotion evaluation result: the result of an evaluation
+    mechanism, its id, and an indicator whether the evaluation has
+    finished or is still going on
+  -->
+  <xs:element name="PromoEvalResult">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.PromoEvalResult"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.PromoEvalResult">
+    <xs:attribute name="MechId" use="required" type="xs:string"/>
+    <xs:attribute name="Result" use="required" type="xs:string"/>
+    <xs:attribute name="CurrCode" type="xs:token"/>
+    <xs:attribute name="UoM" type="xs:token"/>
+    <xs:attribute name="Finished" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="YES"/>
+          <xs:enumeration value="NO"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!--
+    promotion application result: the mechanism id, the application value, the
+    application type (relative or absolute), the amount applied by
+    the mechanism so far, an indicator whether the application has
+    finished
+  -->
+  <xs:element name="PromoApplResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Reward"/>
+        <xs:element minOccurs="0" ref="BonPnt"/>
+        <xs:element minOccurs="0" ref="Charge"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="PromoCreditsPerCo"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.PromoApplResult"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.PromoApplResult">
+    <xs:attribute name="MechId" use="required" type="xs:string"/>
+    <xs:attribute name="ApplValue" use="required" type="xs:double"/>
+    <xs:attribute name="ApplType" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="REL"/>
+          <xs:enumeration value="ABS"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Finished" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="YES"/>
+          <xs:enumeration value="NO"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!-- Charge is amount applied -->
+  <!--  Previously last QTY segments in invoice -->
+  <xs:element name="BPStat">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.BPStat"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.BPStat">
+    <xs:attribute name="New" use="required" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="Sum" use="required" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="Max" use="required" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="Exp" use="required" type="xs:nonNegativeInteger"/>
+  </xs:attributeGroup>
+  <!--
+    New - bonus points granted in the current bill run
+    Sum - sum of actual bonus points a customer has
+    Max - maximal amount of bonus points a customer can get
+    Exp - bonus points to be expired by the next bill run
+  -->
+  <!--
+    Bonus points applied by a mechanism
+    the number of points granted and the date when they where granted     
+  -->
+  <xs:element name="BonPnt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Date"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.BonPnt"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.BonPnt">
+    <xs:attribute name="Num" use="required" type="xs:nonNegativeInteger"/>
+  </xs:attributeGroup>
+  <xs:element name="Reward">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="Charge"/>
+        <xs:element ref="RewAction"/>
+        <xs:element ref="AdvTxt"/>
+      </xs:choice>
+      <xs:attributeGroup ref="attlist.Reward"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Reward">
+    <xs:attribute name="BonPnt" use="required" type="xs:nonNegativeInteger"/>
+  </xs:attributeGroup>
+  <!--
+    BonPnt is number of bonus point spent for reward 
+    (Charge |Txt) describes fee with remark
+  -->
+  <xs:element name="RewAction">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.RewAction"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.RewAction">
+    <xs:attribute name="Entity" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="TM"/>
+          <xs:enumeration value="FUP"/>
+          <xs:enumeration value="PP"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Action" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="ADD"/>
+          <xs:enumeration value="DEL"/>
+          <xs:enumeration value="CH"/>
+          <xs:enumeration value="ACT"/>
+          <xs:enumeration value="DEA"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Old" type="xs:string"/>
+    <xs:attribute name="New" type="xs:string"/>
+  </xs:attributeGroup>
+  <!--
+    For action 'ADD' New denotes the TM, FUP or PP to add or delete.
+    For action 'CH' (change) Old is the value before the change and New the value after.
+    For all other actions the attribute Old specifies the entity.
+    Actions ACT and DEA are only allowed for entity PP (promotion package) and denote
+    activation and de-activation, respectively.
+  -->
+  <!-- advertisement text -->
+  <xs:element name="AdvTxt" type="xs:string"/>
+  <!-- MailingItem -->
+  <xs:element name="MailIt" type="xs:string"/>
+
+  <xs:element name="SapPerCo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Sap" /> 
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.SapPerCo" /> 
+    </xs:complexType>
+  </xs:element>
+
+  <xs:attributeGroup name="attlist.SapPerCo">
+    <xs:attribute name="CoId" use="required" type="xs:string" />
+    <xs:attribute name="Role" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="O" /> 
+          <xs:enumeration value="C" /> 
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute> 
+  </xs:attributeGroup>
+
+  <xs:element name="Sap">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="2" ref="Date" /> 
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.Sap" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:attributeGroup name="attlist.Sap">
+    <xs:attribute name="Package" use="required" type="xs:string" />
+  </xs:attributeGroup>
+
+</xs:schema>

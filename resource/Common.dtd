@@ -1,0 +1,384 @@
+<!ELEMENT Date EMPTY>
+<!ATTLIST Date
+    Type                ( INV | ACC_END | DUE_DATE |START | END | BAL_REF
+                        | SRV_START | SRV_END | CONV_REF | BAL_RESET
+                        | END_FU_CO | DISCOUNT | GRANT | LB_DATE | PURCHASE
+                        | GEN | MATURITY | EXT_REF | VALID_FROM | VALID_TO
+                        | OLD_START | OLD_END ) #REQUIRED
+    Date                CDATA       #REQUIRED
+    HH                  CDATA       #IMPLIED
+    MM                  CDATA       #IMPLIED
+    SS                  CDATA       #IMPLIED>
+<!-- Type =
+    INV         Invoicing date
+    ACC_END     received payments taken into account until
+    DUE_DATE    invoice due date
+    START       period start date (charge period)
+    END         period end date (s.a.)
+    BAL_REF     balance snapshot date
+    SRV_START   period start date (service status period)
+    SRV_END     period end date (s.a.)
+    CONV_REF    reference date for currency conversion rate
+    BAL_RESET   Cost control balance next reset date
+    END_FU_CO   expire date of carry over application
+    DISCOUNT    discount date
+    GRANT       grant date for bonus points
+    LB_DATE     last billed date
+    PURCHASE    purchase date
+    GEN         DocumentPage creation date
+    MATURITY    maturity date
+    EXT_REF     external reference date
+    VALID_FROM  period start date; balance adjustment
+    VALID_TO    period end date; balance adjustment
+    OLD_START   old start date
+    OLD_END     old end date
+
+    Date format is CCYYMMDD
+-->
+
+
+<!ELEMENT Addr EMPTY>
+<!ATTLIST Addr
+    Name      CDATA       #REQUIRED
+    Line1     CDATA       #IMPLIED
+    Line2     CDATA       #IMPLIED
+    Line3     CDATA       #IMPLIED
+    Line4     CDATA       #IMPLIED
+    Line5     CDATA       #IMPLIED
+    Line6     CDATA       #IMPLIED
+    City      CDATA       #IMPLIED
+    Zip       CDATA       #IMPLIED
+    Country   CDATA       #IMPLIED
+    SortCrit  CDATA       #IMPLIED
+    MSISDN    CDATA       #IMPLIED
+    Email     CDATA       #IMPLIED>
+
+<!--
+    MSISDN directory number of SMS service
+           to be used for notification message
+           might be not available
+    Email  email address for email notification,
+           only available if customer is not anonymous, and data
+           are available in database
+-->
+
+
+<!-- Financial contact -->
+<!ELEMENT FiCont (Account, Bank)>
+
+<!ELEMENT Account EMPTY>
+<!ATTLIST Account
+    Num             CDATA       #IMPLIED
+    HolderName1     CDATA       #IMPLIED
+    HolderName2     CDATA       #IMPLIED
+>
+
+
+<!ELEMENT Bank EMPTY>
+<!ATTLIST Bank
+    Code            CDATA       #IMPLIED
+    Name            CDATA       #IMPLIED
+    Branch          CDATA       #IMPLIED
+>
+
+<!ELEMENT Charge EMPTY>
+<!ATTLIST Charge
+    Id (11|12|21|22|23|31|32|33|53|54|55|56|57|58|60|76|77|78|79|98|99
+       |124|125|177|178|203|277|526|527|528|700|701|702|703|704|705|706|707
+       |812 |830|831|832|835|837|838
+       |901|910|911|912|913
+       |930|931|932|933|934|935|936|937|938
+       |960|961|962|963|964|965|967|968|969
+       |970|971|972|973|977|978
+       |980|981|982|983|984|985|986|987|988|990|991|992|993|994|995|996
+       |1076|1078) #REQUIRED
+
+    Amount   CDATA      #REQUIRED
+    DiscountPercentage   CDATA      #IMPLIED
+    CurrCode CDATA      #IMPLIED
+    Type     (5|9|19)   #IMPLIED
+    PT       (A|P)      "P"
+>
+<!-- Id
+    11      Sum of previous charges
+    12      Cash Discount
+    21      accumulated usage net
+    22      balance accumulated credit net
+    23      balance remaining credit net
+    31      accumulated usage gross
+    32      balance accumulated credit gross
+    33      balance remaining credit gross
+    53      discount or commitment for sum item
+    54      current reduced FU amount
+    55      total reduced FU amount
+    56      original FU amount
+    57      granted FU amount net part
+    58      carry over FU amount
+    60      amount for a period
+    76      Old current balance (current balance at real start)
+    77      Invoice
+    78      New current balance
+    79      Net Invoice
+    98      item original amount with VAT but without discounts
+    99      item original amount without VAT and without discounts
+    124     VAT for discount
+    125     item without VAT
+    177     invoice net part
+    178     amount to pay
+    203     item with VAT
+    277     invoice gross art
+    526     mark-up fee applied
+    527     current repriced amount
+    528     total repriced amount
+    700     change of prepaid credit due to credits
+    701     change of prepaid credit due to debits
+    702     overall changes of prepaid balance
+    703     sum of own amount
+    704     sum of collected amounts
+    705     amount billed
+    706     amount already paid
+    707     amount still open
+    812     total usage amount
+    830     total amount per customer (net part)
+    831     total amount per contract (net part)
+    832     total amount per contract and charge type (net part)
+    835     total amount for usage per customer (net part)
+    837     total amount per contract and charge type for alternate rate plan (net part)
+    838     total flat amount (without discounts) per contract and charge type (net part)
+    901     threshold value for call detail records
+    910     total subscription charges
+    911     total access charges
+    912     total usage charges
+    913     total OCC
+    930     total amount per customer (gross part)
+    931     total amount per contract (gross part)
+    932     total amount per contract and charge type (gross part)
+    933     total amount for subscription per customer (gross part)
+    934     total amount for access per customer (gross part)
+    935     total amount for usage per customer (gross part)
+    936     total amount for OCC per customer (gross part)
+    937     total amount per contract and charge type for alternate rate plan (gross part)
+    938     total flat amount (without discounts) per contract and charge type (gross part)
+    960     account transaction amount
+    961     previous balance amount
+    962     sum of received payments
+    963     sum of write offs
+    964     sum of other invoices
+    965     sum of adjustments
+    967     current total invoice amount (identical to 77)
+    968     current balance
+    969     current balance at virtual start date
+    970     set off amount
+    971     sum of overpayments
+    972     sum of credit notes
+    973     sum of refunded payments
+    977     total debit net invoice
+    978     total credit net invoice
+    980     rounding difference
+    981     sum of cash on accounts
+    982     sum of invoice transfer-outs
+    983     sum of invoice transfers-ins
+    984     sum of payment transfers-outs
+    985     sum of payment transfers-ins
+    986     sum of credit memos
+    987     sum of bounced transactions
+    988     sum of set-offs
+    990     sum of incoming invoice
+    991     sum of incoming credit memo
+    992     sum of outgoing payments
+    993     sum of debit notes
+    994     sum of reverse debit notes
+    995     sum of reverse incoming invoices
+    996     sum of reverse incoming credit memos
+    1076    previous balance at billing account
+    1078    current balance at billing account
+
+    Type:
+    5       subject to final payment
+    9       information
+    19      rounded
+
+    PT (Payment Type):
+    P       postpaid
+    A       advance (=prepaid)
+-->
+
+<!ELEMENT Price EMPTY>
+<!ATTLIST Price
+    Price                   CDATA   #REQUIRED
+    CurrCode                CDATA   #REQUIRED
+>
+
+
+<!ELEMENT SrvParams (Date)>
+<!-- Date is parameter valid from date (Type=SRV_START)
+-->
+<!ATTLIST SrvParams
+    FlexParamDesc   CDATA   #IMPLIED
+    ParamDesc       CDATA   #IMPLIED
+    ParamVal        CDATA   #IMPLIED
+>
+
+<!ELEMENT SrvStatus (Date, Date, Charge?)>
+<!ATTLIST SrvStatus
+    Status                      CDATA   #REQUIRED>
+<!-- Dates are
+     - service state start date (Type=START)
+     - service state end date   (Type=END)
+     Charge Id is 60 (amount for a period) (only in case that SrvStatus is contained in SumItem)
+-->
+
+
+
+<!-- Promotion Details on applied discounts and minimum commitments in Invoice and summary -->
+<!ELEMENT PromoItem (PromoElemRef, Charge )>
+<!ATTLIST PromoItem
+    Type    (DISCOUNT | MIN_COMM | PREPAID_CREDIT)  #REQUIRED
+    Mech                CDATA   #REQUIRED>
+<!-- Charge Id is
+     - either 53 (discount or minimum commitment amount)
+     - or 700 (prepaid credit)
+-->
+
+<!-- The promotion result key (PromoElemRef)
+     identifies a promotion processing context.
+     The customer, the assignment sequence, the
+     optional contract (for co-specific
+     promotions) the package id, the model id,
+     the element id, and the element version -->
+
+<!ELEMENT PromoElemRef EMPTY>
+<!ATTLIST PromoElemRef
+    CustId     CDATA #REQUIRED
+    AssSeqNo   CDATA #REQUIRED
+    CoId       CDATA #IMPLIED
+    PackId     CDATA #REQUIRED
+    ModelId    CDATA #REQUIRED
+    ElemId     CDATA #REQUIRED
+    ElemVers   CDATA #REQUIRED
+    Taxable    (Y|N) #IMPLIED
+>
+
+
+<!-- aggregation set -->
+<!ELEMENT AggSet (Att*)>
+<!ELEMENT Att EMPTY>
+<!ATTLIST Att
+    Ty      CDATA   #REQUIRED
+    Id      CDATA   #REQUIRED
+>
+<!--
+    Ty  Attribute type, e.g. TM, SN, SP, ...
+    Id  identifier
+-->
+
+
+<!-- text -->
+<!ELEMENT Txt (#PCDATA)>
+
+
+<!-- Cost Control balance information -->
+<!ELEMENT Bal EMPTY>
+<!ATTLIST Bal
+    SN          CDATA   #REQUIRED
+    PRO         CDATA   #REQUIRED
+    SeqNo       CDATA   #IMPLIED
+    BPROD       CDATA   #IMPLIED
+    UM          CDATA   #IMPLIED
+    CurrCode    CDATA   #IMPLIED
+    PrType      (G|N)   #IMPLIED
+    BalanceType CDATA   #IMPLIED
+    OfferSeqNo  CDATA   #IMPLIED
+    OfferSN     CDATA   #IMPLIED
+    SAP         CDATA   #IMPLIED
+>
+<!-- Every CostControl account has a dedicated currency or UOM
+     (i.e. either CurrCode or UM is provided),
+     which applies for all amounts (monetary or volumes) specified
+     (i.e. for all attributes of BalVols)
+-->
+<!--
+    - BalanceType is only provided for  balances of type money wallet
+       (BalanceType="M")
+    - PrType (pricing type) is also only provided for balances of type
+      money wallet
+    SAP - Shared Account Package
+-->
+
+<!ELEMENT BalVols EMPTY>
+<!ATTLIST BalVols
+    AccUsage    CDATA   #REQUIRED
+    AccCredit   CDATA   #IMPLIED
+    RemCredit   CDATA   #IMPLIED
+>
+
+
+<!-- BOP alternative -->
+<!ELEMENT BOPAlt (AggSet)>
+<!ATTLIST BOPAlt
+    BILLED   (Y|N)   "Y"
+    CONTR    (Y|N)   "Y"
+    COAVAIL  (Y|N)   #IMPLIED
+    BOPPack  CDATA   #IMPLIED
+    BOPPurp  CDATA   #IMPLIED
+    BOPSeqNo CDATA   #IMPLIED
+>
+<!-- COAVAIL :  Carryover of this FU account is available for consumption in following billing runs
+     BOPPack :  BOP Package identifier
+     BOPPurp :  BOP purpose identifier (LOGAA, DISAA or INVBA)
+     BOPSeqNo:  this attribute identifies BOP alternative
+-->
+
+<!-- Non Monetary discount information -->
+<!ELEMENT DiscountValue EMPTY>
+<!ATTLIST DiscountValue
+     OrigVal    CDATA #REQUIRED
+     DiscVal    CDATA #REQUIRED
+     UM         CDATA #REQUIRED
+>
+<!--
+    OrigVal is original value
+    DiscVal is discounted value
+    UM      is unit of meassurement
+-->
+
+
+<!-- Directory number -->
+<!ELEMENT DN EMPTY>
+<!ATTLIST DN
+  Num   CDATA   #REQUIRED
+  Main  (Y|N)   #REQUIRED >
+
+
+<!-- Directory number block -->
+<!ELEMENT DNBlock EMPTY>
+<!ATTLIST DNBlock
+  NumStart  CDATA   #REQUIRED
+  NumEnd    CDATA   #REQUIRED
+  PRO       CDATA   #REQUIRED
+  SN        CDATA   #REQUIRED
+  Main      (Y|N)   #IMPLIED
+>
+
+<!-- GL Accounts -->
+<!ELEMENT GL EMPTY>
+<!ATTLIST GL
+    Id (001|002|003) #REQUIRED
+    Account   CDATA  #REQUIRED
+    JobCost   CDATA  #IMPLIED
+>
+<!-- Id
+    001      Sales GL account code
+    002      Discount GL account code
+    003      Minimum commitment GL account code
+-->
+
+<!-- Call Definition -->
+<!ELEMENT Call (XCD, FUP*)>
+<!ELEMENT XCD EMPTY>
+<!ELEMENT FUP EMPTY>
+
+<!ELEMENT ChDet (XCD, FUP*)>
+
+<!ENTITY % XCD SYSTEM "XCD.dtd">
+%XCD;

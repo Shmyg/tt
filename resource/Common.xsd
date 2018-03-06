@@ -1,0 +1,727 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+  Copyright (c) 2010 LHS Telekom GmbH & Co. KG
+
+  The copyright in this work is vested in LHS. The information contained in this work
+  (either in whole or in part) is confidential and must not be modified, reproduced,
+  disclosed or disseminated to others or used for purposes other than that for which
+  it is supplied, without the prior written permission of LHS.  If this work or any
+  part hereof is furnished to a third party by virtue of a contract with that party,
+  use of this work by such party shall be governed by the express contractual terms
+  between LHS, which is party to that contract and the said party.
+
+  The information in this document is subject to change without notice and should not
+  be construed as a commitment by LHS. LHS assumes no responsibility for any errors
+  that may appear in this document. With the appearance of a new version of this
+  document all older versions become invalid.
+
+  All rights reserved.
+
+  File:    Common.xsd
+
+  Owner:   Matthias Fehrenbacher
+
+  @(#) ABSTRACT : XML validation
+  @(#) BSCS iX R4, Bill Formatting Server
+
+  This schema validates common pages.
+  VERSION = @(#) ./lhsj_main/bscs/batch/src/bgh/LAYOUT/Common.xsd, , CBIO_PCP1503, CBIO_PCP1503_150728 @@CBIO_PCP1503_150728 28-Jul-2015
+
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+  <xs:include schemaLocation="XCD.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  <xs:element name="Date">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.Date"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Date">
+    <xs:attribute name="Type" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="INV"/>
+          <xs:enumeration value="ACC_END"/>
+          <xs:enumeration value="DUE_DATE"/>
+          <xs:enumeration value="START"/>
+          <xs:enumeration value="END"/>
+          <xs:enumeration value="BAL_REF"/>
+          <xs:enumeration value="SRV_START"/>
+          <xs:enumeration value="SRV_END"/>
+          <xs:enumeration value="CONV_REF"/>
+          <xs:enumeration value="BAL_RESET"/>
+          <xs:enumeration value="END_FU_CO"/>
+          <xs:enumeration value="DISCOUNT"/>
+          <xs:enumeration value="GRANT"/>
+          <xs:enumeration value="LB_DATE"/>
+          <xs:enumeration value="PURCHASE"/>
+          <xs:enumeration value="GEN"/>
+          <xs:enumeration value="MATURITY"/>
+          <xs:enumeration value="EXT_REF"/>
+          <xs:enumeration value="VALID_FROM"/>
+          <xs:enumeration value="VALID_TO"/>
+          <xs:enumeration value="OLD_START"/>
+          <xs:enumeration value="OLD_END"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Date" use="required" type="xs:dateTime"/>
+    <xs:attribute name="HH" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="MM" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="SS" type="xs:nonNegativeInteger"/>
+  </xs:attributeGroup>
+  <!--
+    Type =
+    INV         Invoicing date
+    ACC_END     received payments taken into account until
+    DUE_DATE    invoice due date
+    START       period start date (charge period)
+    END         period end date (s.a.)
+    BAL_REF     balance snapshot date
+    SRV_START   period start date (service status period)
+    SRV_END     period end date (s.a.)
+    CONV_REF    reference date for currency conversion rate
+    BAL_RESET   Cost control balance next reset date
+    END_FU_CO   expire date of carry over application
+    DISCOUNT    discount date
+    GRANT       grant date for bonus points
+    LB_DATE     last billed date
+    PURCHASE    purchase date
+    GEN         DocumentPage creation date
+    MATURITY    maturity date
+    EXT_REF     external reference date
+    VALID_FROM  period start date; balance adjustment
+    VALID_TO    period end date; balance adjustment
+    OLD_START   old start date
+    OLD_END     old end date
+
+    Date format is CCYYMMDD
+  -->
+  <xs:element name="Addr">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.Addr"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Addr">
+    <xs:attribute name="Name" use="required" type="xs:string"/>
+    <xs:attribute name="Line1" type="xs:string"/>
+    <xs:attribute name="Line2" type="xs:string"/>
+    <xs:attribute name="Line3" type="xs:string"/>
+    <xs:attribute name="Line4" type="xs:string"/>
+    <xs:attribute name="Line5" type="xs:string"/>
+    <xs:attribute name="Line6" type="xs:string"/>
+    <xs:attribute name="City" type="xs:string"/>
+    <xs:attribute name="Zip" type="xs:string"/>
+    <xs:attribute name="Country" type="xs:string"/>
+    <xs:attribute name="SortCrit" type="xs:unsignedLong"/>
+    <xs:attribute name="MSISDN" type="xs:string"/>
+    <xs:attribute name="Email" type="xs:string"/>
+  </xs:attributeGroup>
+  <!--
+    MSISDN directory number of SMS service
+           to be used for notification message
+           might be not available
+    Email  email address for email notification,
+           only available if customer is not anonymous, and data
+           are available in database
+  -->
+  <!-- Financial contact -->
+  <xs:element name="FiCont">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Account"/>
+        <xs:element ref="Bank"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Account">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.Account"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Account">
+    <xs:attribute name="Num" type="xs:string"/>
+    <xs:attribute name="HolderName1" type="xs:string"/>
+    <xs:attribute name="HolderName2" type="xs:string"/>
+  </xs:attributeGroup>
+  <xs:element name="Bank">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.Bank"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Bank">
+    <xs:attribute name="Code" type="xs:string"/>
+    <xs:attribute name="Name" type="xs:string"/>
+    <xs:attribute name="Branch" type="xs:string"/>
+  </xs:attributeGroup>
+  <xs:element name="Charge">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.Charge"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Charge">
+    <xs:attribute name="Id" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="11"/>
+          <xs:enumeration value="12"/>
+          <xs:enumeration value="21"/>
+          <xs:enumeration value="22"/>
+          <xs:enumeration value="23"/>
+          <xs:enumeration value="31"/>
+          <xs:enumeration value="32"/>
+          <xs:enumeration value="33"/>
+          <xs:enumeration value="53"/>
+          <xs:enumeration value="54"/>
+          <xs:enumeration value="55"/>
+          <xs:enumeration value="56"/>
+          <xs:enumeration value="57"/>
+          <xs:enumeration value="58"/>
+          <xs:enumeration value="60"/>
+          <xs:enumeration value="76"/>
+          <xs:enumeration value="77"/>
+          <xs:enumeration value="78"/>
+          <xs:enumeration value="79"/>
+          <xs:enumeration value="98"/>
+          <xs:enumeration value="99"/>
+          <xs:enumeration value="124"/>
+          <xs:enumeration value="125"/>
+          <xs:enumeration value="177"/>
+          <xs:enumeration value="178"/>
+          <xs:enumeration value="203"/>
+          <xs:enumeration value="277"/>
+          <xs:enumeration value="526"/>
+          <xs:enumeration value="527"/>
+          <xs:enumeration value="528"/>
+          <xs:enumeration value="700"/>
+          <xs:enumeration value="701"/>
+          <xs:enumeration value="702"/>
+          <xs:enumeration value="703"/>
+          <xs:enumeration value="704"/>
+          <xs:enumeration value="705"/>
+          <xs:enumeration value="706"/>
+          <xs:enumeration value="707"/>
+          <xs:enumeration value="812"/>
+          <xs:enumeration value="830"/>
+          <xs:enumeration value="831"/>
+          <xs:enumeration value="832"/>
+          <xs:enumeration value="835"/>
+          <xs:enumeration value="837"/>
+          <xs:enumeration value="838"/>
+          <xs:enumeration value="901"/>
+          <xs:enumeration value="910"/>
+          <xs:enumeration value="911"/>
+          <xs:enumeration value="912"/>
+          <xs:enumeration value="913"/>
+          <xs:enumeration value="930"/>
+          <xs:enumeration value="931"/>
+          <xs:enumeration value="932"/>
+          <xs:enumeration value="933"/>
+          <xs:enumeration value="934"/>
+          <xs:enumeration value="935"/>
+          <xs:enumeration value="936"/>
+          <xs:enumeration value="937"/>
+          <xs:enumeration value="938"/>
+          <xs:enumeration value="960"/>
+          <xs:enumeration value="961"/>
+          <xs:enumeration value="962"/>
+          <xs:enumeration value="963"/>
+          <xs:enumeration value="964"/>
+          <xs:enumeration value="965"/>
+          <xs:enumeration value="967"/>
+          <xs:enumeration value="968"/>
+          <xs:enumeration value="969"/>
+          <xs:enumeration value="970"/>
+          <xs:enumeration value="971"/>
+          <xs:enumeration value="972"/>
+          <xs:enumeration value="973"/>
+          <xs:enumeration value="977"/>
+          <xs:enumeration value="978"/>
+          <xs:enumeration value="980"/>
+          <xs:enumeration value="981"/>
+          <xs:enumeration value="982"/>
+          <xs:enumeration value="983"/>
+          <xs:enumeration value="984"/>
+          <xs:enumeration value="985"/>
+          <xs:enumeration value="986"/>
+          <xs:enumeration value="987"/>
+          <xs:enumeration value="988"/>
+          <xs:enumeration value="990"/>
+          <xs:enumeration value="991"/>
+          <xs:enumeration value="992"/>
+          <xs:enumeration value="993"/>
+          <xs:enumeration value="994"/>
+          <xs:enumeration value="995"/>
+          <xs:enumeration value="996"/>
+          <xs:enumeration value="1076"/>
+          <xs:enumeration value="1078"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Amount" use="required" type="xs:double"/>
+    <xs:attribute name="DiscountPercentage" type="xs:double"/>
+    <xs:attribute name="CurrCode" type="xs:normalizedString"/>
+    <xs:attribute name="Type">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="5"/>
+          <xs:enumeration value="9"/>
+          <xs:enumeration value="19"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="PT" default="P">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="A"/>
+          <xs:enumeration value="P"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!--
+    Id
+    11      Sum of previous charges
+    12      Cash Discount
+    21      accumulated usage net
+    22      balance accumulated credit net
+    23      balance remaining credit net
+    31      accumulated usage gross
+    32      balance accumulated credit gross
+    33      balance remaining credit gross
+    53      discount or commitment for sum item
+    54      current reduced FU amount
+    55      total reduced FU amount
+    56      original FU amount
+    57      granted FU amount net part
+    58      carry over FU amount
+    60      amount for a period
+    76      Old current balance (current balance at real start)
+    77      Invoice
+    78      New current balance
+    79      Net Invoice
+    98      item original amount with VAT but without discounts
+    99      item original amount without VAT and without discounts
+    124     VAT for discount
+    125     item without VAT
+    177     invoice net part
+    178     amount to pay
+    203     item with VAT
+    277     invoice gross art
+    526     mark-up fee applied
+    527     current repriced amount
+    528     total repriced amount
+    700     change of prepaid credit due to credits
+    701     change of prepaid credit due to debits
+    702     overall changes of prepaid balance
+    703     sum of own amount
+    704     sum of collected amounts
+    705     amount billed
+    706     amount already paid
+    707     amount still open
+    812     total usage amount
+    830     total amount per customer (net part)
+    831     total amount per contract (net part)
+    832     total amount per contract and charge type (net part)
+    835     total amount for usage per customer (net part)
+    837     total amount per contract and charge type for alternate rate plan (net part)
+    838     total flat amount (without discounts) per contract and charge type (net part)
+    901     threshold value for call detail records
+    910     total subscription charges
+    911     total access charges
+    912     total usage charges
+    913     total OCC
+    930     total amount per customer (gross part)
+    931     total amount per contract (gross part)
+    932     total amount per contract and charge type (gross part)
+    933     total amount for subscription per customer (gross part)
+    934     total amount for access per customer (gross part)
+    935     total amount for usage per customer (gross part)
+    936     total amount for OCC per customer (gross part)
+    937     total amount per contract and charge type for alternate rate plan (gross part)
+    938     total flat amount (without discounts) per contract and charge type (gross part)
+    960     account transaction amount
+    961     previous balance amount
+    962     sum of received payments
+    963     sum of write offs
+    964     sum of other invoices
+    965     sum of adjustments
+    967     current total invoice amount (identical to 77)
+    968     current balance
+    969     current balance at virtual start date
+    970     set off amount
+    971     sum of overpayments
+    972     sum of credit notes
+    973     sum of refunded payments
+    977     total debit net invoice
+    978     total credit net invoice
+    980     rounding difference
+    981     sum of cash on accounts
+    982     sum of invoice transfer-outs
+    983     sum of invoice transfers-ins
+    984     sum of payment transfers-outs
+    985     sum of payment transfers-ins
+    986     sum of credit memos
+    987     sum of bounced transactions
+    988     sum of set-offs
+    990     sum of incoming invoice
+    991     sum of incoming credit memo
+    992     sum of outgoing payments
+    993     sum of debit notes
+    994     sum of reverse debit notes
+    995     sum of reverse incoming invoices
+    996     sum of reverse incoming credit memos
+    1076    previous balance at billing account
+    1078    current balance at billing account
+    
+    Type:
+    5       subject to final payment
+    9       information
+    19      rounded
+    
+    PT (Payment Type):
+    P       postpaid
+    A       advance (=prepaid)
+  -->
+  <xs:element name="Price">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.Price"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Price">
+    <xs:attribute name="Price" use="required" type="xs:double"/>
+    <xs:attribute name="CurrCode" use="required" type="xs:normalizedString"/>
+  </xs:attributeGroup>
+  <xs:element name="SrvParams">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Date"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.SrvParams"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- Date is parameter valid from date (Type=SRV_START) -->
+  <xs:attributeGroup name="attlist.SrvParams">
+    <xs:attribute name="FlexParamDesc" type="xs:string"/>
+    <xs:attribute name="ParamDesc" type="xs:string"/>
+    <xs:attribute name="ParamVal" type="xs:string"/>
+  </xs:attributeGroup>
+  <xs:element name="SrvStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Date"/>
+        <xs:element ref="Date"/>
+        <xs:element minOccurs="0" ref="Charge"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.SrvStatus"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.SrvStatus">
+    <xs:attribute name="Status" use="required" type="xs:token"/>
+  </xs:attributeGroup>
+  <!--
+    Dates are
+    - service state start date (Type=START)
+    - service state end date   (Type=END)
+    Charge Id is 60 (amount for a period) (only in case that SrvStatus is contained in SumItem)
+  -->
+  <!-- Promotion Details on applied discounts and minimum commitments in Invoice and summary -->
+  <xs:element name="PromoItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="PromoElemRef"/>
+        <xs:element ref="Charge"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.PromoItem"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.PromoItem">
+    <xs:attribute name="Type" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="DISCOUNT"/>
+          <xs:enumeration value="MIN_COMM"/>
+          <xs:enumeration value="PREPAID_CREDIT"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Mech" use="required" type="xs:string"/>
+  </xs:attributeGroup>
+  <!--
+    Charge Id is
+    - either 53 (discount or minimum commitment amount)
+    - or 700 (prepaid credit)
+  -->
+  <!--
+    The promotion result key (PromoElemRef)
+    identifies a promotion processing context.
+    The customer, the assignment sequence, the
+    optional contract (for co-specific
+    promotions) the package id, the model id,
+    the element id, and the element version
+  -->
+  <xs:element name="PromoElemRef">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.PromoElemRef"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.PromoElemRef">
+    <xs:attribute name="CustId" use="required" type="xs:string"/>
+    <xs:attribute name="AssSeqNo" use="required" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="CoId" type="xs:string"/>
+    <xs:attribute name="PackId" use="required" type="xs:string"/>
+    <xs:attribute name="ModelId" use="required" type="xs:string"/>
+    <xs:attribute name="ElemId" use="required" type="xs:string"/>
+    <xs:attribute name="ElemVers" use="required" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="Taxable">
+      <xs:annotation>
+        <xs:documentation>Specifies if the promotion is taxable or not.
+        Y - Yes
+        N - No</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="Y"/>
+          <xs:enumeration value="N"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!-- aggregation set -->
+  <xs:element name="AggSet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Att"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Att">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.Att"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Att">
+    <xs:attribute name="Ty" use="required" type="xs:string"/>
+    <xs:attribute name="Id" use="required" type="xs:string"/>
+  </xs:attributeGroup>
+  <!--
+    Ty  Attribute type, e.g. TM, SN, SP, ...
+    Id  identifier
+  -->
+  <!-- text -->
+  <xs:element name="Txt" type="xs:string"/>
+  <!-- Cost Control balance information -->
+  <xs:element name="Bal">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.Bal"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Bal">
+    <xs:attribute name="SN" use="required" type="xs:string"/>
+    <xs:attribute name="PRO" use="required" type="xs:string"/>
+    <xs:attribute name="SeqNo" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="BPROD" type="xs:string"/>
+    <xs:attribute name="UM" type="xs:token"/>
+    <xs:attribute name="CurrCode" type="xs:token"/>
+    <xs:attribute name="PrType">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="G"/>
+          <xs:enumeration value="N"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="BalanceType"/>
+    <xs:attribute name="OfferSeqNo" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="OfferSN"    type="xs:string"/>
+    <xs:attribute name="SAP"        type="xs:string"/>
+  </xs:attributeGroup>
+  <!--
+    Every CostControl account has a dedicated currency or UOM
+    (i.e. either CurrCode or UM is provided),
+    which applies for all amounts (monetary or volumes) specified
+    (i.e. for all attributes of BalVols)
+  -->
+  <!--
+    - BalanceType is only provided for  balances of type money wallet
+       (BalanceType="M")
+    - PrType (pricing type) is also only provided for balances of type
+      money wallet
+    - SAP - indicates if a balance is charging system shared account related
+  -->
+  <xs:element name="BalVols">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.BalVols"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.BalVols">
+    <xs:attribute name="AccUsage" use="required" type="xs:double"/>
+    <xs:attribute name="AccCredit" type="xs:double"/>
+    <xs:attribute name="RemCredit" type="xs:double"/>
+  </xs:attributeGroup>
+  <!-- BOP alternative -->
+  <xs:element name="BOPAlt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="AggSet"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.BOPAlt"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.BOPAlt">
+    <xs:attribute name="BILLED" default="Y">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="Y"/>
+          <xs:enumeration value="N"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CONTR" default="Y">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="Y"/>
+          <xs:enumeration value="N"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="COAVAIL">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="Y"/>
+          <xs:enumeration value="N"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="BOPPack" type="xs:string"/>
+    <xs:attribute name="BOPPurp" type="xs:string"/>
+    <xs:attribute name="BOPSeqNo" type="xs:positiveInteger"/>
+  </xs:attributeGroup>
+  <!--
+    COAVAIL :  Carryover of this FU account is available for consumption in following billing runs
+    BOPPack :  BOP Package identifier
+    BOPPurp :  BOP purpose identifier (LOGAA, DISAA or INVBA)
+    BOPSeqNo:  this attribute identifies BOP alternative
+  -->
+  <!-- Non Monetary discount information -->
+  <xs:element name="DiscountValue">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.DiscountValue"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.DiscountValue">
+    <xs:attribute name="OrigVal" use="required" type="xs:double"/>
+    <xs:attribute name="DiscVal" use="required" type="xs:double"/>
+    <xs:attribute name="UM" use="required" type="xs:token"/>
+  </xs:attributeGroup>
+  <!--
+    OrigVal is original value
+    DiscVal is discounted value
+    UM      is unit of meassurement
+  -->
+  <!-- Directory number -->
+  <xs:element name="DN">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.DN"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.DN">
+    <xs:attribute name="Num" use="required" type="xs:string"/>
+    <xs:attribute name="Main" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="Y"/>
+          <xs:enumeration value="N"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!-- Directory number block -->
+  <xs:element name="DNBlock">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.DNBlock"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.DNBlock">
+    <xs:attribute name="NumStart" use="required" type="xs:string"/>
+    <xs:attribute name="NumEnd" use="required" type="xs:string"/>
+    <xs:attribute name="PRO" use="required" type="xs:string"/>
+    <xs:attribute name="SN" use="required" type="xs:string"/>
+    <xs:attribute name="Main">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="Y"/>
+          <xs:enumeration value="N"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!-- Call Definition -->
+  <xs:element name="Call">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="XCD"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="FUP"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="XCD">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.XCD"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FUP">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.FUP"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChDet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="XCD"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="FUP"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="GL">
+    <xs:annotation>
+        <xs:documentation xml:lang="en">
+            Applies to PC 14158 only.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.GL"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.GL">
+    <xs:attribute name="Id" use="required">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                <p>
+                    Type of the GL account. Allowed values:
+                    <ul>
+                        <li>001 – sales GL account</li>
+                        <li>002 – discount GL account</li>
+                        <li>003 – minimum commitment GL account</li>
+                    </ul>
+                </p>
+            </xs:documentation>
+        </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="001"/>
+          <xs:enumeration value="002"/>
+          <xs:enumeration value="003"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Account" use="required" type="xs:string"/>
+    <xs:attribute name="JobCost" type="xs:integer"/>
+  </xs:attributeGroup>
+
+
+</xs:schema>

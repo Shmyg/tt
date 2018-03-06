@@ -1,0 +1,764 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+  Copyright (c) 2014 Ericsson
+
+  File:    Summary.xsd
+
+  Owner:   Matthias Fehrenbacher
+
+  @(#) ABSTRACT : XML validation
+  @(#) BSCS iX R4, Bill Formatting Server
+
+  This schema validates summary pages.
+  VERSION = @(#) ./lhsj_main/bscs/batch/src/bgh/LAYOUT/Summary.xsd, , CBIO_PCP1503, CBIO_PCP1503_150728 @@CBIO_PCP1503_150728 28-Jul-2015
+
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  <xs:element name="Summary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Sums"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="CustRef"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="FUAccInfoPerCo"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="BalSshPerCo"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="FUDiscountInfoPerCo"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="CCHDiscountInfoPerCo"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="CSDiscountInfoPerCo"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="BalAdPerCo"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="PromoCreditsPerCo"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="BundleInfoPerCo"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!-- First DiscountInfo is FU Discount, second one is CCH Discount -->
+  <xs:element name="Sums">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Charge"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    Charge Ids are
+    - 177
+    - 277
+    - 812
+    - 910
+    - 911
+    - 912
+    - 913
+    - 914
+    Charges with id 177, 277, 812 and 912 might also be given for prepaid charges
+  -->
+  <xs:element name="CustRef">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Addr"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Charge"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="SumItem"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Contract"/>
+        <xs:element minOccurs="0" maxOccurs="2" ref="Date"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.CustRef"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.CustRef">
+    <xs:attribute name="Id" use="required" type="xs:string"/>
+    <xs:attribute name="CustCode" use="required" type="xs:string"/>
+    <xs:attribute name="Reseller" default="N">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="Y"/>
+          <xs:enumeration value="N"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="PartyType" use="required" type="xs:token"/>
+    <xs:attribute name="BillSeqNo" use="required" type="xs:integer"/>
+  </xs:attributeGroup>
+  <!--
+    Charge Ids are
+    - 830
+    - 835
+    - 930
+    - 933
+    - 934
+    - 935
+    - 936
+    Charges with id 830, 930, 835 and 935 might also be given for prepaid charges
+  -->
+  <xs:element name="Contract">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="BOPAlt"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="SIM"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="DN"/>
+          <xs:element ref="DNBlock"/>
+        </xs:choice>
+        <xs:element maxOccurs="unbounded" ref="Charge"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="PerCTInfo"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.Contract"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Contract">
+    <xs:attribute name="Id" use="required" type="xs:string"/>
+    <xs:attribute name="MRKT" use="required" type="xs:string"/>
+    <xs:attribute name="SM" use="required" type="xs:string"/>
+    <xs:attribute name="BOPInd" default="N">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="Y"/>
+          <xs:enumeration value="N"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!--
+    Charge Ids are
+    - 831
+    - 931
+    Charges might also be given for prepaid charges
+  -->
+  <xs:element name="PerCTInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Charge"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="SumItem"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.PerCTInfo"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.PerCTInfo">
+    <xs:attribute name="CT" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="A"/>
+          <xs:enumeration value="O"/>
+          <xs:enumeration value="P"/>
+          <xs:enumeration value="S"/>
+          <xs:enumeration value="U"/>
+          <xs:enumeration value="T"/>
+          <xs:enumeration value="B"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="PT" default="P">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="P"/>
+          <xs:enumeration value="A"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="SIM">
+    <xs:annotation>
+      <xs:documentation>List of Multiple SIM Cards of a contract. Applies to PC13509 only.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.SIM"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.SIM">
+    <xs:attribute name="SIMNum" use="required" type="xs:string"/>
+    <xs:attribute name="Imsi"   use="required" type="xs:string"/>
+    <xs:attribute name="PortId" use="required" type="xs:string"/>
+  </xs:attributeGroup>
+  <!--
+    PT (Payment Type) with values
+    - P (postpaid)
+    - A (advance = prepaid)  
+    Charge Ids in this context are
+     - 832
+     - 837 (ATM)
+     - 838
+     - 932
+     - 937 (ATM)
+     - 938
+    Charges in sections where PT is A will also be marked with 'A'
+  -->
+  <xs:element name="SumItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AggInfo" type="SumItemAggInfo"/>
+        <xs:element minOccurs="0" ref="AggSet"/>
+        <!-- GL should be required (minOccurs="1") when appropriate license is on. -->
+        <xs:element minOccurs="0" maxOccurs="3" ref="GL"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Charge"/>
+        <xs:element minOccurs="0" ref="Txt"/>
+        <xs:element minOccurs="0" ref="Price"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="SrvStatus"/>
+        <xs:element minOccurs="0" ref="SrvParams"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="PromoItem"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.SumItem"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.SumItem">
+    <xs:attribute name="PT" default="P">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="P"/>
+          <xs:enumeration value="A"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ArticleString" use="required" type="xs:string"/>
+    <xs:attribute name="LZString" use="required" type="xs:string"/>
+    <xs:attribute name="NumItems" use="required" type="xs:integer"/>
+    <xs:attribute name="Quantity" type="xs:positiveInteger"/>
+    <xs:attribute name="NumDays" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="CollInd" default="N">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="Y"/>
+          <xs:enumeration value="N"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="BillSeqNo" use="required" type="xs:integer"/>
+    <xs:attribute name="ChargingPeriod" type="xs:string">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">Applies to PC13849 only. Charging period definition (string with 2 pieces): 2 Months, 15 Days, etc.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="IndividualChargingPeriod">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">Applies to PC13849 only. Indicates whether charging period for a recurring charge is individual (Y) or not (N).</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="Y"/>
+          <xs:enumeration value="N"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ChargeStartDate" type="xs:string">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">Applies to PC13849 only. Denotes first start date covered in SumItem.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="ChargeEndDate" type="xs:string">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">Applies to PC13849 only. Denotes last end date covered in SumItem.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!--
+    PT (Payment Type) with values
+    - P (postpaid)
+    - A (advance = prepaid) 
+    LZString corresponds to sub-article string
+    NumDays only in case that CT is ACCESS
+    Charge ids are
+    - 98 (item original amount with VAT but without discount)
+    - 99 (item original amount without VAT and without discount)
+    - 125 (item without VAT)
+    - 203 (item with VAT)
+    CollInd indicates, whether amount has been collected on behalf 
+    
+    Charges in SumItem where PT is A will also be marked with 'A'
+    Txt is Fee remark, in case that SumItem is a fee
+  -->
+  <!-- Free unit account -->
+  <xs:element name="FUAccInfoPerCo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="BOPAlt"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="FUAccInfo"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.FUAccInfoPerCo"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.FUAccInfoPerCo">
+    <xs:attribute name="CoId" use="required" type="xs:string"/>
+  </xs:attributeGroup>
+  <xs:element name="FUAccInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="FUAcc"/>
+        <xs:element maxOccurs="unbounded" ref="Date"/>
+        <xs:element minOccurs="0" maxOccurs="2" ref="FUNum"/>
+        <xs:element maxOccurs="unbounded" ref="Charge"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+<!-- Dates are 
+
+    - accounting start date (Type ='START')
+    - and accounting end date (Type = 'END')
+    - expire date of carry over application (Type = 'END_FU_CO' - only in case of carry over)
+    Charges are 
+    - current reduced FU amount (Id = 54)
+    - total reduced FU amount (Id = 55)
+    (In case of price plan accounts the reduced amount is the difference between the old
+    and the new price)
+    
+    In case of technical free unit accounts there are in addition 2 FUNum elements.
+    
+    In case of monetary free unit accounts there are in addition the following charges
+    (no FUNum elements):
+    - original FU amount (Id = 56)
+    - granted FU amount (Id = 57)
+    - carry over FU amount (Id = 58)
+    
+    In case of price plan free unit accounts the number of FUNum and Charge elements depends
+    on the evaluation and the application UoM.
+    
+    Price plan free unit account with technical evaluation UoM:
+    - 1 FUNum element with attribute UME set to evaluation UoM.
+    
+    Price plan free unit account with monetary evaluation UoM:
+    - 3 Charge elements:
+      - original FU amount (Id = 56) with amount = 0
+      - granted FU amount (Id = 57): amount of accumulated evaluation quantity
+      - carry over FU amount (Id = 58) with amount = 0
+    
+    Price plan free unit account with technical application UoM:
+    - 1 FUNum element with attribute UMA set to application UoM.
+    
+    Price plan free unit account with monetary application UoM:
+    - 2 Charge elements:
+      - Current repriced amount (Id = 527)
+      - Total repriced amount (Id = 528)
+    
+    In case of any type of price plan account:
+    - amount of mark-up fees applied (Id = 526)
+--> 
+  <!-- free unit account -->
+  <xs:element name="FUAcc">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.FUAcc"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.FUAcc">
+    <xs:attribute name="ChPlan" type="xs:string"/>
+    <xs:attribute name="Id" use="required" type="xs:positiveInteger"/>
+    <xs:attribute name="HistId" use="required" type="xs:positiveInteger"/>
+    <xs:attribute name="FUP" use="required" type="xs:string"/>
+    <xs:attribute name="FUE" use="required" type="xs:positiveInteger"/>
+    <xs:attribute name="FUEV" use="required" type="xs:positiveInteger"/>
+    <xs:attribute name="FUOption" type="xs:token"/>
+    <xs:attribute name="PRO" type="xs:string"/>
+    <xs:attribute name="UM" use="required" type="xs:token"/>
+  </xs:attributeGroup>
+  <!-- FU info if account uses a non monetary unit as UoM -->
+  <xs:element name="FUNum">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.FUNum"/>
+    </xs:complexType>
+  </xs:element>
+<!-- In case of technical free unit accounts there are 2 FUNum elements with different
+     attributes:
+     1. - Orig
+        - Granted
+        - CarryOver
+        - UME: unit of measurement for evaluation (same as UM in FUAcc)
+     2. - CurrUsed
+        - TotalUsed
+        - UMA: unit of measurement for application (same as UM in FUAcc and same as UME)
+        
+     In case of price plan free unit accounts there can be 0, 1 or 2 FUNum elements:
+     0 when both evaluation and application UoM are monetary.
+     1 when either the evaluation UoM or the application UoM is technical.
+     2 when both evaluation and application UoM are technical.
+     
+     FUNum attributes in case of technical evaluation UoM:
+     - Orig: is set to 0
+     - Granted: number of accumulated evaluation quantity
+     - CarryOver: is set to 0
+     - UME: unit of measurement for evaluation
+     
+     FUNum attributes in case of technical application UoM:
+     - CurrUsed: current sum of repriced application quantity that was multiplied with 
+       the special price per unit
+     - TotalUsed: total sum of repriced application quantity
+     - UMA: unit of measurement for application
+--> 
+  <xs:attributeGroup name="attlist.FUNum">
+    <xs:attribute name="Orig" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="Granted" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="CurrUsed" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="TotalUsed" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="CarryOver" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="UME" type="xs:token"/>
+    <xs:attribute name="UMA" type="xs:token"/>
+  </xs:attributeGroup>
+  <!-- Balance snapshots for a contract -->
+  <xs:element name="BalSshPerCo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="BalSsh"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.BalSshPerCo"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.BalSshPerCo">
+    <xs:attribute name="CoId" use="required" type="xs:string"/>
+  </xs:attributeGroup>
+  <!-- Balance snapshot -->
+  <xs:element name="BalSsh">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="3" ref="Date"/>
+        <xs:element ref="Bal"/>
+        <xs:element ref="BalVols"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.BalSsh"/>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    Dates are
+    - balance snapshot date (BAL_REF)
+    - balance product deactivation date (SRV_END)
+    - cost control balance next reset date (BAL_RESET)
+    - balance start date (SRV_START)
+    Charges are 
+    - balance accumulated usage net    (Id = 21)
+    - balance accumulated credit net   (Id = 22)
+    - balance remaining credit net     (Id = 23)
+    - balance accumulated usage gross  (Id = 31)
+    - balance accumulated credit gross (Id = 32)
+    - balance remaining credit gross   (Id = 33)
+  -->
+  <xs:attributeGroup name="attlist.BalSsh">
+    <xs:attribute name="BalSeqNo" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="PricingAlt" type="xs:token"/>
+  </xs:attributeGroup>
+  <xs:element name="FUDiscountInfoPerCo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="BOPAlt"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="FUDiscountInfo"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.FUDiscountInfoPerCo"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.FUDiscountInfoPerCo">
+    <xs:attribute name="CoId" use="required" type="xs:string"/>
+  </xs:attributeGroup>
+  <xs:element name="FUDiscountInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Charge"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="DiscountValue"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.FUDiscountInfo"/>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    Charge* describe monetary discount information, aggregated for the FUP
+    Charge Ids are
+    56  - Original Amount
+    55  - Discounted Amount
+    DiscountValue* describe aggregated non-monetary values
+    One element Discount Value is provided per unit of meassurement
+  -->
+  <xs:attributeGroup name="attlist.FUDiscountInfo">
+    <xs:attribute name="FUP" use="required" type="xs:string"/>
+  </xs:attributeGroup>
+  <!-- FUP  is free unit package, for which the discount aggregation was performed -->
+  <xs:element name="CCHDiscountInfoPerCo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="CCHDiscountInfo"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.CCHDiscountInfoPerCo"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.CCHDiscountInfoPerCo">
+    <xs:attribute name="CoId" use="required" type="xs:string"/>
+  </xs:attributeGroup>
+  <xs:element name="CCHDiscountInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Charge"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="DiscountValue"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.CCHDiscountInfo"/>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    Charge* describe monetary discount information, aggregated for the const control service
+    Charge Ids are
+    56  - Original Amount
+    55  - Discounted Amount
+    DiscountValue* describe aggregated non-monetary values
+    One element Discount Value is provided per unit of meassurement
+  -->
+  <xs:attributeGroup name="attlist.CCHDiscountInfo">
+    <xs:attribute name="SN" use="required" type="xs:string"/>
+  </xs:attributeGroup>
+  <!-- SN   is cost control service, for which the discount aggregation was performed -->
+
+  <!-- External discounts -->
+  <xs:element name="CSDiscountInfoPerCo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="CSDiscountInfo"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.CSDiscountInfoPerCo"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.CSDiscountInfoPerCo">
+    <xs:attribute name="CoId" use="required" type="xs:string"/>
+  </xs:attributeGroup>
+  <xs:element name="CSDiscountInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Charge"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="DiscountValue"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.CSDiscountInfo"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.CSDiscountInfo">
+    <xs:attribute name="SN" use="required" type="xs:string"/>
+  </xs:attributeGroup>
+  
+  <!-- Balance adjustments for a contract -->
+  <xs:element name="BalAdPerCo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="BalAd"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.BalAdPerCo"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.BalAdPerCo">
+    <xs:attribute name="CoId" use="required" type="xs:string"/>
+  </xs:attributeGroup>
+  <!-- Cost Control balance adjustment info -->
+  <xs:element name="BalAd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Bal"/>
+        <xs:element ref="BalVols"/>
+        <xs:element minOccurs="1" maxOccurs="5" ref="Date"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.BalAd"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.BalAd">
+    <xs:attribute name="No" use="required" type="xs:positiveInteger"/>
+    <xs:attribute name="Type" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="C"/>
+          <xs:enumeration value="D"/>
+          <xs:enumeration value="A"/>
+          <xs:enumeration value="M"/>
+          <xs:enumeration value="B"/>
+          <xs:enumeration value="Y"/>
+          <xs:enumeration value="T"/>
+          <xs:enumeration value="E"/>
+          <xs:enumeration value="G"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="AdjAmt" use="required" type="xs:double"/>
+    <xs:attribute name="Reason" type="xs:string"/>
+    <xs:attribute name="Comment" use="required" type="xs:string"/>
+    <xs:attribute name="TransType" type="xs:token"/>
+  </xs:attributeGroup>
+  <!--
+    The adjustment amount (attribute AdjAmt
+    is given in the unit specified in element Bal;
+    The same applies for the amounts given in BalVols
+    Date is balance snapshot date (BAL_REF)
+    Type might be
+        C - credit
+        D - debit
+        A - add amount to balance aggregate
+        M - substract amount from balance aggregate
+        B - implicit balance as a result of promotion action 
+        Y - Modify only validity period and next reset date of a balance.
+        T - transfer
+        E - expiration of purchased bundle and associated counter balances
+        G - balance or offer deleted
+  -->
+  <!-- promotion credit info for a contract -->
+  <xs:element name="PromoCreditsPerCo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="PromoCreditPerBal"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.PromoCreditsPerCo"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.PromoCreditsPerCo">
+    <xs:attribute name="CoId" use="required" type="xs:string"/>
+  </xs:attributeGroup>
+  <!-- promotion credit granted to a prepaid balance -->
+  <xs:element name="PromoCreditPerBal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Bal"/>
+        <xs:element ref="Charge"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="PromoItem"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    - Bal identifies prepaid balance
+    - Charge is total credit amount for Bal, 
+      Charge id used id 700 (change of prepaid credit due to credits)
+    - PromoItem describes promotion action contributing to Bal
+  -->
+  <xs:element name="BundleInfoPerCo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="BundleInfo"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.BundleInfoPerCo"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.BundleInfoPerCo">
+    <xs:attribute name="CoId" use="required" type="xs:string"/>
+  </xs:attributeGroup>
+  <xs:element name="BundleInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="3" ref="Date"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="BundledProd"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.BundleInfo"/>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    Dates used are:
+    - START (valid from date)
+    - END (valid to date)
+    - PURCHASE (bundle purchase date)
+    BundledProd* specify the contained bundled products
+  -->
+  <xs:attributeGroup name="attlist.BundleInfo">
+    <xs:attribute name="SN" use="required" type="xs:string"/>
+    <xs:attribute name="PRO" use="required" type="xs:string"/>
+    <xs:attribute name="SeqNo" use="required" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="BundId" use="required" type="xs:string"/>
+    <xs:attribute name="BundVers" use="required" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="Status" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="N"/>
+          <xs:enumeration value="P"/>
+          <xs:enumeration value="A"/>
+          <xs:enumeration value="E"/>
+          <xs:enumeration value="T"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!--
+    Possible values for Status are
+    - N - no state
+    - P - purchased
+    - A - active
+    - E - expired
+    - T - terminated
+  -->
+  <xs:element name="BundledProd">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.BundledProd"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.BundledProd">
+    <xs:attribute name="BPROD" use="required" type="xs:string"/>
+  </xs:attributeGroup>
+
+  <xs:complexType name="SumItemAggInfo">
+    <xs:annotation>
+        <xs:documentation xml:lang="en">
+            <p>
+                Applies to PC 12990 only.
+            </p>
+            <p>
+                Statistics of usage charges contributing
+                to a summary item in the context of free units
+                applied to those charges.
+            </p>
+        </xs:documentation>
+    </xs:annotation>
+    <xs:attributeGroup ref="attlist.SumItemAggInfo"/>
+  </xs:complexType>
+  <xs:attributeGroup name="attlist.SumItemAggInfo">
+    <xs:attribute name="AI_1" use="required" type="xs:long">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Number of calls or messages, contributing to summary item, fully discounted by free units
+            </xs:documentation>
+        </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="AI_2" use="required" type="xs:long">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Number of calls or messages, contributing to summary item, not at all discounted by free units
+            </xs:documentation>
+        </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="AI_3" use="required" type="xs:long">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Number of calls or messages, contributing to summary item, partly discounted by free units
+            </xs:documentation>
+        </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="AI_4" use="required" type="xs:long">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Number of zero rated calls or messages, contributing to summary item, having rated volume greater than zero
+            </xs:documentation>
+        </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="AI_5" use="required" type="xs:long">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Number of zero rated calls or messages, contributing to summary item, having rated volume equal zero
+            </xs:documentation>
+        </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="AI_6" use="required" type="xs:long">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Rounded volume of calls or messages contributing to summary item
+            </xs:documentation>
+        </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="AI_7" use="required" type="xs:long">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Reduction of rounded volume due to application of free units
+            </xs:documentation>
+        </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="AI_8" use="required" type="xs:long">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Rated volume of calls or messages contributing to summary item
+            </xs:documentation>
+        </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="AI_9" use="required" type="xs:long">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Zero rated volume of calls or messages contributing to summary item
+            </xs:documentation>
+        </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="AI_VOL_UM" use="required" type="xs:long">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Code of unit of measure of volume of calls or messages contributing to summary item
+            </xs:documentation>
+        </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+
+</xs:schema>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE TRACE PUBLIC "trace.dtd" "trace.dtd">
+<TRACE timestamp="1461876239076" dateTimeFormat="yyyy.MM.dd HH:mm:ss z">
+    <SOCREATE soiName="CIL" soiVersion="3_CBIO_2_2" name="1" timestamp="4622"/>
+    <COMMAND name="SESSION.CHANGE" timestamp="0" so="1">
+        <SVLOBJECT>
+            <LIST name="values">
+                <SVLOBJECT>
+                    <STRING name="KEY" val="BU_ID"/>
+                    <STRING name="VALUE" val="2"/>
+                </SVLOBJECT>
+            </LIST>
+        </SVLOBJECT>
+    </COMMAND>
+    <COMMAND name="BILLING_ACCOUNT.READ" timestamp="0" so="1">
+        <SVLOBJECT>
+            <LONG name="BILLING_ACCOUNT_ID" val="2"/>
+            <CHAR name="MODE" val="A"/>
+        </SVLOBJECT>
+        <RESULT>
+            <SVLOBJECT>
+                <LONG name="CS_ID" val="8"/>
+                <STRING name="CS_ID_PUB" val="10114788"/>
+                <STRING name="BILLING_ACCOUNT_CODE" val="BA0000000002"/>
+                <STRING name="BILLING_ACCOUNT_NAME" val="Primary account"/>
+                <BOOLEAN name="PRIMARY_FLAG" val="T"/>
+                <LONG name="BM_ID" val="17"/>
+                <STRING name="BM_ID_PUB" val="XML01"/>
+                <LONG name="PRIMARY_DOCUMENT_CURRENCY_ID" val="47"/>
+                <STRING name="PRIMARY_DOCUMENT_CURRENCY_ID_PUB" val="TTD"/>
+                <LONG name="PRIMARY_CONVRATETYPE_ID" val="1"/>
+                <LONG name="NUMBER_COPIES" val="1"/>
+                <LONG name="FOREIGN_CURCY_LVL" val="1"/>
+                <CHAR name="INVOICING_IND" val="I"/>
+                <LIST name="LIST_OF_BILLING_ACCOUNT_VERSIONS">
+                    <SVLOBJECT>
+                        <LONG name="BILLING_ACCOUNT_VERSION" val="1"/>
+                        <DATETIME name="VALID_FROM" val="2016.02.02 01:28:06 GMT-04:00"/>
+                        <CHAR name="STATUS" val="A"/>
+                        <CHAR name="INDIVIDUALTAX_FROM_IND" val="C"/>
+                        <CHAR name="TAX_EXEMPTION_FROM_IND" val="C"/>
+                    </SVLOBJECT>
+                </LIST>
+            </SVLOBJECT>
+        </RESULT>
+    </COMMAND>
+    <SODISPOSE soiName="CIL" soiVersion="3_CBIO_2_2" name="1" timestamp="2"/>
+</TRACE>

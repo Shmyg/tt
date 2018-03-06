@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+  Copyright (c) 2013 Ericsson
+
+  All rights reserved.
+
+  File:    Legend.xsd
+
+  Owner:   Matthias Fehrenbacher
+
+  @(#) ABSTRACT : XML validation
+  @(#) BSCS iX R4, Bill Formatting Server
+
+  This schema validates legend pages.
+  VERSION = @(#) ./lhsj_main/bscs/batch/src/bgh/LAYOUT/Legend.xsd, , CBIO_PCP1503, CBIO_PCP1503_150728 @@CBIO_PCP1503_150728 28-Jul-2015
+
+-->
+
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" version="1.0">
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+    <xs:element name="Legend">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="TypeDesc"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="TypeDesc">
+        <xs:complexType>
+            <xs:attributeGroup ref="attlist.TypeDesc"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist.TypeDesc">
+        <xs:attribute name="Type" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="AR"/>
+                    <xs:enumeration value="BMODE"/>
+                    <xs:enumeration value="BOP"/>
+                    <xs:enumeration value="BPROD"/>
+                    <xs:enumeration value="BPURP"/>
+                    <xs:enumeration value="BU"/>
+                    <xs:enumeration value="CC"/>
+                    <xs:enumeration value="CCE"/>
+                    <xs:enumeration value="CP"/>
+                    <xs:enumeration value="CPD"/>
+                    <xs:enumeration value="CPL"/>
+                    <xs:enumeration value="CURR"/>
+                    <xs:enumeration value="DD"/>
+                    <xs:enumeration value="EC"/>
+                    <xs:enumeration value="FAF"/>
+                    <xs:enumeration value="FTX"/>
+                    <xs:enumeration value="FUP"/>
+                    <xs:enumeration value="GMC"/>
+                    <xs:enumeration value="MRKT"/>
+                    <xs:enumeration value="PL"/>
+                    <xs:enumeration value="PM"/>
+                    <xs:enumeration value="PMC"/>
+                    <xs:enumeration value="PME"/>
+                    <xs:enumeration value="PP"/>
+                    <xs:enumeration value="PRO"/>
+                    <xs:enumeration value="PT"/>
+                    <xs:enumeration value="PTT"/>
+                    <xs:enumeration value="PMT"/>
+                    <xs:enumeration value="RT"/>
+                    <xs:enumeration value="SN"/>
+                    <xs:enumeration value="SP"/>
+                    <xs:enumeration value="TM"/>
+                    <xs:enumeration value="TT"/>
+                    <xs:enumeration value="TZ"/>
+                    <xs:enumeration value="UM"/>
+                    <xs:enumeration value="UT"/>
+                    <xs:enumeration value="ZD"/>
+                    <xs:enumeration value="PA"/>
+                    <xs:enumeration value="TUAT"/>
+                    <xs:enumeration value="VT"/>
+                    <xs:enumeration value="TCA"/>
+                    <xs:enumeration value="TCO"/>
+                    <xs:enumeration value="SAP"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="Id" use="required" type="xs:string"/>
+        <xs:attribute name="PKey" use="required" type="xs:string"/>
+        <xs:attribute ref="xml:lang" use="required"/>
+        <xs:attribute name="ShDes" use="required" type="xs:string"/>
+        <xs:attribute name="LongDes" use="required" type="xs:string"/>
+    </xs:attributeGroup>
+</xs:schema>

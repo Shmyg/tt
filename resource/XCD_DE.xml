@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+  Copyright (c) 2012 Ericsson
+
+  All rights reserved.
+
+  File:    XCD_DE.xml
+
+  Owner:   Matthias Fehrenbacher
+
+  @(#) ABSTRACT : XML configuration file
+  @(#) BSCS iX R4, Bill Formatting Server
+
+  This document contains UDR attribute descriptions
+  in the base configuartion.
+  VERSION = @(#) ./lhsj_main/bscs/batch/src/bgh/LAYOUT/XCD_DE.xml, , CBIO_PCP1503, CBIO_PCP1503_150728 @@CBIO_PCP1503_150728 28-Jul-2015
+
+-->
+
+<!DOCTYPE UDR [
+<!ELEMENT UDR (XCD*)>
+<!ELEMENT XCD EMPTY>
+<!ATTLIST XCD
+    Id       CDATA #REQUIRED
+    xml:lang (DE|EN|FR|IT|AR) #IMPLIED
+    Des      CDATA #IMPLIED
+>
+]>
+
+<UDR>
+  <!-- A -->
+  <XCD Id="AIUR" xml:lang="DE" Des=""/>
+  <XCD Id="ANP" xml:lang="DE" Des=""/>
+  <XCD Id="APN" xml:lang="DE" Des="A-Nummer"/>
+  <XCD Id="AUC" xml:lang="DE" Des=""/>
+  <!-- B -->
+  <XCD Id="BOPAltInd" xml:lang="DE" Des=""/>
+  <XCD Id="BOPDZP" xml:lang="DE" Des=""/>
+  <XCD Id="BOPPCK" xml:lang="DE" Des=""/>
+  <XCD Id="BOPPurp" xml:lang="DE" Des=""/>
+  <XCD Id="BOPSN" xml:lang="DE" Des=""/>
+  <XCD Id="BOPSP" xml:lang="DE" Des=""/>
+  <XCD Id="BOPSeqNoRP" xml:lang="DE" Des="Sequenz - Nr."/>
+  <XCD Id="BOPSeqNoSP" xml:lang="DE" Des=""/>
+  <XCD Id="BOPTM" xml:lang="DE" Des=""/>
+  <XCD Id="BOPTMV" xml:lang="DE" Des=""/>
+  <XCD Id="BOPTZ" xml:lang="DE" Des=""/>
+  <XCD Id="BOPURP" xml:lang="DE" Des=""/>
+  <XCD Id="BU" xml:lang="DE" Des=""/>
+  <XCD Id="BilledIND" xml:lang="DE" Des="ber."/>
+  <XCD Id="BundPurInd" xml:lang="DE" Des="erworbenes Paket"/>
+  <XCD Id="BundUsgInd" xml:lang="DE" Des="Paket-Service"/>
+  <!-- C -->
+  <XCD Id="CAI" xml:lang="DE" Des=""/>
+  <XCD Id="CC" xml:lang="DE" Des=""/>
+  <XCD Id="CCA" xml:lang="DE" Des=""/>
+  <XCD Id="CCU" xml:lang="DE" Des=""/>
+  <XCD Id="CGI" xml:lang="DE" Des=""/>
+  <XCD Id="CLIR" xml:lang="DE" Des="CLIR Status"/>
+  <XCD Id="CMSC" xml:lang="DE" Des="MSC-Adresse"/>
+  <XCD Id="CO" xml:lang="DE" Des="Vertrag"/>
+  <XCD Id="CQA" xml:lang="DE" Des=""/>
+  <XCD Id="CQC" xml:lang="DE" Des=""/>
+  <XCD Id="CQUM" xml:lang="DE" Des=""/>
+  <XCD Id="CQV" xml:lang="DE" Des=""/>
+  <XCD Id="CRI" xml:lang="DE" Des=""/>
+  <XCD Id="CRN" xml:lang="DE" Des="CAMEL Ref. Nr."/>
+  <XCD Id="CRTs" xml:lang="DE" Des="Datum"/>
+  <XCD Id="CT" xml:lang="DE" Des="Verb.-Typ"/>
+  <XCD Id="CTI" xml:lang="DE" Des=""/>
+  <XCD Id="CTs" xml:lang="DE" Des="Datum / Beginn"/>
+  <XCD Id="CU" xml:lang="DE" Des="Verursacher"/>
+  <XCD Id="CUG" xml:lang="DE" Des="CUG-Index"/>
+  <XCD Id="Cat" xml:lang="DE" Des="Katalog"/>
+  <XCD Id="CatEl" xml:lang="DE" Des="Katalog-Element"/>
+  <XCD Id="ChC" xml:lang="DE" Des=""/>
+  <XCD Id="ChType" xml:lang="DE" Des="Geb&#x00FC;hren-Typ"/>
+  <XCD Id="ChrgEndTime" xml:lang="DE" Des=""/>
+  <XCD Id="ChrgPrmVF" xml:lang="DE" Des=""/>
+  <XCD Id="ChrgStartTime" xml:lang="DE" Des="Periode"/>
+  <XCD Id="ContractedIND" xml:lang="DE" Des="vereinb."/>
+  <XCD Id="CpName" xml:lang="DE" Des="Content Provider"/>
+  <!-- D -->
+  <XCD Id="DAUM" xml:lang="DE" Des=""/>
+  <XCD Id="DAV" xml:lang="DE" Des=""/>
+  <XCD Id="DAmt" xml:lang="DE" Des="rab. Betrag"/>
+  <XCD Id="DC" xml:lang="DE" Des="Klicks"/>
+  <XCD Id="DCat" xml:lang="DE" Des=""/>
+  <XCD Id="DES" xml:lang="DE" Des="Ziel-Typ"/>
+  <XCD Id="DLV" xml:lang="DE" Des="Vol.-Down/Byte"/>
+  <XCD Id="DRV" xml:lang="DE" Des="ber. Volumen"/>
+  <XCD Id="DRdV" xml:lang="DE" Des="(rab.)"/>
+  <XCD Id="DUM" xml:lang="DE" Des=""/>
+  <XCD Id="DV" xml:lang="DE" Des=""/>
+  <XCD Id="DZP" xml:lang="DE" Des="Zonen-Punkt"/>
+  <!-- E -->
+  <XCD Id="EC" xml:lang="DE" Des="Externer Tr&#x00E4;ger"/>
+  <XCD Id="ET" xml:lang="DE" Des=""/>
+  <XCD Id="ExtAmt" xml:lang="DE" Des="Externer Betrag"/>
+  <XCD Id="ExtCurrCode" xml:lang="DE" Des="Externe W&#x00E4;hrung"/>
+  <XCD Id="ExtTax" xml:lang="DE" Des="Externe Steuer"/>
+  <!-- F -->
+  <XCD Id="FNUR" xml:lang="DE" Des=""/>
+  <XCD Id="FileName" xml:lang="DE" Des="File-Name"/>
+  <XCD Id="ForAmt" xml:lang="DE" Des=""/>
+  <XCD Id="ForAmtCurrCode" xml:lang="DE" Des=""/>
+  <XCD Id="ForTaxAmt" xml:lang="DE" Des=""/>
+  <!-- I -->
+  <XCD Id="ICR" xml:lang="DE" Des=""/>
+  <XCD Id="IPY" xml:lang="DE" Des=""/>
+  <XCD Id="Id" xml:lang="DE" Des=""/>
+  <!-- L -->
+  <XCD Id="LZ" xml:lang="DE" Des=""/>
+  <!-- M -->
+  <XCD Id="MCCODE" xml:lang="DE" Des=""/>
+  <XCD Id="MCFAF" xml:lang="DE" Des=""/>
+  <XCD Id="MCInd" xml:lang="DE" Des=""/>
+  <XCD Id="MCPKEY" xml:lang="DE" Des=""/>  
+  <XCD Id="MCS" xml:lang="DE" Des=""/>
+  <XCD Id="MCTYPE" xml:lang="DE" Des=""/>
+  <XCD Id="MKT" xml:lang="DE" Des="Markt"/>
+  <XCD Id="MNC" xml:lang="DE" Des=""/>
+  <XCD Id="MUV" xml:lang="DE" Des=""/>
+  <XCD Id="MV" xml:lang="DE" Des=""/>
+  <!-- N -->
+  <XCD Id="NCU" xml:lang="DE" Des=""/>
+  <XCD Id="NI" xml:lang="DE" Des="Rekord-Typ"/>
+  <XCD Id="NN" xml:lang="DE" Des="Netzwerk-Name"/>
+  <XCD Id="NQSD" xml:lang="DE" Des=""/>
+  <XCD Id="NQSMT" xml:lang="DE" Des=""/>
+  <XCD Id="NQSP" xml:lang="DE" Des=""/>
+  <XCD Id="NQSPT" xml:lang="DE" Des=""/>
+  <XCD Id="NQSR" xml:lang="DE" Des=""/>
+  <XCD Id="No" xml:lang="DE" Des="Nr."/>
+  <XCD Id="NumDays" xml:lang="DE" Des="Aktive Tage"/>
+  <XCD Id="Numit" xml:lang="DE" Des="Menge"/>
+  <!-- O -->
+  <XCD Id="OAmt" xml:lang="DE" Des="unrab. Betrag"/>
+  <XCD Id="OC" xml:lang="DE" Des="Klicks"/>
+  <XCD Id="OPN" xml:lang="DE" Des="andere Partei"/>
+  <XCD Id="ORV" xml:lang="DE" Des="verbrauchtes Volumen"/>
+  <XCD Id="ORdV" xml:lang="DE" Des="gerundetes Vol.(unrab.)"/>
+  <!-- P -->
+  <XCD Id="PRIO" xml:lang="DE" Des=""/>
+  <XCD Id="PRO" xml:lang="DE" Des="Profile"/>
+  <XCD Id="PrInd" xml:lang="DE" Des="Prepaid"/>
+  <XCD Id="Price" xml:lang="DE" Des="Preis"/>
+  <XCD Id="PriceCurr" xml:lang="DE" Des=""/>
+  <XCD Id="PrmValueId" xml:lang="DE" Des="Service Info"/>
+  <XCD Id="PurSeqNo" xml:lang="DE" Des=""/>
+  <XCD Id="PurchId" xml:lang="DE" Des="Erwerbs-Nr."/>
+  <!-- R -->
+  <XCD Id="RCI" xml:lang="DE" Des="R-Zahlung"/>
+  <XCD Id="REM" xml:lang="DE" Des="Bemerkung"/>
+  <XCD Id="RQSD" xml:lang="DE" Des=""/>
+  <XCD Id="RQSMT" xml:lang="DE" Des=""/>
+  <XCD Id="RQSP" xml:lang="DE" Des=""/>
+  <XCD Id="RQSPT" xml:lang="DE" Des=""/>
+  <XCD Id="RQSR" xml:lang="DE" Des=""/>
+  <XCD Id="RRT" xml:lang="DE" Des="Rerate-Typ"/>
+  <XCD Id="RT" xml:lang="DE" Des="Typ"/>
+  <XCD Id="RTON" xml:lang="DE" Des=""/>
+  <XCD Id="RapSeqNo" xml:lang="DE" Des="RAP Sequenz - Nr."/>
+  <!-- S -->
+  <XCD Id="SCI" xml:lang="DE" Des=""/>
+  <XCD Id="SN" xml:lang="DE" Des="Dienst"/>
+  <XCD Id="SP" xml:lang="DE" Des="Paket"/>
+  <XCD Id="STD" xml:lang="DE" Des=""/>
+  <XCD Id="SeqNo" xml:lang="DE" Des="Sequenz-Nr."/>
+  <XCD Id="SrvChSType" xml:lang="DE" Des=""/>
+  <XCD Id="SrvChType" xml:lang="DE" Des=""/>
+  <XCD Id="SrvSt" xml:lang="DE" Des="Status"/>
+  <XCD Id="SubId" xml:lang="DE" Des=""/>
+  <!-- T -->
+  <XCD Id="TBQ" xml:lang="DE" Des=""/>
+  <XCD Id="TID" xml:lang="DE" Des=""/>
+  <XCD Id="TIDPA" xml:lang="DE" Des="Preis-Alternative"/>
+  <XCD Id="TM" xml:lang="DE" Des="Tarif-Modell"/>
+  <XCD Id="TMV" xml:lang="DE" Des="Tarif-Modell Version"/>
+  <XCD Id="TSD" xml:lang="DE" Des=""/>
+  <XCD Id="TT" xml:lang="DE" Des="T-Zeit"/>
+  <XCD Id="TTR" xml:lang="DE" Des=""/>
+  <XCD Id="TZ" xml:lang="DE" Des="T-Zone"/>
+  <XCD Id="TapSeqNo" xml:lang="DE" Des="TAP Sequenz - Nr."/>
+  <XCD Id="TimeSliceLB" xml:lang="DE" Des=""/>
+  <XCD Id="TimeSliceRB" xml:lang="DE" Des=""/>
+  <!-- U -->
+  <XCD Id="UM" xml:lang="DE" Des="Einheit"/>
+  <XCD Id="UQSHP" xml:lang="DE" Des=""/>
+  <XCD Id="UQSMBRD" xml:lang="DE" Des=""/>
+  <XCD Id="UQSMBRU" xml:lang="DE" Des=""/>
+  <XCD Id="UQSTC" xml:lang="DE" Des=""/>
+  <XCD Id="URP" xml:lang="DE" Des=""/>
+  <XCD Id="USN" xml:lang="DE" Des="Service"/>
+  <XCD Id="UT" xml:lang="DE" Des="Typ"/>
+  <XCD Id="UV" xml:lang="DE" Des="Vol.-Up/Byte"/>
+  <!-- X -->
+  <XCD Id="XDCat" xml:lang="DE" Des=""/>
+  <XCD Id="XDisc" xml:lang="DE" Des=""/>
+  <XCD Id="XTBQ" xml:lang="DE" Des=""/>
+</UDR>

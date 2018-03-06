@@ -1,0 +1,63 @@
+<!ELEMENT AddressPage (InvParty, (BillAcc | Addressee))>
+<!ATTLIST AddressPage 
+    xml:lang 	CDATA 		#REQUIRED  
+>
+
+
+<!-- Invoicing Party (network operator) -->
+<!ELEMENT InvParty (Addr, FiCont, CCContact)>
+<!ATTLIST InvParty 
+    VATRegNo 	CDATA 		#IMPLIED 
+>
+    
+
+<!ELEMENT Addressee (Customer, Addr?, FiCont?)>
+<!ATTLIST Addressee 
+    CoId		CDATA 		#IMPLIED
+    PayMeth		CDATA		#IMPLIED
+    BillMedium	        CDATA		#IMPLIED
+    CopyNo		CDATA		#IMPLIED
+    State		CDATA		#IMPLIED
+    GeoCode		CDATA		#IMPLIED
+>
+
+    
+<!ELEMENT BillAcc (Customer, Addr?, FiCont?)>
+<!ATTLIST BillAcc 
+    Desc		          CDATA 	#REQUIRED
+    PayMeth		        CDATA		#IMPLIED
+    BillMedium	      CDATA		#IMPLIED
+    CopyNo		        CDATA		#IMPLIED
+    State		          CDATA		#IMPLIED
+    GeoCode	    	    CDATA		#IMPLIED
+    BOF               (F|S)   #IMPLIED
+    InvoiceAmount     CDATA   #IMPLIED
+    ThresholdAmount   CDATA   #IMPLIED
+    ThresholdCurrCode CDATA   #IMPLIED
+>
+    
+    
+<!-- invoice recipient -->    
+<!ELEMENT Customer EMPTY>
+<!ATTLIST Customer 
+    Id 		CDATA 		#REQUIRED
+    SocSecNo	CDATA		#IMPLIED
+    DrivLicNo	CDATA		#IMPLIED
+    TaxNo       CDATA       #IMPLIED
+    RegNo       CDATA       #IMPLIED
+
+>
+
+
+<!ELEMENT CCContact (Contact*)>
+<!ATTLIST CCContact 
+	Person	 	CDATA 		#IMPLIED
+>
+
+
+<!ELEMENT Contact EMPTY>
+<!ATTLIST Contact
+	Value 	CDATA		#REQUIRED
+	Type	CDATA		#REQUIRED>	
+
+

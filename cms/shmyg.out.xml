@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE TRACE PUBLIC "trace.dtd" "trace.dtd">
+<TRACE timestamp="1461770496505" dateTimeFormat="yyyy.MM.dd HH:mm:ss z">
+    <SOCREATE soiName="CIL" soiVersion="3_CBIO_2_2" name="1" timestamp="3152"/>
+    <COMMAND name="SESSION.CHANGE" timestamp="0" so="1">
+        <SVLOBJECT>
+            <LIST name="values">
+                <SVLOBJECT>
+                    <STRING name="KEY" val="BU_ID"/>
+                    <STRING name="VALUE" val="2"/>
+                </SVLOBJECT>
+            </LIST>
+        </SVLOBJECT>
+    </COMMAND>
+    <COMMAND name="BANKS.READ" timestamp="0" so="1">
+        <RESULT>
+            <SVLOBJECT>
+                <LIST name="banks">
+                    <SVLOBJECT>
+                        <LONG name="BANK_ID" val="1"/>
+                        <STRING name="BANK_ID_PUB" val="STT"/>
+                        <STRING name="BANK_CODE" val="STT"/>
+                        <STRING name="BANK_NAME" val="Scotiabank Trinidad and Tobago"/>
+                        <STRING name="BANK_ZIP" val="10000"/>
+                        <STRING name="BANK_CITY" val="Trinidad and Tobago"/>
+                        <CHAR name="BANK_DEF" val="Y"/>
+                        <STRING name="BANK_STREET" val="Cor. park and Richmond Street"/>
+                        <STRING name="BANK_STREET_NUM" val=""/>
+                        <LONG name="BANK_COUNTRY" val="215"/>
+                        <STRING name="BANK_COUNTRY_PUB" val="TTO"/>
+                        <STRING name="BANK_STATE" val=""/>
+                        <STRING name="BANK_COUNTY" val=""/>
+                        <STRING name="BANK_SWIFTCODE" val="NOSCTTPS"/>
+                        <STRING name="BANK_CONTROLKEY" val=""/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <LONG name="BANK_ID" val="2"/>
+                        <STRING name="BANK_ID_PUB" val="SCOTIA"/>
+                        <STRING name="BANK_CODE" val="SCOTIA"/>
+                        <STRING name="BANK_NAME" val="SCOTIA"/>
+                        <STRING name="BANK_ZIP" val="10000"/>
+                        <STRING name="BANK_CITY" val="Trinidad and Tobago"/>
+                        <CHAR name="BANK_DEF" val="N"/>
+                        <STRING name="BANK_STREET" val=""/>
+                        <STRING name="BANK_STREET_NUM" val=""/>
+                        <STRING name="BANK_STATE" val=""/>
+                        <STRING name="BANK_COUNTY" val=""/>
+                        <STRING name="BANK_SWIFTCODE" val=""/>
+                        <STRING name="BANK_CONTROLKEY" val=""/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <LONG name="BANK_ID" val="3"/>
+                        <STRING name="BANK_ID_PUB" val="FCB"/>
+                        <STRING name="BANK_CODE" val="FCB"/>
+                        <STRING name="BANK_NAME" val="FCB"/>
+                        <STRING name="BANK_ZIP" val="10000"/>
+                        <STRING name="BANK_CITY" val="Trinidad and Tobago"/>
+                        <CHAR name="BANK_DEF" val="N"/>
+                        <STRING name="BANK_STREET" val=""/>
+                        <STRING name="BANK_STREET_NUM" val=""/>
+                        <STRING name="BANK_STATE" val=""/>
+                        <STRING name="BANK_COUNTY" val=""/>
+                        <STRING name="BANK_SWIFTCODE" val=""/>
+                        <STRING name="BANK_CONTROLKEY" val=""/>
+                    </SVLOBJECT>
+                    <SVLOBJECT>
+                        <LONG name="BANK_ID" val="4"/>
+                        <STRING name="BANK_ID_PUB" val="RBL"/>
+                        <STRING name="BANK_CODE" val="RBL"/>
+                        <STRING name="BANK_NAME" val="RBL"/>
+                        <STRING name="BANK_ZIP" val="10000"/>
+                        <STRING name="BANK_CITY" val="Trinidad and Tobago"/>
+                        <CHAR name="BANK_DEF" val="N"/>
+                        <STRING name="BANK_STREET" val=""/>
+                        <STRING name="BANK_STREET_NUM" val=""/>
+                        <STRING name="BANK_STATE" val=""/>
+                        <STRING name="BANK_COUNTY" val=""/>
+                        <STRING name="BANK_SWIFTCODE" val=""/>
+                        <STRING name="BANK_CONTROLKEY" val=""/>
+                    </SVLOBJECT>
+                </LIST>
+            </SVLOBJECT>
+        </RESULT>
+    </COMMAND>
+    <TX_COMMIT timestamp="3" so="1"/>
+    <SODISPOSE soiName="CIL" soiVersion="3_CBIO_2_2" name="1" timestamp="2"/>
+</TRACE>

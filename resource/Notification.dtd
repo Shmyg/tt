@@ -1,0 +1,57 @@
+<!ELEMENT ChargeNotification (Addr, ChDet*, Charge?, BalSsh*, Action*)>
+<!--
+    Addr    contains the address information 
+            (Name, Line1-3, MSISDN, Email)
+    ChDet   gives charge details 
+    Charge  is remaining Credit (Type in (NOTICR, NOTCHB, NOTOCP))
+    BalSsh  is balance status (Type in (ADV, CALC))
+    Action  depending on notification type either
+            - dunning actions (Type = NOTOCP) or
+            - action completed (Type = NOTCHB)
+-->
+
+<!ATTLIST ChargeNotification
+    Type         (NOTADV | NOTICR | NOTCHB | NOTOCP)  "NOTICR"
+    CoId         CDATA   #REQUIRED
+>
+<!--
+    Type   Notification type
+              NOTADV     advance notification   (offline process)
+              NOTICR     insufficient credit    (online process)
+              NOTCHB     charge booked         (online process)
+              NOTOCP     start overdraft clearance process   (EVH)
+              
+    
+-->
+
+<!ELEMENT Action EMPTY>
+<!--Action describes either 
+     - action successfully completed (notification type = NOTCHB)
+     - or action on insufficient credit triggered (notification type = NOTOCP)
+-->
+
+<!ATTLIST Action
+    Id      CDATA   #IMPLIED
+    Des     CDATA   #IMPLIED
+    SN      CDATA   #IMPLIED
+    PRO	 	CDATA   #IMPLIED
+    Action  (A|D|S) "A"
+>
+<!--
+    Id   is GMD action ID (only provided for notification type = NOTCHB)
+    Des  is action description from GMD_ACTION (only provided for notification type = NOTCHB)
+    SN and PRO are only specified in case of service related actions
+    
+    SN is the public service code
+    PRO is the public network code
+    
+    values for Id are:
+        8 - service activation
+    values for Action: 
+        A - activate
+        D - deactivate
+        S - suspend
+-->
+
+
+

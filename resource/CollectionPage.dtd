@@ -1,0 +1,10 @@
+<!ELEMENT CollectionPage (Date, DocumentText*)>
+<!ATTLIST CollectionPage
+    CustomerId          CDATA           #REQUIRED
+>
+
+<!ELEMENT DocumentText EMPTY>
+<!ATTLIST DocumentText
+    Id                  CDATA           #REQUIRED
+    Text                CDATA           #REQUIRED
+>

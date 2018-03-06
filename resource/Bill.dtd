@@ -1,0 +1,17 @@
+<!ELEMENT Bill ( Header, Document+ )>
+
+<!ELEMENT Header EMPTY>
+
+<!ATTLIST Header
+ RefNum         CDATA                                                          #REQUIRED
+ BU             CDATA                                                          #REQUIRED
+ Format         ( htm | pdf | ps | xml | rtf | csv | txt )                     #REQUIRED
+ xml:lang       CDATA                                                          #REQUIRED
+ RetStat        CDATA                                                          #REQUIRED
+ Ind            ( 0 | 1 )                                                      #REQUIRED
+ Type           ( INV | REC | DPR | CDS | PCM | CRP | DN | LET | NOT | LEG )   #REQUIRED
+ PostprocMethod ( E | S | L )                                                  #REQUIRED
+>
+
+<!ENTITY % BillingDocument SYSTEM "BillingDocument.dtd">  
+%BillingDocument;

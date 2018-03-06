@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE TRACE PUBLIC "trace.dtd" "trace.dtd">
+<TRACE timestamp="1461876604512" dateTimeFormat="yyyy.MM.dd HH:mm:ss z">
+    <SOCREATE soiName="CIL" soiVersion="3_CBIO_2_2" name="1" timestamp="2796"/>
+    <COMMAND name="SESSION.CHANGE" timestamp="0" so="1">
+        <SVLOBJECT>
+            <LIST name="values">
+                <SVLOBJECT>
+                    <STRING name="KEY" val="BU_ID"/>
+                    <STRING name="VALUE" val="2"/>
+                </SVLOBJECT>
+            </LIST>
+        </SVLOBJECT>
+    </COMMAND>
+    <COMMAND name="BILLING_ACCOUNT.WRITE" timestamp="0" so="1">
+        <SVLOBJECT>
+            <BOOLEAN name="CREATE" val="F"/>
+            <LONG name="BILLING_ACCOUNT_ID" val="1168"/>
+            <LONG name="BM_ID" val="5"/>
+        </SVLOBJECT>
+        <RESULT>
+            <SVLOBJECT>
+                <LONG name="BILLING_ACCOUNT_ID" val="1168"/>
+                <STRING name="BILLING_ACCOUNT_CODE" val="BA0000001168"/>
+            </SVLOBJECT>
+        </RESULT>
+    </COMMAND>
+    <TX_COMMIT timestamp="41" so="1"/>
+    <SODISPOSE soiName="CIL" soiVersion="3_CBIO_2_2" name="1" timestamp="2"/>
+</TRACE>

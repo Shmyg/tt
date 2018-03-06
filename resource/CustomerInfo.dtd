@@ -1,0 +1,98 @@
+<!ELEMENT CustomerInfo (PayRespInfo)>
+<!ELEMENT PayRespInfo (CustInfo*)>
+<!ELEMENT CustInfo (ContrInfo*)>
+<!ELEMENT ContrInfo (CoStatusInfo*, RateplanInfo*, ServInfo*)>
+<!ELEMENT ServInfo (SrvStatusInfo*, SrvPackInfo*)*>
+<!ELEMENT CoStatusInfo EMPTY>
+<!ELEMENT RateplanInfo EMPTY>
+<!ELEMENT SrvStatusInfo EMPTY>
+<!ELEMENT SrvPackInfo EMPTY>
+<!ATTLIST		PayRespInfo
+	Id	CDATA	#IMPLIED
+>
+
+<!ATTLIST		CustInfo
+	CustomerId	CDATA	#IMPLIED
+	CustomerIdHigh	CDATA	#IMPLIED
+	CustCode	CDATA	#IMPLIED
+	CustPKey	CDATA	#IMPLIED
+	BU	CDATA	#IMPLIED
+	BillCycle	CDATA	#IMPLIED
+	BillCycleValidFrom	CDATA	#IMPLIED
+	ActivationDate	CDATA	#IMPLIED
+	DeactivationDate	CDATA	#IMPLIED
+	Level	CDATA	#IMPLIED
+	Prg	CDATA	#IMPLIED
+	CurrBalance	CDATA	#IMPLIED
+	PrvBalance	CDATA	#IMPLIED
+	LastBilling	CDATA	#IMPLIED
+	CurrBilling	CDATA	#IMPLIED
+	CostCenter	CDATA	#IMPLIED
+	DateOfBirth	CDATA	#IMPLIED
+	DriverLicense	CDATA	#IMPLIED
+	SocialSecNum	CDATA	#IMPLIED
+	CurrCode	CDATA	#IMPLIED
+	PartyType	CDATA	#IMPLIED
+	PaymentResp	CDATA	#IMPLIED
+>
+
+<!ATTLIST		ContrInfo
+	CoId	CDATA	#IMPLIED
+	ContrPKey	CDATA	#IMPLIED
+	SIM	CDATA	#IMPLIED
+	Status	CDATA	#IMPLIED
+	StatusValidFrom	CDATA	#IMPLIED
+	TM	CDATA	#IMPLIED
+	MKT	CDATA	#IMPLIED
+	PLMN	CDATA	#IMPLIED
+	CDSGeneration	CDATA	#IMPLIED
+	HighVolume	CDATA	#IMPLIED
+	ContrType	CDATA	#IMPLIED
+	LastChargeDate	CDATA	#IMPLIED
+	ActivationDate	CDATA	#IMPLIED
+>
+
+<!ATTLIST		CoStatusInfo
+	Status	CDATA	#IMPLIED
+	ValidFrom	CDATA	#IMPLIED
+	ValidTo	CDATA	#IMPLIED
+	Reason	CDATA	#IMPLIED
+	SeqNo	CDATA	#IMPLIED
+>
+
+<!ATTLIST		RateplanInfo
+	TM	CDATA	#IMPLIED
+	TMPKey	CDATA	#IMPLIED
+	ValidFrom	CDATA	#IMPLIED
+	ValidTo	CDATA	#IMPLIED
+	SeqNo	CDATA	#IMPLIED
+>
+
+<!ATTLIST		ServInfo
+	SN	CDATA	#IMPLIED
+	SNPKey	CDATA	#IMPLIED
+	ProfileId	CDATA	#IMPLIED
+	LastBilling	CDATA	#IMPLIED
+	SrvType	CDATA	#IMPLIED
+	SrvSubType	CDATA	#IMPLIED
+	PrmValue	CDATA	#IMPLIED
+	Status	CDATA	#IMPLIED
+	SP	CDATA	#IMPLIED
+>
+
+<!ATTLIST		SrvStatusInfo
+	Status	CDATA	#IMPLIED
+	ValidFrom	CDATA	#IMPLIED
+	ValidTo	CDATA	#IMPLIED
+	Reason	CDATA	#IMPLIED
+	SeqNo	CDATA	#IMPLIED
+>
+
+<!ATTLIST		SrvPackInfo
+	SP	CDATA	#IMPLIED
+	SPPKey	CDATA	#IMPLIED
+	ValidFrom	CDATA	#IMPLIED
+	ValidTo	CDATA	#IMPLIED
+	SeqNo	CDATA	#IMPLIED
+>
+

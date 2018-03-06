@@ -1,0 +1,17 @@
+Here is the workflow:
+
+1.	Check attributes for XCD in CHARGE_DETAIL_INFO table (XML_ELEMENT = ‘XCD’)
+2.	Generate new XCD files:
+extract_xcd <db_name> <db_user> <db_pass>
+It’ll create two files, XCD.dtd and XCD.xsd
+3.	Backup the old XCD files:
+cd $BSCS_RESOURCE/bgh
+cp XCD.dtd XCD.dtd.bak
+cp XCD.xsd XCD.xsd.bak
+4.	Copy the new files to the production directory:
+cd -
+cp XCD* $BSCS_RESOURCE/bgh
+5.	Profit!
+
+I’m quite sure the program name won’t be passed to SS, but at least BGH won’t fail.
+

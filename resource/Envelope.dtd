@@ -1,0 +1,29 @@
+<!-- *********************************************************************** -->
+<!ELEMENT Envelope (Part*)>  
+
+<!ELEMENT Part EMPTY>  
+
+<!ATTLIST Part 
+    File            CDATA                            #REQUIRED
+    LinkType        (REL|ABS)                        "REL"
+    DocType	    (ADD|BAL|CDS|DET|IIN|INV|SUM|AGG|CIN)    #REQUIRED
+    Format          CDATA                            #IMPLIED
+>
+<!--
+  File       specifies document location (path)
+  LinkType   specifies whether path specified in 'File' is relative or absolute
+             Values:   'REL': relative
+                       'ABS': absolute
+  DocType    Document type.
+             Values: 'ADD': address page
+                     'BAL': balance page
+                     'CDS': call detail statement
+                     'DET': call detail page
+                     'IIN': invoice information page
+                     'INV': invoice
+                     'SUM': sum sheet 
+                     'AGG': aggregated charge details
+                     'CIN': customer information
+  Format     specifies document format. Currently used: 'XML'
+-->
+	

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+  Copyright (c) 2010 LHS Telekom GmbH & Co. KG
+
+  The copyright in this work is vested in LHS. The information contained in this work
+  (either in whole or in part) is confidential and must not be modified, reproduced,
+  disclosed or disseminated to others or used for purposes other than that for which
+  it is supplied, without the prior written permission of LHS.  If this work or any
+  part hereof is furnished to a third party by virtue of a contract with that party,
+  use of this work by such party shall be governed by the express contractual terms
+  between LHS, which is party to that contract and the said party.
+
+  The information in this document is subject to change without notice and should not
+  be construed as a commitment by LHS. LHS assumes no responsibility for any errors
+  that may appear in this document. With the appearance of a new version of this
+  document all older versions become invalid.
+
+  All rights reserved.
+
+  File:    Notification.xsd
+
+  Owner:   Matthias Fehrenbacher
+
+  @(#) ABSTRACT : XML validation
+  @(#) BSCS iX R4, Bill Formatting Server
+
+  This schema validates notification pages.
+  VERSION = @(#) ./lhsj_main/bscs/batch/src/bgh/LAYOUT/Notification.xsd, , CBIO_PCP1503, CBIO_PCP1503_150728 @@CBIO_PCP1503_150728 28-Jul-2015
+
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  <xs:element name="ChargeNotification">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Addr"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ChDet"/>
+        <xs:element minOccurs="0" ref="Charge"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="BalSsh"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Action"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.ChargeNotification"/>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    Addr    contains the address information 
+            (Name, Line1-3, MSISDN, Email)
+    ChDet   gives charge details 
+    Charge  is remaining Credit (Type in (NOTICR, NOTCHB, NOTOCP))
+    BalSsh  is balance status (Type in (ADV, CALC))
+    Action  depending on notification type either
+            - dunning actions (Type = NOTOCP) or
+            - action completed (Type = NOTCHB)
+  -->
+  <xs:attributeGroup name="attlist.ChargeNotification">
+    <xs:attribute name="Type" default="NOTICR">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="NOTADV"/>
+          <xs:enumeration value="NOTICR"/>
+          <xs:enumeration value="NOTCHB"/>
+          <xs:enumeration value="NOTOCP"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CoId" use="required" type="xs:string"/>
+  </xs:attributeGroup>
+  <!--
+    Type   Notification type
+              NOTADV     advance notification   (offline process)
+              NOTICR     insufficient credit    (online process)
+              NOTCHB     charge booked         (online process)
+              NOTOCP     start overdraft clearance process   (EVH)
+    
+    
+  -->
+  <xs:element name="Action">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.Action"/>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    Action describes either 
+    - action successfully completed (notification type = NOTCHB)
+    - or action on insufficient credit triggered (notification type = NOTOCP)
+  -->
+  <xs:attributeGroup name="attlist.Action">
+    <xs:attribute name="Id" type="xs:positiveInteger"/>
+    <xs:attribute name="Des" type="xs:string"/>
+    <xs:attribute name="SN" type="xs:string"/>
+    <xs:attribute name="PRO" type="xs:string"/>
+    <xs:attribute name="Action" default="A">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="A"/>
+          <xs:enumeration value="D"/>
+          <xs:enumeration value="S"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+</xs:schema>
+<!--
+  Id   is GMD action ID (only provided for notification type = NOTCHB)
+  Des  is action description from GMD_ACTION (only provided for notification type = NOTCHB)
+  SN and PRO are only specified in case of service related actions
+  
+  SN is the public service code
+  PRO is the public network code
+  
+  values for Id are:
+      8 - service activation
+  values for Action: 
+      A - activate
+      D - deactivate
+      S - suspend
+-->

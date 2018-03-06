@@ -1,0 +1,39 @@
+<!ELEMENT BalancePage (Date, Charge*, FTX*, FTA*, FSI*)>
+<!-- Date is received payments taken into account until (Type=ACC_END) 
+     Charge* will be empty
+-->
+
+<!-- financial balance items -->
+<!ELEMENT FTX (Date, Charge+)>
+<!ATTLIST FTX
+    Type    CDATA   #REQUIRED
+    Remark  CDATA   #IMPLIED
+    RefNum  CDATA   #IMPLIED 
+    PayMeth CDATA   #IMPLIED 
+    Reverse (Y|N)   "N"
+>
+<!--  Type is given from BLDADTAB 
+      Charge types is 960 : original amount
+-->
+
+<!-- financial balance set-off items -->
+<!ELEMENT FSI (Date, Charge+)>
+<!ATTLIST FSI
+    Type    CDATA   #REQUIRED
+    RefNum  CDATA   #IMPLIED 
+    PayMeth CDATA   #IMPLIED 
+    Reverse (Y|N)   "N"
+>
+<!-- In case of overpayments and credit memos 
+     Charge types are 960 : open amount
+                      970 : set-off amount
+-->
+
+<!-- financial transaction subtotals -->
+<!ELEMENT FTA (Charge+)>
+<!ATTLIST FTA
+    Type    CDATA   #REQUIRED
+>
+<!-- Type is given from BLDADTAB 
+     Charge type is 960 : subtotal amount
+-->

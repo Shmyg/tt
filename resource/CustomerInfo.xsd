@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+<xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  <xs:element name="CustomerInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="PayRespInfo"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PayRespInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="CustInfo"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.PayRespInfo"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CustInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ContrInfo"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.CustInfo"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ContrInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="CoStatusInfo"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="RateplanInfo"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ServInfo"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.ContrInfo"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ServInfo">
+    <xs:complexType>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="SrvStatusInfo"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="SrvPackInfo"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.ServInfo"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CoStatusInfo">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.CoStatusInfo"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RateplanInfo">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.RateplanInfo"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SrvStatusInfo">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.SrvStatusInfo"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SrvPackInfo">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.SrvPackInfo"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.PayRespInfo">
+    <xs:attribute name="Id"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="attlist.CustInfo">
+    <xs:attribute name="CustPKey" type="xs:string"/>
+    <xs:attribute name="CustomerId" type="xs:integer"/>
+    <xs:attribute name="Level" type="xs:string"/>
+    <xs:attribute name="SocialSecNum" type="xs:string"/>
+    <xs:attribute name="DeactivationDate" type="xs:dateTime"/>
+    <xs:attribute name="PaymentResp" type="xs:integer"/>
+    <xs:attribute name="ActivationDate" type="xs:dateTime"/>
+    <xs:attribute name="PartyType" type="xs:string"/>
+    <xs:attribute name="CurrBilling" type="xs:dateTime"/>
+    <xs:attribute name="LastBilling" type="xs:dateTime"/>
+    <xs:attribute name="DriverLicense" type="xs:string"/>
+    <xs:attribute name="CurrCode" type="xs:string"/>
+    <xs:attribute name="PrvBalance" type="xs:decimal"/>
+    <xs:attribute name="CurrBalance" type="xs:decimal"/>
+    <xs:attribute name="BU" type="xs:string"/>
+    <xs:attribute name="Prg" type="xs:string"/>
+    <xs:attribute name="BillCycleValidFrom" type="xs:dateTime"/>
+    <xs:attribute name="CustCode" type="xs:string"/>
+    <xs:attribute name="DateOfBirth" type="xs:dateTime"/>
+    <xs:attribute name="CostCenter" type="xs:string"/>
+    <xs:attribute name="BillCycle" type="xs:string"/>
+    <xs:attribute name="CustomerIdHigh" type="xs:integer"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="attlist.ContrInfo">
+    <xs:attribute name="StatusValidFrom" type="xs:dateTime"/>
+    <xs:attribute name="ContrPKey" type="xs:string"/>
+    <xs:attribute name="Status" type="xs:string"/>
+    <xs:attribute name="ContrType" type="xs:string"/>
+    <xs:attribute name="LastChargeDate" type="xs:dateTime"/>
+    <xs:attribute name="HighVolume" type="xs:integer"/>
+    <xs:attribute name="CDSGeneration" type="xs:string"/>
+    <xs:attribute name="SIM" type="xs:string"/>
+    <xs:attribute name="ActivationDate" type="xs:dateTime"/>
+    <xs:attribute name="MKT" type="xs:integer"/>
+    <xs:attribute name="PLMN" type="xs:integer"/>
+    <xs:attribute name="CoId" type="xs:integer"/>
+    <xs:attribute name="TM" type="xs:integer"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="attlist.CoStatusInfo">
+    <xs:attribute name="SeqNo" type="xs:integer"/>
+    <xs:attribute name="ValidTo" type="xs:dateTime"/>
+    <xs:attribute name="Reason" type="xs:integer"/>
+    <xs:attribute name="ValidFrom" type="xs:dateTime"/>
+    <xs:attribute name="Status" type="xs:string"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="attlist.RateplanInfo">
+    <xs:attribute name="TM" type="xs:integer"/>
+    <xs:attribute name="SeqNo" type="xs:integer"/>
+    <xs:attribute name="TMPKey" type="xs:string"/>
+    <xs:attribute name="ValidTo" type="xs:dateTime"/>
+    <xs:attribute name="ValidFrom" type="xs:dateTime"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="attlist.ServInfo">
+    <xs:attribute name="SP" type="xs:integer"/>
+    <xs:attribute name="ProfileId" type="xs:integer"/>
+    <xs:attribute name="PrmValue" type="xs:string"/>
+    <xs:attribute name="SN" type="xs:integer"/>
+    <xs:attribute name="Status" type="xs:string"/>
+    <xs:attribute name="SrvSubType" type="xs:string"/>
+    <xs:attribute name="SrvType" type="xs:string"/>
+    <xs:attribute name="LastBilling" type="xs:dateTime"/>
+    <xs:attribute name="SNPKey" type="xs:string"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="attlist.SrvStatusInfo">
+    <xs:attribute name="ValidTo" type="xs:dateTime"/>
+    <xs:attribute name="ValidFrom" type="xs:dateTime"/>
+    <xs:attribute name="Reason" type="xs:integer"/>
+    <xs:attribute name="SeqNo" type="xs:integer"/>
+    <xs:attribute name="Status" type="xs:string"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="attlist.SrvPackInfo">
+    <xs:attribute name="ValidFrom" type="xs:dateTime"/>
+    <xs:attribute name="SP" type="xs:integer"/>
+    <xs:attribute name="SPPKey" type="xs:string"/>
+    <xs:attribute name="ValidTo" type="xs:dateTime"/>
+    <xs:attribute name="SeqNo" type="xs:integer"/>
+  </xs:attributeGroup>
+</xs:schema>

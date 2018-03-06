@@ -1,0 +1,6 @@
+<!ELEMENT Letter (Date, DocumentText*)>
+<!ATTLIST Letter
+    Type                CDATA           #REQUIRED
+    CustomerId          CDATA           #REQUIRED
+>
+

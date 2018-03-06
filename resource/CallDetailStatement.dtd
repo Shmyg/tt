@@ -1,0 +1,28 @@
+<!ELEMENT CallDetailStatement (Date*, (DN|DNBlock)*, CallsPerPeriod*)>
+<!ATTLIST CallDetailStatement
+        CoId        CDATA        #REQUIRED
+        MRKT        CDATA        #REQUIRED
+        SM          CDATA        #REQUIRED
+>
+<!-- 
+   Dates and DNs are only printed on the first call detail statement page.
+
+   Dates are
+   - period start date (Type=START)
+   - period end date   (Type=END)
+   - last billed date  (Type=LB_DATE)
+-->
+
+
+<!ELEMENT CallsPerPeriod (Date+, BOPAlt*, ContrCalls*)>
+<!-- Dates are
+   - period start date   (Type=START)
+   - period end date     (Type=END)
+-->
+<!ATTLIST CallsPerPeriod
+    SeqNo           CDATA        #REQUIRED
+>
+<!-- SeqNo is period sequence number, because one period might be split
+     over several call detail statement pages
+-->
+

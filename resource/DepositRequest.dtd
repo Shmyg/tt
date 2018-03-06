@@ -1,0 +1,24 @@
+<!ELEMENT DepositRequest (Date+, Charge*, ChargePerCS*)>
+<!ATTLIST DepositRequest	
+	CoId		CDATA		#REQUIRED
+>
+<!-- Date Elements are 
+		- deposit request creation date	(Type=INV)
+		- due date                   	(Type=DUE_DATE)
+     Charges are contract related charges of type amount to pay (Type=178)
+-->
+
+
+<!ELEMENT ChargePerCS (CS, Charge)>
+<!-- Charge is of type amount to pay (Type=178)
+-->
+
+<!-- contracted service -->
+<!ELEMENT CS EMPTY>
+<!ATTLIST CS
+    SN							CDATA	#REQUIRED
+    SP							CDATA	#REQUIRED
+    TM							CDATA	#REQUIRED
+    PRO							CDATA	#REQUIRED
+    SNDES						CDATA	#REQUIRED
+>

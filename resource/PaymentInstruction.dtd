@@ -1,0 +1,40 @@
+<!ELEMENT PaymentInstruction (Date, InducedPayment*)>
+<!-- Contains all induced payments of the payment instruction
+     which could be successfully processed  
+     File contains of a header with Payment Instruction data and a list of
+     data from Induced Payments.
+     Date is maturitiy date
+-->
+
+<!ATTLIST PaymentInstruction
+	PayInstId		CDATA	#REQUIRED
+	PayInstCode	        CDATA 	#REQUIRED
+	BusUnit    		CDATA 	#REQUIRED
+	PayMeth                 CDATA	#REQUIRED
+	CurrCode                CDATA 	#REQUIRED
+>
+
+
+<!ELEMENT InducedPayment ( Date, Charge, Addr, Addr, FiCont? ) >
+<!-- 
+     - Date is external reference date (EXT_REF)
+     - Charge type is 77 for the total amount of the paid invoice 
+     - The first address element contains the sender address which is taken 
+       from table COSTCENTER for the costcenter_id of the business partner.
+     - The second address element contains the data from the billing address of
+       the business partner.
+     - FiCont contains the bank information of the business partner (depending
+       on the paymennt method)
+-->
+<!ATTLIST InducedPayment
+    CustId          CDATA	#REQUIRED
+    CustNum         CDATA	#REQUIRED
+    DocId           CDATA	#REQUIRED
+    DocRefCode      CDATA	#REQUIRED
+    TransId         CDATA       #REQUIRED
+    ExtRefNum       CDATA	#REQUIRED
+>
+
+
+
+

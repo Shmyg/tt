@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+  Copyright (c) 2012 Ericsson
+
+  All rights reserved.
+
+  File:    FUP_DE.xml
+
+  Owner:   Matthias Fehrenbacher
+
+  @(#) ABSTRACT : XML configuration file
+  @(#) BSCS iX R4, Bill Formatting Server
+
+  This documnet contains UDR attribute descriptions
+  in the base configuartion for free units.
+  VERSION = @(#) ./lhsj_main/bscs/batch/src/bgh/LAYOUT/FUP_DE.xml, , CBIO_PCP1503, CBIO_PCP1503_150728 @@CBIO_PCP1503_150728 28-Jul-2015
+
+-->
+<!DOCTYPE UDR [
+<!ELEMENT UDR (FUP*)>
+<!ELEMENT FUP EMPTY>
+<!ATTLIST FUP
+    Id       CDATA #REQUIRED
+    xml:lang (DE|EN|FR|IT|AR) #IMPLIED
+    Des      CDATA #IMPLIED
+>
+]>
+<UDR>
+  <!-- A -->
+  <FUP Id="Amt" xml:lang="DE" Des="Betrag"/>
+  <FUP Id="AmtCurrCode" xml:lang="DE" Des=""/>
+  <!-- B -->
+  <FUP Id="BPROD" xml:lang="DE" Des="Paket-Produkt"/>
+  <!-- C -->
+  <FUP Id="ChPlan" xml:lang="DE" Des="Geb&#x00FC;hren-Plan"/>
+  <FUP Id="Clicks" xml:lang="DE" Des="Klicks"/>
+  <FUP Id="CoId" xml:lang="DE" Des="Vertrag"/>
+  <!-- F -->
+  <FUP Id="FUAccHistId" xml:lang="DE" Des="Verlaufs-Id"/>
+  <FUP Id="FUAccId" xml:lang="DE" Des="Konto"/>
+  <FUP Id="FUE" xml:lang="DE" Des="Element"/>
+  <FUP Id="FUEV" xml:lang="DE" Des="Version"/>
+  <FUP Id="FUOption" xml:lang="DE" Des="Typ"/>
+  <FUP Id="FUP" xml:lang="DE" Des="Paket"/>
+  <FUP Id="FUPrepayInd" xml:lang="DE" Des=""/>
+  <FUP Id="ForFreeAmt" xml:lang="DE" Des=""/>
+  <FUP Id="ForFreeAmtCuCod" xml:lang="DE" Des=""/>
+  <FUP Id="ForFreeTaxAmt" xml:lang="DE" Des=""/>
+  <FUP Id="FreeChargeRate" xml:lang="DE" Des=""/>
+  <!-- P -->
+  <FUP Id="Profile" xml:lang="DE" Des="Profil"/>
+  <FUP Id="PurSeqNo" xml:lang="DE" Des="Sequenznr."/>
+  <!-- R -->
+  <FUP Id="RatVol" xml:lang="DE" Des="ber. Volumen"/>
+  <FUP Id="RoundedVol" xml:lang="DE" Des="Vol. gerundet"/>
+  <!-- S -->
+  <FUP Id="SN" xml:lang="DE" Des="Service"/>
+  <!-- T -->
+  <FUP Id="TaxAmt" xml:lang="DE" Des="Steuer"/>
+  <!-- U -->
+  <FUP Id="UM" xml:lang="DE" Des=""/>
+</UDR>

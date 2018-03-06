@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+  Copyright (c) 2010 LHS Telekom GmbH & Co. KG
+
+  The copyright in this work is vested in LHS. The information contained in this work
+  (either in whole or in part) is confidential and must not be modified, reproduced,
+  disclosed or disseminated to others or used for purposes other than that for which
+  it is supplied, without the prior written permission of LHS.  If this work or any
+  part hereof is furnished to a third party by virtue of a contract with that party,
+  use of this work by such party shall be governed by the express contractual terms
+  between LHS, which is party to that contract and the said party.
+
+  The information in this document is subject to change without notice and should not
+  be construed as a commitment by LHS. LHS assumes no responsibility for any errors
+  that may appear in this document. With the appearance of a new version of this
+  document all older versions become invalid.
+
+  All rights reserved.
+
+  File:    BalancePage.xsd
+
+  Owner:   Matthias Fehrenbacher
+
+  @(#) ABSTRACT : XML validation
+  @(#) BSCS iX R4, Bill Formatting Server
+
+  This schema validates balance pages.
+  VERSION = @(#) ./lhsj_main/bscs/batch/src/bgh/LAYOUT/BalancePage.xsd, , CBIO_PCP1503, CBIO_PCP1503_150728 @@CBIO_PCP1503_150728 28-Jul-2015
+
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  <xs:element name="BalancePage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Date"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Charge"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="FTX"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="FTA"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="FSI"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    Date is received payments taken into account until (Type=ACC_END) 
+    Charge* will be empty
+  -->
+  <!-- financial balance items -->
+  <xs:element name="FTX">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Date"/>
+        <xs:element maxOccurs="unbounded" ref="Charge"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.FTX"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.FTX">
+    <xs:attribute name="Type" use="required" type="xs:string"/>
+    <xs:attribute name="Remark" type="xs:string"/>
+    <xs:attribute name="RefNum" type="xs:string"/>
+    <xs:attribute name="PayMeth" type="xs:string"/>
+    <xs:attribute name="Reverse" default="N">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="Y"/>
+          <xs:enumeration value="N"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!--
+    Type is given from BLDADTAB 
+    Charge types is 960 : original amount
+  -->
+  <!-- financial balance set-off items -->
+  <xs:element name="FSI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Date"/>
+        <xs:element maxOccurs="unbounded" ref="Charge"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.FSI"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.FSI">
+    <xs:attribute name="Type" use="required" type="xs:string"/>
+    <xs:attribute name="RefNum" type="xs:string"/>
+    <xs:attribute name="PayMeth" type="xs:string"/>
+    <xs:attribute name="Reverse" default="N">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="Y"/>
+          <xs:enumeration value="N"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!--
+    In case of overpayments and credit memos 
+    Charge types are 960 : open amount
+                     970 : set-off amount
+  -->
+  <!-- financial transaction subtotals -->
+  <xs:element name="FTA">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Charge"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.FTA"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.FTA">
+    <xs:attribute name="Type" use="required" type="xs:string"/>
+  </xs:attributeGroup>
+</xs:schema>
+<!--
+  Type is given from BLDADTAB 
+  Charge type is 960 : subtotal amount
+-->

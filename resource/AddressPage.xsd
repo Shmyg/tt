@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+  Copyright (c) 2010 LHS Telekom GmbH & Co. KG
+
+  The copyright in this work is vested in LHS. The information contained in this work
+  (either in whole or in part) is confidential and must not be modified, reproduced,
+  disclosed or disseminated to others or used for purposes other than that for which
+  it is supplied, without the prior written permission of LHS.  If this work or any
+  part hereof is furnished to a third party by virtue of a contract with that party,
+  use of this work by such party shall be governed by the express contractual terms
+  between LHS, which is party to that contract and the said party.
+
+  The information in this document is subject to change without notice and should not
+  be construed as a commitment by LHS. LHS assumes no responsibility for any errors
+  that may appear in this document. With the appearance of a new version of this
+  document all older versions become invalid.
+
+  All rights reserved.
+
+  File:    AddressPage.xsd
+
+  Owner:   Matthias Fehrenbacher
+
+  @(#) ABSTRACT : XML validation
+  @(#) BSCS iX R4, Bill Formatting Server
+
+  This schema validates address pages.
+  VERSION = @(#) ./lhsj_main/bscs/batch/src/bgh/LAYOUT/AddressPage.xsd, , CBIO_PCP1503, CBIO_PCP1503_150728 @@CBIO_PCP1503_150728 28-Jul-2015
+
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  <xs:element name="AddressPage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="InvParty"/>
+        <xs:choice>
+          <xs:element ref="BillAcc"/>
+          <xs:element ref="Addressee"/>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.AddressPage"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.AddressPage">
+    <xs:attribute ref="xml:lang" use="required"/>
+  </xs:attributeGroup>
+  <!-- Invoicing Party (network operator) -->
+  <xs:element name="InvParty">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Addr"/>
+        <xs:element ref="FiCont"/>
+        <xs:element ref="CCContact"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.InvParty"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.InvParty">
+    <xs:attribute name="VATRegNo" type="xs:string"/>
+  </xs:attributeGroup>
+  <xs:element name="Addressee">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Customer"/>
+        <xs:element minOccurs="0" ref="Addr"/>
+        <xs:element minOccurs="0" ref="FiCont"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.Addressee"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Addressee">
+    <xs:attribute name="CoId" type="xs:string"/>
+    <xs:attribute name="PayMeth" type="xs:string"/>
+    <xs:attribute name="BillMedium">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="5"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CopyNo" type="xs:positiveInteger"/>
+    <xs:attribute name="State" type="xs:string"/>
+    <xs:attribute name="GeoCode" type="xs:string"/>
+  </xs:attributeGroup>
+  <xs:element name="BillAcc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Customer"/>
+        <xs:element minOccurs="0" ref="Addr"/>
+        <xs:element minOccurs="0" ref="FiCont"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.BillAcc"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.BillAcc">
+    <xs:attribute name="Desc" use="required" type="xs:string"/>
+    <xs:attribute name="PayMeth" type="xs:string"/>
+    <xs:attribute name="BillMedium">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="5"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="CopyNo" type="xs:positiveInteger"/>
+    <xs:attribute name="State" type="xs:string"/>
+    <xs:attribute name="GeoCode" type="xs:string"/>
+    <xs:attribute name="BOF">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="F"/>
+          <xs:enumeration value="S"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="InvoiceAmount" type="xs:double"/>
+    <xs:attribute name="ThresholdAmount" type="xs:double"/>
+    <xs:attribute name="ThresholdCurrCode" type="xs:string"/>    
+  </xs:attributeGroup>
+  <!-- invoice recipient -->
+  <xs:element name="Customer">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.Customer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Customer">
+    <xs:attribute name="Id" use="required" type="xs:string"/>
+    <xs:attribute name="SocSecNo" type="xs:string"/>
+    <xs:attribute name="DrivLicNo" type="xs:string"/>
+    <xs:attribute name="TaxNo" type="xs:string"/>
+    <xs:attribute name="RegNo" type="xs:string"/>
+  </xs:attributeGroup>
+  <xs:element name="CCContact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Contact"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.CCContact"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.CCContact">
+    <xs:attribute name="Person" type="xs:string"/>
+  </xs:attributeGroup>
+  <xs:element name="Contact">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.Contact"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Contact">
+    <xs:attribute name="Value" use="required" type="xs:string"/>
+    <xs:attribute name="Type" use="required" type="xs:string"/>
+  </xs:attributeGroup>
+</xs:schema>

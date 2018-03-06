@@ -1,0 +1,4 @@
+<!ELEMENT RecordDetail (RDD*)>
+<!ELEMENT RDD EMPTY>
+<!ENTITY % RDD SYSTEM "RDD.dtd">  
+%RDD;

@@ -1,0 +1,8 @@
+<!ELEMENT Batch ( Bill+ )>
+
+<!ATTLIST Batch
+ SeqNo CDATA #REQUIRED
+>
+
+<!ENTITY % Bill SYSTEM "Bill.dtd">  
+%Bill;

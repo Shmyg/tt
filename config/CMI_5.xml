@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE SOI PUBLIC "SOIDefinition.dtd" "SOIDefinition.dtd">
+<SOI soiName="CMI" soiVersion="5">
+    <COMMAND cmdName="CUSTOMER.CANCEL" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_RATING_OPTION.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_RATING_OPTION.WRITE" cmdVersion="CMD_1_0" />
+<!-- [feature/377727_E04i1_U05] use CMD version 4 -->
+    <COMMAND cmdName="BALANCE_HISTORY.READ" cmdVersion="CMD_4_0" />
+    <COMMAND cmdName="VOUCHER.SEARCH" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="VOUCHER.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="VOUCHER.USE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="VOUCHER_ACTION.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="PRICING_ALTERNATIVE.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="VOUCHER_ACTION_TYPE.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="VOUCHER_TYPE.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="BALANCES.READ" cmdVersion="CMD_5_0" />
+    <COMMAND cmdName="PREPAID_BALANCE.REFILL" cmdVersion="CMD_4_0" />
+    <COMMAND cmdName="BALANCE_ADJUSTMENT_REQUEST.WRITE" cmdVersion="CMD_3_0" />
+    <COMMAND cmdName="PAYMENT_MODE.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="DOCUMENT_TYPE.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="PAYMENT_TERMS.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="CUSTOMER.READ" cmdVersion="CMD_5_0" webService="yes"/>
+    <COMMAND cmdName="PAYMENT_ARRANGEMENTS.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="PAYMENT_ARRANGEMENT.WRITE" cmdVersion="CMD_2_0" webService="yes" />
+    <COMMAND cmdName="PAYMENT_ARRANGEMENT_ASSIGNMENT.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="PAYMENT_ARRANGEMENT_ASSIGNMENT.WRITE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="BILLING_ACCOUNT.WRITE" cmdVersion="CMD_4_0" webService="yes" webService="yes"/>
+    <COMMAND cmdName="BILLING_ACCOUNT.READ" cmdVersion="CMD_3_0"  webService="yes" />
+    <COMMAND cmdName="BILLCYCLE_ASSIGNMENT_HISTORY.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="BILLCYCLE_CHANGE_REASONS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="ADDRESS.CHECK" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="ADDRESS.READ" cmdVersion="CMD_2_0" webService="yes"/>
+    <COMMAND cmdName="ADDRESS.WRITE" cmdVersion="CMD_2_0" webService="yes"/>
+    <COMMAND cmdName="ADDRESSES.READ" cmdVersion="CMD_1_0" webService="yes"/>
+    <COMMAND cmdName="ADDRESSROLES.READ" cmdVersion="CMD_1_0" webService="yes" />
+    <COMMAND cmdName="USAGE_TYPE.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="ANONYMIZATION_PACKAGES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="ANONYMOUS_DIRECTORY_NUMBERS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="ANONYMOUS_DIRECTORY_NUMBERS.WRITE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="AREAS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="ASSIGNED_RESOURCES.CHECK" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="BALANCE_ADJUSTMENT_REASON.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="BALANCE_ADJUSTMENT_REQUEST.READ" cmdVersion="CMD_3_0" />
+    <COMMAND cmdName="BALANCE.SEARCH" cmdVersion="CMD_2_0" webService="yes"/>
+    <COMMAND cmdName="PREPAID_TRANSACTION_TYPES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="BANK.READ" cmdVersion="CMD_1_0" webService="yes"/>
+    <COMMAND cmdName="BANKS.READ" cmdVersion="CMD_1_0" webService="yes"/>
+    <COMMAND cmdName="BANKS.SEARCH" cmdVersion="CMD_1_0" webService="yes"/>
+    <COMMAND cmdName="BEARER_CAPABILITIES.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="BILL_CYCLES.READ" cmdVersion="CMD_3_0" />
+    <COMMAND cmdName="BILL_MEDIUM.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="BLACKLIST_ENTRIES.SEARCH" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CREDITCARD_COMPANIES.READ" cmdVersion="CMD_1_0" webService="yes"/>
+    <COMMAND cmdName="CREDITCARD_COMPANY.READ" cmdVersion="CMD_1_0" webService="yes"/>
+    <COMMAND cmdName="PAYMENT_DATA.VALIDATE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="PROPOSED_BILL_CYCLE.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="COSTCENTERS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CUSTCATCODE.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CUSTOMERS.SEARCH" cmdVersion="CMD_5_0" webService="yes"/>
+    <COMMAND cmdName="CUSTOMER_FLAT.WRITE" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="CUSTOMER_GROUPS.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="CUSTOMER_HIERARCHY.WRITE" cmdVersion="CMD_3_0" webService="yes"/>
+    <COMMAND cmdName="CUSTOMER_STATES.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="CUST_RATEPLAN_HISTORY.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="IDENTIFICATION_DOCUMENT_TYPE.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="LANGUAGES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="MARITAL_STATUS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="TITLES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="TRADES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONVERSION_RATE_TYPES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="COUNTRIES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CURRENCY_HISTORY.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="CURRENCY_ROLES.READ" cmdVersion="CMD_2_0" webService="yes"/>
+    <COMMAND cmdName="SERVICE_PARAMETER_RESOURCES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="SERVICE_PARAMETER_TEMPLATES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="REASONS.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="REQUEST_PRIORITIES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT.CANCEL" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT.MOVE" cmdVersion="CMD_2_0" webService="yes" />
+    <COMMAND cmdName="CONTRACT_DEVICES.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="CONTRACT_EXCHANGE_CARRIER_HISTORY.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="CONTRACT_EXCHANGE_CARRIER_HISTORY.WRITE" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="CONTRACT_INFO.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_INFO.WRITE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_HISTORY.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="CONTRACT_RATEPLAN_HISTORY.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="CONTRACT_STATES.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="CUSTOMER_INFO.READ" cmdVersion="CMD_1_0" webService="yes" />
+    <COMMAND cmdName="CUSTOMER_INFO.WRITE" cmdVersion="CMD_1_0" webService="yes" />
+    <COMMAND cmdName="INFO_COMBO_VALUES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="INFO_COMBO_VALUES_CONTR.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="INFO_FIELDS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="INFO_FIELDS_CONTR.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="OCC_RATEPLANS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="RATEPLAN_HISTORY.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="SERVICE_PACKAGES_HISTORY.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_PROMOTIONS.READ" cmdVersion="CMD_1_0" webService="yes" />
+    <COMMAND cmdName="CONTRACT_PROMOTIONS.WRITE" cmdVersion="CMD_1_0" webService="yes" />
+    <COMMAND cmdName="CUSTOMER_PROMOTIONS.READ" cmdVersion="CMD_2_0" webService="yes"  />
+    <COMMAND cmdName="CUSTOMER_PROMOTIONS.WRITE" cmdVersion="CMD_1_0" webService="yes" />
+    <COMMAND cmdName="PROMOTION_PACKAGE.DELETE" cmdVersion="CMD_1_0" webService="yes" />
+    <COMMAND cmdName="PROMOTION_STATE.DELETE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="SUBSCRIPTIONFEE_REDUCTIONS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="DN_CONTRACT_HISTORY.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="DN_HISTORY.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="NUMBERING_PLANS.SEARCH" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="POOL_ISSUER.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="PORTS.SEARCH" cmdVersion="CMD_1_0" webService="yes"/>
+    <COMMAND cmdName="NETWORK_NUMBERING_PLAN.READ" cmdVersion="CMD_1_0"  webService="yes"/>
+    <COMMAND cmdName="PORT_CONTRACT_HISTORY.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="PORT_HISTORY.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="SM_CONTRACT_HISTORY.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="SM_HISTORY.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CUSTOMER.CREDITSCORE" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="PAYMENT_ARRANGEMENT.AUTHORIZE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="THRESHOLDS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="REQUESTS.CANCEL" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="REQUESTS.SEARCH" cmdVersion="CMD_2_0" webService="yes" />
+    <COMMAND cmdName="REQUEST.READ" cmdVersion="CMD_2_0" webService="yes" />
+    <COMMAND cmdName="TAXTYPES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="MARKETS.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="SUB_MARKETS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="MARKET_SEGMENT_PAYMENT_OPTION.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="UDR_DISP_ITEM.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="UDR_DISP_ITEM_DETAILS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="USER_DEALERS.READ" cmdVersion="CMD_2_0" webService="yes"/>
+    <COMMAND cmdName="CASH_COLLECTORS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_XFUP.ADD" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_FUA.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_DEVICE.ADD" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="CONTRACT_DEVICE.DELETE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_RESOURCES.REPLACE" cmdVersion="CMD_3_0" webService="yes" />
+    <COMMAND cmdName="CONTRACT_SERVICES.READ" cmdVersion="CMD_4_0" webService="yes" />
+    <COMMAND cmdName="POSCONNECT.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="EXTERNAL_CARRIERS.READ" cmdVersion="CMD_3_0" />
+    <COMMAND cmdName="MICRO_CELLS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="MICRO_CELLS.WRITE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="PROFILE_SERVICES.CHANGE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_SERVICE_PARAMETERS_HISTORY.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="PROMOTION_PACKAGES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CUSTOMER.WRITE" cmdVersion="CMD_5_0" webService="yes"/>
+    <COMMAND cmdName="CUSTOMER.NEW" cmdVersion="CMD_5_0" webService="yes" />
+    <COMMAND cmdName="CUSTOMER_DUPLICATE.CHECK" cmdVersion="CMD_3_0" webService="yes"/>
+    <COMMAND cmdName="LA_MEMBER.NEW" cmdVersion="CMD_5_0" webService="yes" />
+    <COMMAND cmdName="CUSTOMER_TAX_EXEMPTIONS.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="CUSTOMER_TAX_EXEMPTIONS.WRITE" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="INDIVIDUAL_TAXATION_HISTORY.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="VIRTUAL_PRIVATE_NETWORKS.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="VANITY_NUMBER.CONVERT" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="STORAGE_MEDIUM_CLASS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="STORAGE_MEDIUM.SEARCH" cmdVersion="CMD_2_0" webService="yes"/>
+    <COMMAND cmdName="PHONE_NUMBER.EXPORT" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="PHONE_NUMBER.IMPORT" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="PHONE_NUMBER.REIMPORT" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="DIRECTORY_NUMBER_TYPES.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="EVENT_DRIVEN_VAS.READ" cmdVersion="CMD_2_0" webService="yes" />
+    <COMMAND cmdName="FREE_UNIT_PACKAGE_ELEMENTS.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="RATEPLAN_AVAILABILITY_PERIODS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="SERVICE_FUNCTIONALITIES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="VPN_CONTRACT.READ" cmdVersion="CMD_1_0" webService="yes"/> 
+    <COMMAND cmdName="DEPENDENCIES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="TICKLER.WRITE" cmdVersion="CMD_1_0" webService="yes" />
+    <COMMAND cmdName="TICKLER.READ" cmdVersion="CMD_1_0" webService="yes" />
+    <COMMAND cmdName="TICKLERS.SEARCH" cmdVersion="CMD_4_0" webService="yes"/>
+    <COMMAND cmdName="TICKLER.NEW" cmdVersion="CMD_1_0" webService="yes" />
+    <COMMAND cmdName="TICKLER_DEF.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="TICKLER_STATES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="HLR.READ" cmdVersion="CMD_1_0" webService="yes" />
+    <COMMAND cmdName="NDC_LOGICALHLR.READ" cmdVersion="CMD_2_0" webService="yes" />
+    <COMMAND cmdName="NETWORKS.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="PROFILES.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="PAYMENT_METHODS.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="INSTALLATION_ADDRESS.READ" cmdVersion="CMD_1_0" webService="yes"/>
+    <COMMAND cmdName="INSTALLATION_ADDRESS.WRITE" cmdVersion="CMD_1_0" webService="yes"/>
+    <COMMAND cmdName="STORAGE_MEDIUM.CREATE" cmdVersion="CMD_1_0" webService="yes"/>
+    <COMMAND cmdName="PORT.CREATE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="REQUEST.FINISH" cmdVersion="CMD_1_0" webService="yes" />
+    <COMMAND cmdName="CUG_INTERLOCKS.SEARCH" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CUG_AGREEMENT.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CUG_AGREEMENT.WRITE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CUG_AGREEMENTS.SEARCH" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CUG_INTERNAL_MEMBERS.SEARCH" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CUG_EXTERNAL_MEMBERS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CUG_EXTERNAL_MEMBER.WRITE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="BASIC_SERVICE_GROUP.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="BASIC_SERVICE_GROUPS.SEARCH" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_SERVICE_CUG_PARAMETERS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_SERVICE_CUG_PARAMETERS.WRITE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="GENERIC_DIRECTORY_NUMBER.CREATE" cmdVersion="CMD_2_0" webService="yes"/>
+    <COMMAND cmdName="GENERIC_DIRECTORY_NUMBER.READ" cmdVersion="CMD_3_0" webService="yes"/>
+    <COMMAND cmdName="GENERIC_DIRECTORY_NUMBER.SEARCH" cmdVersion="CMD_2_0" webService="yes"/>
+    <COMMAND cmdName="PREPAID_TIMEPACKAGES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="SWITCH_REQUEST_DEF.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="SWITCH_REQUEST.NEW" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="TICKLER.DELETE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="ALTERNATE_RATEPLANS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="TAXCODES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="EQUIPMENTS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="EQUIPMENT.WRITE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="EQUIPMENT.DELETE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="GLACCOUNTS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="JURISDICTION_TYPES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="FOLLOW_UP_CODE.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CURRENCIES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_RESOURCES.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="UNIT_OF_MEASUREMENTS.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="REQUEST.RESEND" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="FAMILIES.SEARCH" cmdVersion="CMD_3_0" webService="yes"/>
+    <COMMAND cmdName="FAMILY.READ" cmdVersion="CMD_2_0" webService="yes"/>
+    <COMMAND cmdName="FAMILY_DEFAULT.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="FAMILIES.MERGE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="FAMILY.NEW" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="FAMILY_MEMBER.MOVE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="FAMILY.WRITE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="FAMILY_GROUP.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="MICROCELLS_GLOBAL.WRITE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="MICROCELLS_GLOBAL.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="MICROCELL_MEMBERS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="MICROCELL_MEMBERS.WRITE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="SESSION.CHANGE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="BUSINESS_UNIT.READ" cmdVersion="CMD_1_0" webService="yes" />
+    <COMMAND cmdName="AMOUNT_FUNCTION.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="USER_SETTING.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="SYSTEM_SETTING.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="BUSINESS_UNIT.CHANGE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="BUSINESS_UNIT.CHECK" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="MAIL_ITEM.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CUSTOMER_MAIL_ITEM.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CUSTOMER_MAIL_ITEM.WRITE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CUSTOMER_MAIL_ITEM.DELETE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="DEALER_DATA.MOVE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="DESTINATIONS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="ORIGINS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="BILLING_ACCOUNT_ASSIGNMENT.FINISH" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="BILLING_ACCOUNT_ASSIGNMENT_HISTORY.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="BILLING_ACCOUNT_ASSIGNMENT.READ" cmdVersion="CMD_2_0" webService="yes"/>
+    <COMMAND cmdName="BILLING_ACCOUNT_ASSIGNMENT.WRITE" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="BILLING_ACCOUNT.SEARCH" cmdVersion="CMD_4_0" webService="yes" />
+    <COMMAND cmdName="BILLING_ACCOUNT_TAXEXEMPTION.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="BILLING_ACCOUNT_TAXEXEMPTION.WRITE" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="CHARGE_TYPE.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="PORTING_NETWORK.READ" cmdVersion="CMD_2_0" />
+
+    <COMMAND cmdName="DEALERS.READ" deprecated="yes" cmdVersion="CMD_1_0" webService="yes"/>
+    <COMMAND cmdName="DEALERS.SEARCH" deprecated="yes" cmdVersion="CMD_1_0" />
+
+    <COMMAND cmdName="BOP_HISTORY.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="BOP_MODES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="BOP_PACKAGE_ASSIGNMENT.CHECK" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="BOP_PACKAGES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="BOP_PURPOSES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="PRODUCT.CHANGE" cmdVersion="CMD_3_0" webService="yes" />
+    <COMMAND cmdName="PARAMETER.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="FREE_UNIT_PACKAGES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="SERVICES.READ" cmdVersion="CMD_5_0" webService="yes" />
+    <COMMAND cmdName="BOOKING_REQUEST.WRITE" cmdVersion="CMD_4_0" webService="yes" />
+    <COMMAND cmdName="BOOKING_REQUESTS.SEARCH" cmdVersion="CMD_4_0" webService="yes" />
+    <COMMAND cmdName="USAGE_DATA_RECORDS.READ" cmdVersion="CMD_5_0" webService="yes" />
+    <COMMAND cmdName="RATEPLANS.READ" cmdVersion="CMD_4_0" />
+    <COMMAND cmdName="SERVICE_PACKAGES.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="SERVICE_PARAMETERS.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="CONTRACT_SERVICES.ADD" cmdVersion="CMD_5_0" webService="yes" />
+    <COMMAND cmdName="CONTRACT_SERVICES.WRITE" cmdVersion="CMD_4_0" webService="yes" />
+    <COMMAND cmdName="CONTRACT_SERVICE_PARAMETERS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_SERVICE_PARAMETERS.WRITE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_SERVICE_RESOURCES.WRITE" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="CONTRACT.TAKEOVER" cmdVersion="CMD_3_0" webService="yes"/>
+    <COMMAND cmdName="CUG_INTERLOCK.CREATE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_TEMPLATE_RESOURCE.READ" cmdVersion="CMD_2"  />
+    <COMMAND cmdName="CONTRACT_TEMPLATE_RESOURCE.WRITE" cmdVersion="CMD_2"  />
+    <COMMAND cmdName="CONTRACT_TEMPLATE_SERVICE_RESOURCES.READ" cmdVersion="CMD_1"  />
+    <COMMAND cmdName="CONTRACT_TEMPLATE_SERVICE_RESOURCES.WRITE" cmdVersion="CMD_1"  />
+    <COMMAND cmdName="VIRTUAL_PRIVATE_NETWORK.CREATE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="VIRTUAL_PRIVATE_NETWORK.SEARCH" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_SECTIONS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_SUBSECTIONS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_TYPES.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="CONTRACT_DATA_EXCHANGE.WRITE" cmdVersion="CMD_4_0" />
+    <COMMAND cmdName="CONTRACT_DATA_EXCHANGE.READ" cmdVersion="CMD_4_0" />
+    <COMMAND cmdName="CONTRACT_DATA_EXCHANGE.CHECK" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_DATA_EXCHANGE_HISTORY.READ" cmdVersion="CMD_3_0" />
+    <COMMAND cmdName="TAP_VALIDATION_RULES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CIBER_VALIDATION_RULES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="TAP_RECORD_TYPES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="UDS_MEMBERS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="DATA_EXCHANGE_FORMATS.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="SERVICE_CATEGORIES.READ" cmdVersion="CMD_1_0" webService="yes"/>
+    <COMMAND cmdName="PARTY_ROLE_CONFIGURATION.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="BID_GROUPS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_PRODUCT.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="CONTRACT_PRODUCT.WRITE" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="CONTRACT_RATING_INVOICE_HISTORY.READ" cmdVersion="CMD_3_0" />
+    <COMMAND cmdName="CONTRACT_RATING_INVOICE.READ" cmdVersion="CMD_3_0" />
+    <COMMAND cmdName="CONTRACT_RATING_INVOICE.WRITE" cmdVersion="CMD_3_0" />
+    <COMMAND cmdName="CREDIT_LIMIT_HISTORY.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT.READ" cmdVersion="CMD_5_0" webService="yes" />
+    <COMMAND cmdName="CONTRACTS.SEARCH" cmdVersion="CMD_5_0" webService="yes" />
+    <COMMAND cmdName="CREDIT_LIMIT.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="CREDIT_LIMIT.WRITE" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="ALLOWED_SERVICES.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="CONTRACT.NEW" cmdVersion="CMD_4_0" webService="yes"/>
+    <COMMAND cmdName="CONTRACT.WRITE" cmdVersion="CMD_4_0" webService="yes" />
+    <COMMAND cmdName="ALLOWED_RATEPLANS.READ" cmdVersion="CMD_5_0" />
+    <COMMAND cmdName="GLACCOUNT_PACKAGE.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="USER_CONTENTPROVIDERS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="ROAMING_AGREEMENT_GROUPS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="TICKLER_TRACKING_REFERENCE.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="PREPAID_PROMOTION_ASSIGNMENT.CHECK" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="JOBCOSTS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="PHONE_NUMBER_EXPORT.SEARCH" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="RESOURCE_STATE.WRITE" cmdVersion="CMD_2_0" webService="yes" />
+    <COMMAND cmdName="COST_CONTROL_PACKAGE.SEARCH" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="COST_CONTROL_PACKAGE.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="CONTRACT_BUNDLE.READ" cmdVersion="CMD_3_0" />
+    <COMMAND cmdName="CONTRACT_BUNDLE.WRITE" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="CONTRACT_BUNDLE.PURCHASE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="BALANCE_ITEM_DEFINITION.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="THRESHOLD_DEFAULTS.READ" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="CONTENT_PRODUCT_ITEM_DETAIL.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="TIMEZONES.READ" cmdVersion="CMD_1_0"   />
+    <COMMAND cmdName="GMD_ACTION.READ" cmdVersion="CMD_1_0"   />
+    <COMMAND cmdName="CONCURRENT_REQUEST.SEARCH" cmdVersion="CMD_1_0"   />
+    <COMMAND cmdName="CONCURRENT_REQUEST.CANCEL" cmdVersion="CMD_1_0"   />
+    <COMMAND cmdName="CONTRACT_SERVICE_HISTORY.READ" cmdVersion="CMD_1_0"  />
+    <COMMAND cmdName="CHARGE_RECORDS.READ" cmdVersion="CMD_1_0"  />
+    <COMMAND cmdName="PORTING_REQUEST_TYPES.READ" cmdVersion="CMD_1_0"  />
+    <COMMAND cmdName="PORTING_REQUEST_HISTORY.READ" cmdVersion="CMD_1_0"  />
+    <COMMAND cmdName="PORTING_REQUEST.READ" cmdVersion="CMD_1_0"  />
+    <COMMAND cmdName="PORTING_REQUEST_REMARK.NEW" cmdVersion="CMD_1_0"  />
+    <COMMAND cmdName="PORTING_REQUEST_REMARK.READ" cmdVersion="CMD_1_0"  />
+    <COMMAND cmdName="PORTING_REQUEST.SEARCH" cmdVersion="CMD_1_0"  />
+    <COMMAND cmdName="PORTING_REQUEST_STATES.READ" cmdVersion="CMD_1_0"  />
+    <COMMAND cmdName="PORTING_REQUEST.WRITE" cmdVersion="CMD_1_0"  />
+    <COMMAND cmdName="INSTANCE.READ" cmdVersion="CMD_1_0"  />
+    <COMMAND cmdName="PHONE_NUMBER.VALIDATE" cmdVersion="CMD_1_0"  />
+  <!--  all commands from IN_3 -->
+    <COMMAND cmdName="LIFECYCLE_DEFINITIONS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="LIFECYCLE_TRANSACTION.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="LIFECYCLE_ACTION.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="LIFECYCLE_EVENT.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="LIFE_CYCLE_EVENT.WRITE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="LIFECYCLE_STATE.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="LIFECYCLE_STATE_TRANSITION.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_PREPAID_DATA.DELETE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_PREPAID_DATA.NEW" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_PREPAID_DATA.READ" cmdVersion="CMD_4_0" />
+    <COMMAND cmdName="CONTRACT_PREPAID_DATA.WRITE" cmdVersion="CMD_3_0" />
+    <COMMAND cmdName="CONTRACT_PREPAID_DATA_HISTORY.READ" cmdVersion="CMD_3_0" />
+    <COMMAND cmdName="CONTRACT_PREPAID_DATA_HISTORY.SEARCH" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="PREPAID_SUBSCRIPTION.ACTIVATE" cmdVersion="CMD_2_0" />
+    <COMMAND cmdName="IVR_LANGUAGES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="PREPAID_PROFILES.READ" cmdVersion="CMD_3_0" />
+    <!-- end all commands from IN_3 -->
+    <COMMAND cmdName="ADDRESS.CONVERT" cmdVersion="CMD_1_0" webService="yes"/>
+    <COMMAND cmdName="CONTRACT_SERVICE_CUG_PARAMETERS_HISTORY.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CANDIDATE_FOR_RERATING.MARK" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="RERATING_REASONS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="RESOURCE_STRUCTURE.READ" cmdVersion="CMD_1_0"  />
+    <COMMAND cmdName="BUSINESS_SCENARIOS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="PRODUCT_CHANGE_SERVICES.READ" cmdVersion="CMD_2_0"  />
+     <COMMAND cmdName="UDC_LOGICAL_QUANTITY.READ" cmdVersion="CMD_1_0"  />
+    <!-- 350652: Remove Business Plan Support <COMMAND cmdName="BUSINESS_PLAN.READ" cmdVersion="CMD_1_0"/> -->
+
+    <COMMAND cmdName="BALANCE_ADJUSTMENT.WRITE" cmdVersion="CMD_2_0" webService="yes" />
+    <COMMAND cmdName="RESOURCE_BATCH_PROCESSES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="AGGREGATION_PACKAGES.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="USAGE_DATA_RECORDS.EXPORT" cmdVersion="CMD_1_0" webService="yes" />
+    <COMMAND cmdName="SUBSCRIBER.INSTALL" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="LA_PROMOTION_ASSIGNMENTS.SEARCH" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="LA_FREE_UNIT_ASSIGNMENTS.SEARCH" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="NETWORK_ELEMENTS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CUSTOMER_PAYMENT_PLAN.SEARCH" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="CUSTOMER_PAYMENT_PLAN.CREATE" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="LA_RATEPLANS.READ" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="LA_PROMOTIONS.READ" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="CONTRACTS.COUNT" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="INVOICE_TYPES.READ" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="CUSTOMER_VPNS.READ" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="CUSTOMER_CUGS.READ" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="CUSTOMER_FREE_UNIT_CONTRACTS.READ" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="ADDRESS.COPY" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="BILLING_ACCOUNT_ASSIGNMENT_TEMPLATE.NEW" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="BILLING_ACCOUNT_ASSIGNMENT_TEMPLATE.WRITE" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="BILLING_ACCOUNT_ASSIGNMENT_TEMPLATE.DELETE" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="BILLING_ACCOUNT_ASSIGNMENT_TEMPLATES.READ" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="COMPLEX_CONDITIONS.READ" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="SERVICES.SEARCH" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="CREDITSCORE_SCHEME.READ" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="BATCH_JOB_CUSTOMER_CREDITSCORE.SEARCH" cmdVersion="CMD_1_0" webService="yes"/>
+    <COMMAND cmdName="CONTRACT_SERVICE_ACCESS_FEE_HISTORY.READ" cmdVersion="CMD_1_0"  />
+    <COMMAND cmdName="CUSTOMER_HIERARCHY.REFRESH" cmdVersion="CMD_1_0"  />
+    <COMMAND cmdName="CUSTOMER_HIERARCHY.SEARCH" cmdVersion="CMD_2_0"  />
+    <COMMAND cmdName="SERVICE_PARAMETER_CHARGES.READ" cmdVersion="CMD_1_0"  />
+
+    <COMMAND cmdName="SERVICE_OFFERING.READ" cmdVersion="CMD_1_0"  />
+    <COMMAND cmdName="SDP_DEFAULT.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="FAF_NUMBER.READ" cmdVersion="CMD_1_0"  />
+    <COMMAND cmdName="FAF_NUMBER.WRITE" cmdVersion="CMD_1_0"  />
+    <COMMAND cmdName="CONTRACT_PROMOTION_PLAN.READ" cmdVersion="CMD_1_0"  />
+    <COMMAND cmdName="CONTRACT_PROMOTION_PLAN.WRITE" cmdVersion="CMD_1_0"  />
+
+    <COMMAND cmdName="VOUCHER_DETAIL.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="ALLOWED_REFILL_OPTIONS.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="REFILL_BARRING.WRITE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="ALLOWED_BUNDLE.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_BUNDLE_HISTORY.READ" cmdVersion="CMD_1_0" />
+
+    <COMMAND cmdName="GENERIC_ENTITY.SEARCH" cmdVersion="CMD_2_0" />
+
+    <COMMAND cmdName="CONTRACT_PAM_SCHEME.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_PAM.EVALUATE" cmdVersion="CMD_1_0" />
+
+    <COMMAND cmdName="SHARED_ACCOUNT_PACKAGE.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_SHARED_ACCOUNT_PACKAGE.READ" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_SHARED_ACCOUNT_PACKAGE.WRITE" cmdVersion="CMD_1_0" />
+    <COMMAND cmdName="CONTRACT_SHARED_ACCOUNT_PACKAGE_HISTORY.READ" cmdVersion="CMD_1_0" />
+
+    <COMMAND cmdName="CONTRACT_SHARED_ACCOUNT_PARTICIPANTS.SEARCH" cmdVersion="CMD_1_0" webService="yes"/>
+    <COMMAND cmdName="CONTRACT_SHARED_ACCOUNT_PARTICIPANTS.COUNT" cmdVersion="CMD_1_0" />
+
+    <COMMAND cmdName="CONTRACT_SHARED_ACCOUNT_HISTORY.SEARCH" cmdVersion="CMD_1_0" webService="yes"/>
+
+    <COMMAND cmdName="HARDWARE_ASSET.READ" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="HARDWARE_ASSET.CREATE" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="HARDWARE_ASSET.DELETE" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="HARDWARE_ASSET.WRITE" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="HARDWARE_ASSET.SEARCH" cmdVersion="CMD_1_0"/>
+
+    <COMMAND cmdName="EQUIPMENT_AGREEMENT.READ" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="EQUIPMENT_AGREEMENT.CREATE" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="EQUIPMENT_AGREEMENT.SEARCH" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="EQUIPMENT_AGREEMENT.WRITE" cmdVersion="CMD_1_0"/>
+
+    <COMMAND cmdName="TAX_EXEMPTION_TEMPLATE.CREATE" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="TAX_EXEMPTION_TEMPLATES.READ" cmdVersion="CMD_1_0"/>
+    <COMMAND cmdName="TAX_EXEMPTION_TEMPLATE.ASSIGN" cmdVersion="CMD_1_0"/>
+
+    <COMMAND cmdName="JURISDICTIONS.READ" cmdVersion="CMD_1_0"/>
+
+    <COMMAND cmdName="PAYMENT_AUTHORIZATION_INFO.WRITE" cmdVersion="CMD_1_0" webService="yes" />
+
+    <COMMAND cmdName="CONTRACT_RESOURCES_DEALER.WRITE" cmdVersion="CMD_1_0" webService="yes" />
+    <COMMAND cmdName="DIRECTORY_NUMBER_STATUS.WRITE" cmdVersion="CMD_1_0" webService="yes" />
+    <COMMAND cmdName="STORAGE_MEDIUM_PORT_STATUS.WRITE" cmdVersion="CMD_1_0" webService="yes" />
+    <COMMAND cmdName="CONTRACT_RESOURCES_STATUS_REQU.WRITE" cmdVersion="CMD_1_0" webService="yes" />
+    <COMMAND cmdName="BILLING_ACCOUNT_UNBILLED_AMOUNT.READ" cmdVersion="CMD_1_0" webService="yes" />
+    <COMMAND cmdName="CUSTOMER_LEVELS.READ" cmdVersion="CMD_3_0" webService="yes"/>
+    <COMMAND cmdName="STORAGE_MEDIUM.READ" cmdVersion="CMD_1_0" webService="yes"/>
+    <COMMAND cmdName="PORT.WRITE" cmdVersion="CMD_1_0" webService="yes" />
+    <COMMAND cmdName="GENERIC_DIRECTORY_NUMBER.WRITE" cmdVersion="CMD_1_0" webService="yes" />
+    <COMMAND cmdName="STORAGE_MEDIUM.WRITE" cmdVersion="CMD_1_0" webService="yes" />
+    
+</SOI>

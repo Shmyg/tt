@@ -1,0 +1,35 @@
+<!ELEMENT AggChargeDetails (CustomerPR)>
+
+<!-- CustomerPR
+-->
+<!ELEMENT CustomerPR (AggInfo*)>
+<!ATTLIST CustomerPR
+    Id                  CDATA   #REQUIRED
+    CustCode            CDATA   #IMPLIED
+    Reseller            (Y|N)   #IMPLIED
+    PartyType           (C|B)   #IMPLIED
+>
+     
+<!-- AggInfo
+-->
+<!ELEMENT AggInfo (SumUdr*)>
+<!ATTLIST AggInfo
+    BundleId        CDATA   #REQUIRED
+    BundleDes       CDATA   #REQUIRED
+    AggPackId       CDATA   #REQUIRED
+    AggPackDes      CDATA   #REQUIRED
+    AggKey          CDATA   #REQUIRED
+    AggCycle        (1|2|3) #REQUIRED
+    Purpose         (C|D)   "C"      >
+
+<!-- SumUdr (attributes are configured in SUM_UDR.dtd)
+-->
+<!ELEMENT SumUdr      (RECORD_INFO) >
+<!ELEMENT RECORD_INFO (BASE_INFO+)  >
+<!ELEMENT BASE_INFO   (CHARGE_INFO+)>
+<!ELEMENT CHARGE_INFO (FREE_UNIT_INFO*, PROMOTION_INFO*)>
+<!ELEMENT FREE_UNIT_INFO EMPTY>
+<!ELEMENT PROMOTION_INFO EMPTY>
+
+<!ENTITY % RECORD_INFO SYSTEM "SUM_UDR.dtd">
+%RECORD_INFO;

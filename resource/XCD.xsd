@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+  Copyright (c) 2010 LHS Telekom GmbH & Co. KG
+
+  The copyright in this work is vested in LHS. The information contained in this work
+  (either in whole or in part) is confidential and must not be modified, reproduced,
+  disclosed or disseminated to others or used for purposes other than that for which
+  it is supplied, without the prior written permission of LHS.  If this work or any
+  part hereof is furnished to a third party by virtue of a contract with that party,
+  use of this work by such party shall be governed by the express contractual terms
+  between LHS, which is party to that contract and the said party.
+
+  The information in this document is subject to change without notice and should not
+  be construed as a commitment by LHS. LHS assumes no responsibility for any errors
+  that may appear in this document. With the appearance of a new version of this
+  document all older versions become invalid.
+
+  All rights reserved.
+
+  File:    XCD.xsd
+
+  Owner:   Matthias Fehrenbacher
+
+  @(#) ABSTRACT : XML validation
+  @(#) BSCS iX R4, Bill Formatting Server
+
+  This schema validates call detail attributes.
+  VERSION = @(#) ./lhsj_main/bscs/batch/src/bgh/LAYOUT/XCD.xsd, , CBIO_PCP1503, CBIO_PCP1503_150728 @@CBIO_PCP1503_150728 28-Jul-2015
+
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  <xs:attributeGroup name="attlist.XCD">
+    <xs:attribute name="AIUR" type="xs:string"/>
+    <xs:attribute name="ANP" type="xs:string"/>
+    <xs:attribute name="APN" type="xs:string"/>
+    <xs:attribute name="AUC" type="xs:string"/>
+    <xs:attribute name="BOPAltInd" type="xs:token"/>
+    <xs:attribute name="BOPDZP" type="xs:string"/>
+    <xs:attribute name="BOPPCK" type="xs:string"/>
+    <xs:attribute name="BOPPurp" type="xs:string"/>
+    <xs:attribute name="BOPSN" type="xs:string"/>
+    <xs:attribute name="BOPSP" type="xs:string"/>
+    <xs:attribute name="BOPSeqNoRP" type="xs:positiveInteger"/>
+    <xs:attribute name="BOPSeqNoSP" type="xs:positiveInteger"/>
+    <xs:attribute name="BOPTM" type="xs:string"/>
+    <xs:attribute name="BOPTMV" type="xs:positiveInteger"/>
+    <xs:attribute name="BOPTZ" type="xs:string"/>
+    <xs:attribute name="BOPURP" type="xs:positiveInteger"/>
+    <xs:attribute name="BU" type="xs:string"/>
+    <xs:attribute name="BilledIND" type="xs:token"/>
+    <xs:attribute name="BundPurInd" type="xs:token"/>
+    <xs:attribute name="BundUsgInd" type="xs:token"/>
+    <xs:attribute name="CAI" type="xs:token"/>
+    <xs:attribute name="CC" type="xs:token"/>
+    <xs:attribute name="CCA" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="CCU" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="CGI" type="xs:string"/>
+    <xs:attribute name="CLIR" type="xs:string" />
+    <xs:attribute name="CMSC" type="xs:string"/>
+    <xs:attribute name="CO" type="xs:string"/>
+    <xs:attribute name="CQA" type="xs:double"/>
+    <xs:attribute name="CQC" type="xs:token"/>
+    <xs:attribute name="CQUM" type="xs:token"/>
+    <xs:attribute name="CQV" type="xs:double"/>
+    <xs:attribute name="CRI" type="xs:token"/>
+    <xs:attribute name="CRN" type="xs:string"/>
+    <xs:attribute name="CRTs" type="xs:dateTime"/>
+    <xs:attribute name="CT" type="xs:positiveInteger"/>
+    <xs:attribute name="CTI" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="CTs" type="xs:dateTime"/>
+    <xs:attribute name="CU" type="xs:string"/>
+    <xs:attribute name="CUG" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="Cat" type="xs:string"/>
+    <xs:attribute name="CatEl" type="xs:string" />
+    <xs:attribute name="ChC" type="xs:token"/>
+    <xs:attribute name="ChType" type="xs:token"/>
+    <xs:attribute name="ChrgEndTime" type="xs:dateTime"/>
+    <xs:attribute name="ChrgPrmVF" type="xs:dateTime"/>
+    <xs:attribute name="ChrgStartTime" type="xs:dateTime"/>
+    <xs:attribute name="ContractedIND" type="xs:token"/>
+    <xs:attribute name="CpName" type="xs:string"/>
+    <xs:attribute name="DAUM" type="xs:token"/>
+    <xs:attribute name="DAV" type="xs:double"/>
+    <xs:attribute name="DAmt" type="xs:double"/>
+    <xs:attribute name="DC" type="xs:double"/>
+    <xs:attribute name="DCat" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="DES" type="xs:string"/>
+    <xs:attribute name="DLV" type="xs:double"/>
+    <xs:attribute name="DRV" type="xs:double"/>
+    <xs:attribute name="DRdV" type="xs:double"/>
+    <xs:attribute name="DUM" type="xs:token"/>
+    <xs:attribute name="DV" type="xs:double"/>
+    <xs:attribute name="DZP" type="xs:string"/>
+    <xs:attribute name="EC" type="xs:string"/>
+    <xs:attribute name="ET" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="ExtAmt" type="xs:double"/>
+    <xs:attribute name="ExtCurrCode" type="xs:token"/>
+    <xs:attribute name="ExtTax" type="xs:double"/>
+    <xs:attribute name="FNUR" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="FileName" type="xs:string"/>
+    <xs:attribute name="ForAmt" type="xs:double"/>
+    <xs:attribute name="ForAmtCurrCode" type="xs:token"/>
+    <xs:attribute name="ForTaxAmt" type="xs:double"/>
+    <xs:attribute name="ICR" type="xs:double"/>
+    <xs:attribute name="IPY" type="xs:token"/>
+    <xs:attribute name="Id" type="xs:unsignedLong"/>
+    <xs:attribute name="LZ" type="xs:string"/>
+    <xs:attribute name="MCCODE" type="xs:positiveInteger"/>
+    <xs:attribute name="MCPKEY" type="xs:string"/>
+    <xs:attribute name="MCS" type="xs:double"/>
+    <xs:attribute name="MCTYPE" type="xs:token"/>
+    <xs:attribute name="MKT" type="xs:string"/>
+    <xs:attribute name="MNC" type="xs:positiveInteger"/>
+    <xs:attribute name="MUV" type="xs:string"/>
+    <xs:attribute name="MV" type="xs:double"/>
+    <xs:attribute name="NCU" type="xs:positiveInteger"/>
+    <xs:attribute name="NI" type="xs:token"/>
+    <xs:attribute name="NN" type="xs:string"/>
+    <xs:attribute name="NQSD" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="NQSMT" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="NQSP" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="NQSPT" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="NQSR" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="No" type="xs:unsignedLong"/>
+    <xs:attribute name="NumDays" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="Numit" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="OAmt" type="xs:double"/>
+    <xs:attribute name="OC" type="xs:double"/>
+    <xs:attribute name="OPN" type="xs:string"/>
+    <xs:attribute name="ORV" type="xs:double"/>
+    <xs:attribute name="ORdV" type="xs:double"/>
+    <xs:attribute name="PRIO" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="PRO" type="xs:string"/>
+    <xs:attribute name="PrInd" type="xs:token"/>
+    <xs:attribute name="Price" type="xs:double"/>
+    <xs:attribute name="PriceCurr" type="xs:token"/>
+    <xs:attribute name="PrmValueId" type="xs:unsignedLong"/>
+    <xs:attribute name="PurSeqNo" type="xs:unsignedLong"/>
+    <xs:attribute name="PurchId" type="xs:string"/>
+    <xs:attribute name="RCI" type="xs:token"/>
+    <xs:attribute name="REM" type="xs:string"/>
+    <xs:attribute name="RQSD" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="RQSMT" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="RQSP" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="RQSPT" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="RQSR" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="RRT" type="xs:token"/>
+    <xs:attribute name="RT" type="xs:string"/>
+    <xs:attribute name="RTON" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="RapSeqNo" type="xs:positiveInteger"/>
+    <xs:attribute name="SCI" type="xs:string"/>
+    <xs:attribute name="SN" type="xs:string"/>
+    <xs:attribute name="SP" type="xs:string"/>
+    <xs:attribute name="STD" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="SeqNo" type="xs:positiveInteger"/>
+    <xs:attribute name="SrvChSType" type="xs:token"/>
+    <xs:attribute name="SrvChType" type="xs:token"/>
+    <xs:attribute name="SrvSt" type="xs:token"/>
+    <xs:attribute name="SubId" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="TBQ" type="xs:positiveInteger"/>
+    <xs:attribute name="TID" type="xs:string"/>
+    <xs:attribute name="TIDPA" type="xs:string"/>
+    <xs:attribute name="TM" type="xs:string"/>
+    <xs:attribute name="TMV" type="xs:positiveInteger"/>
+    <xs:attribute name="TSD" type="xs:string"/>
+    <xs:attribute name="TT" type="xs:string"/>
+    <xs:attribute name="TTR" type="xs:double"/>
+    <xs:attribute name="TZ" type="xs:string"/>
+    <xs:attribute name="TapSeqNo" type="xs:positiveInteger"/>
+    <xs:attribute name="TimeSliceLB" type="xs:integer"/>
+    <xs:attribute name="TimeSliceRB" type="xs:integer"/>
+    <xs:attribute name="UM" type="xs:token"/>
+    <xs:attribute name="UQSHP" type="xs:positiveInteger"/>
+    <xs:attribute name="UQSMBRD" type="xs:integer"/>
+    <xs:attribute name="UQSMBRU" type="xs:integer"/>
+    <xs:attribute name="UQSTC" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="URP" type="xs:positiveInteger"/>
+    <xs:attribute name="USN" type="xs:string"/>
+    <xs:attribute name="UT" type="xs:string"/>
+    <xs:attribute name="UV" type="xs:double"/>
+    <xs:attribute name="XDCat" type="xs:token"/>
+    <xs:attribute name="XDisc" type="xs:double"/>
+    <xs:attribute name="XTBQ" type="xs:string"/>
+    <xs:attribute name="SIMNum" type="xs:string"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="attlist.FUP">
+    <xs:attribute name="Amt" type="xs:double"/>
+    <xs:attribute name="AmtCurrCode" type="xs:token"/>
+    <xs:attribute name="BPROD" type="xs:string"/>
+    <xs:attribute name="ChPlan" type="xs:string"/>
+    <xs:attribute name="Clicks" type="xs:double"/>
+    <xs:attribute name="CoId" type="xs:string"/>
+    <xs:attribute name="FUAccHistId" type="xs:positiveInteger"/>
+    <xs:attribute name="FUAccId" type="xs:positiveInteger"/>
+    <xs:attribute name="FUDisc" type="xs:token"/>
+    <xs:attribute name="FUE" type="xs:positiveInteger"/>
+    <xs:attribute name="FUEV" type="xs:positiveInteger"/>
+    <xs:attribute name="FUP" type="xs:string"/>
+    <xs:attribute name="FUPrepayInd" type="xs:token"/>
+    <xs:attribute name="ForFreeAmt" type="xs:double"/>
+    <xs:attribute name="ForFreeAmtCuCod" type="xs:token"/>
+    <xs:attribute name="ForFreeTaxAmt" type="xs:double"/>
+    <xs:attribute name="FreeChargeRate" type="xs:double"/>
+    <xs:attribute name="FUOption" type="xs:token"/>
+    <xs:attribute name="Profile" type="xs:string"/>
+    <xs:attribute name="PurSeqNo" type="xs:nonNegativeInteger"/>
+    <xs:attribute name="RatVol" type="xs:double"/>
+    <xs:attribute name="RoundedVol" type="xs:double"/>
+    <xs:attribute name="SN" type="xs:string"/>
+    <xs:attribute name="TaxAmt" type="xs:double"/>
+    <xs:attribute name="UM" type="xs:token"/>
+  </xs:attributeGroup>
+</xs:schema>

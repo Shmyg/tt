@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+  Copyright (c) 2012 Ericsson
+
+  All rights reserved.
+
+  File:    RDD_EN.xml
+
+  Owner:   Matthias Fehrenbacher
+
+  @(#) ABSTRACT : XML configuration file
+  @(#) BSCS iX R4, Bill Formatting Server
+
+  This document contains BIR item descriptions for top-up actions.
+  VERSION = @(#) ./lhsj_main/bscs/batch/src/bgh/LAYOUT/RDD_EN.xml, , CBIO_PCP1503, CBIO_PCP1503_150728 @@CBIO_PCP1503_150728 28-Jul-2015
+
+-->
+
+<!DOCTYPE UDR [
+<!ELEMENT UDR (RDD*)>
+<!ELEMENT RDD EMPTY>
+<!ATTLIST RDD
+    Id       CDATA #REQUIRED
+    xml:lang (DE|EN|FR|IT|AR) #IMPLIED
+    Des      CDATA #IMPLIED
+>
+]>
+
+<UDR>
+<!-- T -->
+<RDD Id="TUAACC" xml:lang="EN" Des="Top-Up-Action Accounting Ind"/>
+<RDD Id="TUAAEP" xml:lang="EN" Des="Active / Passive LC Period"/>
+<RDD Id="TUAAEPT" xml:lang="EN" Des="Top-Up-Action Active Expiration Period Type"/>
+<RDD Id="TUAAmt" xml:lang="EN" Des="Action Amount"/>
+<RDD Id="TUACO" xml:lang="EN" Des="Top-Up-Action Contract"/>
+<RDD Id="TUACurr" xml:lang="EN" Des="Top-up-Action Currency"/>
+<RDD Id="TUAELEM" xml:lang="EN" Des="Element"/>
+<RDD Id="TUAFROM" xml:lang="EN" Des="Period"/>
+<RDD Id="TUAMECH" xml:lang="EN" Des="Mechanism"/>
+<RDD Id="TUAMOD" xml:lang="EN" Des="Model"/>
+<RDD Id="TUAPA" xml:lang="EN" Des="Pricing Alternative"/>
+<RDD Id="TUAPCK" xml:lang="EN" Des="Package"/>
+<RDD Id="TUAPEP" xml:lang="EN" Des="Top-Up-Action Passive Expiration Period"/>
+<RDD Id="TUAPEPT" xml:lang="EN" Des="Top-Up-Action Passive Expiration Period Type"/>
+<RDD Id="TUAPIND" xml:lang="EN" Des="Top-Up Action Promotion Indicator"/>
+<RDD Id="TUAPRO" xml:lang="EN" Des="User Profile"/>
+<RDD Id="TUAS" xml:lang="EN" Des="Action Status"/>
+<RDD Id="TUASN" xml:lang="EN" Des="Service"/>
+<RDD Id="TUAT" xml:lang="EN" Des="Action Type / Discount"/>
+<RDD Id="TUATM" xml:lang="EN" Des="Tariff Model"/>
+<RDD Id="TUATO" xml:lang="EN" Des="Top-Up-Action Valid To"/>
+<RDD Id="TUAUOM" xml:lang="EN" Des="Top-Up-Action Unit of Measure"/>
+<RDD Id="TUAVOL" xml:lang="EN" Des="Top-Up-Action Volume"/>
+<RDD Id="TURAEP" xml:lang="EN" Des="Active / Passive LC Period"/>
+<RDD Id="TURAEPT" xml:lang="EN" Des="Top-Up-Request Active Expiration Period Type"/>
+<RDD Id="TURCO" xml:lang="EN" Des="Top-Up Request Contract"/>
+<RDD Id="TURPEP" xml:lang="EN" Des="Top-Up Request Passive Expiration Period"/>
+<RDD Id="TURPEPT" xml:lang="EN" Des="Top-Up Request Passive Expiration Period Type"/>
+<RDD Id="TURPRO" xml:lang="EN" Des="Top-Up Request User Profile"/>
+<RDD Id="TURSN" xml:lang="EN" Des="Top-Up-Request Service"/>
+<RDD Id="TURSubid" xml:lang="EN" Des="Top-Up-Request Subid"/>
+<RDD Id="TURTLCF" xml:lang="EN" Des="Trigger Life Cycle"/>
+<RDD Id="TURTS" xml:lang="EN" Des="Top-Up Request Timestamp"/>
+<RDD Id="TURVOAmt" xml:lang="EN" Des="Voucher Amount"/>
+<RDD Id="TURVOCurr" xml:lang="EN" Des="Top-Up-Request Voucher Currency"/>
+<RDD Id="TURVOT" xml:lang="EN" Des="Voucher Type"/>
+<RDD Id="TURid" xml:lang="EN" Des="Top-Up-Request id"/>
+</UDR>

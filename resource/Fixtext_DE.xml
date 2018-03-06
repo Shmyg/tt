@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+  Copyright (c) 2013 Ericsson
+
+  All rights reserved.
+
+  File:    Fixtext_DE.xml
+
+  Owner:   Matthias Fehrenbacher
+
+  @(#) ABSTRACT : XML configuration file
+  @(#) BSCS iX R4, Bill Formatting Server
+
+  This document contains fixtext descriptions.
+  VERSION = @(#) ./lhsj_main/bscs/batch/src/bgh/LAYOUT/Fixtext_DE.xml, , CBIO_PCP1503, CBIO_PCP1503_150728 @@CBIO_PCP1503_150728 28-Jul-2015
+
+-->
+
+<!DOCTYPE Fix [
+<!ELEMENT Fix (Text*)>
+<!ELEMENT Text EMPTY>
+<!ATTLIST Text
+    Id       CDATA #REQUIRED
+    xml:lang (DE|EN|FR|IT|AR) #IMPLIED
+    Des      CDATA #IMPLIED
+>
+]>
+
+<Fix>
+  <!-- header -->
+
+  <Text Id="0" xml:lang="DE" Des="Ericsson"/>
+  <Text Id="1" xml:lang="DE" Des="Rechnungs-Datum"/>
+  <Text Id="2" xml:lang="DE" Des="Rechnungs-Periode"/>
+  <Text Id="3" xml:lang="DE" Des="-"/>
+  <Text Id="4" xml:lang="DE" Des="Zahlungen ber&#x00FC;cksichtigt bis"/>
+  <!-- address page -->
+  <Text Id="5" xml:lang="DE" Des="Konto-Inhaber"/>
+  <Text Id="6" xml:lang="DE" Des="Konto-Nr."/>
+  <Text Id="7" xml:lang="DE" Des="Bankleitzahl"/>
+  <Text Id="8" xml:lang="DE" Des="Bank"/>
+  <Text Id="9" xml:lang="DE" Des="Filiale"/>
+  <Text Id="10" xml:lang="DE" Des="Steuerregistrierungs-Nr."/>
+  <Text Id="11" xml:lang="DE" Des="Kontaktperson"/>
+  <Text Id="12" xml:lang="DE" Des="Telefon"/>
+  <Text Id="13" xml:lang="DE" Des="Telex"/>
+  <Text Id="14" xml:lang="DE" Des="Fax"/>
+  <Text Id="15" xml:lang="DE" Des="Kunde"/>
+  <Text Id="16" xml:lang="DE" Des="Bundes-Staat"/>
+  <Text Id="17" xml:lang="DE" Des="Geografischer Code"/>
+  <Text Id="18" xml:lang="DE" Des="Sozialversicherungs-Nr."/>
+  <Text Id="19" xml:lang="DE" Des="Fahrzeugzulassungs-Nr."/>
+  <Text Id="20" xml:lang="DE" Des="M&#x00F6;gliche Zahlungstage f&#x00FC;r eine Belohnung"/>
+  <!-- invoice info -->
+  <Text Id="21" xml:lang="DE" Des="W&#x00E4;hrungs-Infos"/>
+  <Text Id="22" xml:lang="DE" Des="Umrechnungskurs"/>
+  <Text Id="23" xml:lang="DE" Des="Wechselart"/>
+  <Text Id="24" xml:lang="DE" Des="Details"/>
+  <Text Id="25" xml:lang="DE" Des="Datum"/>
+  <Text Id="26" xml:lang="DE" Des="Typ"/>
+  <Text Id="27" xml:lang="DE" Des="W&#x00E4;hrung"/>
+  <Text Id="28" xml:lang="DE" Des=""/>
+  <Text Id="29" xml:lang="DE" Des="Standard-W&#x00E4;hrung"/>
+  <Text Id="30" xml:lang="DE" Des="Rechnungs-W&#x00E4;hrung"/>
+  <Text Id="31" xml:lang="DE" Des="zweite Rechnungs-W&#x00E4;hrung"/>
+  <Text Id="32" xml:lang="DE" Des="Transaktions-W&#x00E4;hrung"/>
+  <Text Id="33" xml:lang="DE" Des=""/>
+  <Text Id="34" xml:lang="DE" Des="Statistik Bonus-Punkte"/>
+  <Text Id="35" xml:lang="DE" Des="Gew&#x00E4;hrte Bonus-Punkte"/>
+  <Text Id="36" xml:lang="DE" Des="Aktuelle Bonus-Punkte"/>
+  <Text Id="37" xml:lang="DE" Des="Maximale Bonus-Punkte"/>
+  <Text Id="38" xml:lang="DE" Des="Verfallene Bonus-Punkte"/>
+  <Text Id="39" xml:lang="DE" Des="Bonus-Punkte"/>
+  <Text Id="40" xml:lang="DE" Des="Gew&#x00E4;hrte Bonus-Punkte"/>
+  <Text Id="41" xml:lang="DE" Des="Datum"/>
+  <Text Id="42" xml:lang="DE" Des="Belohnungen"/>
+  <Text Id="43" xml:lang="DE" Des="Bonus-Punkte"/>
+  <Text Id="44" xml:lang="DE" Des="Verwendeter Betrag"/>
+  <Text Id="45" xml:lang="DE" Des=""/>
+  <Text Id="46" xml:lang="DE" Des="Typ"/>
+  <Text Id="47" xml:lang="DE" Des="Aktion"/>
+  <Text Id="48" xml:lang="DE" Des="alter - neuer Wert"/>
+  <Text Id="49" xml:lang="DE" Des="Annonce"/>
+  <Text Id="50" xml:lang="DE" Des="Betrag"/>
+  <Text Id="51" xml:lang="DE" Des="Bemerkung"/>
+  <!-- invoice -->
+  <Text Id="52" xml:lang="DE" Des="Rechnung"/>
+  <Text Id="53" xml:lang="DE" Des="F&#x00E4;lligkeits-Datum f&#x00FC;r eine Belohnung"/>
+  <Text Id="54" xml:lang="DE" Des="Rechnungs-Modus"/>
+  <Text Id="55" xml:lang="DE" Des="Rechnungs-Typ"/>
+  <Text Id="56" xml:lang="DE" Des="Menge"/>
+  <Text Id="57" xml:lang="DE" Des="Markt"/>
+  <Text Id="58" xml:lang="DE" Des="Dienst"/>
+  <Text Id="59" xml:lang="DE" Des="Paket"/>
+  <Text Id="60" xml:lang="DE" Des="Tarif-Modell"/>
+  <Text Id="61" xml:lang="DE" Des="Periode, Status, Geb&#x00FC;hr/Tage"/>
+  <Text Id="62" xml:lang="DE" Des="Steuer-&#x00DC;bersicht"/>
+  <Text Id="63" xml:lang="DE" Des="Service Info"/>
+  <Text Id="64" xml:lang="DE" Des="Netto"/>
+  <Text Id="65" xml:lang="DE" Des="Brutto"/>
+  <Text Id="66" xml:lang="DE" Des="Brutto-Betrag"/>
+  <Text Id="67" xml:lang="DE" Des="Bemerkung"/>
+  <Text Id="68" xml:lang="DE" Des="Preis/Periode"/>
+  <Text Id="69" xml:lang="DE" Des="Steuer (%)"/>
+  <Text Id="70" xml:lang="DE" Des="Steuer"/>
+  <Text Id="71" xml:lang="DE" Des="Discount"/>
+  <Text Id="72" xml:lang="DE" Des="Info"/>
+  <Text Id="73" xml:lang="DE" Des="Betrag"/>
+  <Text Id="74" xml:lang="DE" Des="&#x00DC;bersicht"/>
+  <Text Id="75" xml:lang="DE" Des="Vorherige Geb&#x00FC;hren"/>
+  <Text Id="76" xml:lang="DE" Des="Alte Bilanz"/>
+  <Text Id="77" xml:lang="DE" Des="Brutto-Betrag"/>
+  <Text Id="78" xml:lang="DE" Des="Rechnung (gerundet)"/>
+  <Text Id="79" xml:lang="DE" Des="Neue Bilanz"/>
+  <Text Id="80" xml:lang="DE" Des="Netto-Betrag"/>
+  <Text Id="81" xml:lang="DE" Des="&#8721; Rechnung (netto)"/>
+  <Text Id="82" xml:lang="DE" Des="Zu zahlender Betrag"/>
+  <Text Id="83" xml:lang="DE" Des="Vorherige Bilanz"/>
+  <Text Id="84" xml:lang="DE" Des="Bilanz (virtuelles Startdatum)"/>
+  <Text Id="85" xml:lang="DE" Des="Rechnungs-Belastung (netto)"/>
+  <Text Id="86" xml:lang="DE" Des="Rechnungs-Kredit (netto)"/>
+  <Text Id="87" xml:lang="DE" Des="Rundungs-Differenz"/>
+  <Text Id="88" xml:lang="DE" Des="Info"/>
+  <Text Id="89" xml:lang="DE" Des="Geb&#x00FC;hren"/>
+  <Text Id="90" xml:lang="DE" Des="Belohnungs-Betrag"/>
+  <!-- sum sheet -->
+  <Text Id="91" xml:lang="DE" Des="&#x00DC;bersicht"/>
+  <Text Id="92" xml:lang="DE" Des=""/>
+  <Text Id="93" xml:lang="DE" Des=""/>
+  <Text Id="94" xml:lang="DE" Des="Rechnung (netto)"/>
+  <Text Id="95" xml:lang="DE" Des="Rechnung (brutto)"/>
+  <Text Id="96" xml:lang="DE" Des="Nutzungs-Geb&#x00FC;hren (netto)"/>
+  <Text Id="97" xml:lang="DE" Des="Einmal-Geb&#x00FC;hren"/>
+  <Text Id="98" xml:lang="DE" Des="wiederkehrende Geb&#x00FC;hren"/>
+  <Text Id="99" xml:lang="DE" Des="Nutzungs-Geb&#x00FC;hren (brutto)"/>
+  <Text Id="100" xml:lang="DE" Des="Zus&#x00E4;tzliche Geb&#x00FC;hren"/>
+  <Text Id="101" xml:lang="DE" Des="&#x00DC;bersicht Account-Inhaber"/>
+  <Text Id="102" xml:lang="DE" Des="Geb&#x00FC;hren (netto)"/>
+  <Text Id="103" xml:lang="DE" Des="Nutzungs-Geb&#x00FC;hren (netto)"/>
+  <Text Id="104" xml:lang="DE" Des="Geb&#x00FC;hren (brutto)"/>
+  <Text Id="105" xml:lang="DE" Des="Einmal-Geb&#x00FC;hren"/>
+  <Text Id="106" xml:lang="DE" Des="wiederkehrende Geb&#x00FC;hren"/>
+  <Text Id="107" xml:lang="DE" Des="Nutzungs-Geb&#x00FC;hren (brutto)"/>
+  <Text Id="108" xml:lang="DE" Des="Zus&#x00E4;tzliche Geb&#x00FC;hren"/>
+  <Text Id="109" xml:lang="DE" Des="Vertrag"/>
+  <Text Id="110" xml:lang="DE" Des="Vertrag"/>
+  <Text Id="111" xml:lang="DE" Des="Markt"/>
+  <Text Id="112" xml:lang="DE" Des="SIM-Nr."/>
+  <Text Id="113" xml:lang="DE" Des="Rufnummer"/>
+  <Text Id="114" xml:lang="DE" Des="Geb&#x00FC;hren (netto)"/>
+  <Text Id="115" xml:lang="DE" Des="Geb&#x00FC;hren (brutto)"/>
+  <Text Id="116" xml:lang="DE" Des="wiederkehrende Geb&#x00FC;hren"/>
+  <Text Id="117" xml:lang="DE" Des="Erm&#x00E4;&#x00DF;igungen"/>
+  <Text Id="118" xml:lang="DE" Des="Einmal-Geb&#x00FC;hren"/>
+  <Text Id="119" xml:lang="DE" Des="Weitere Geb&#x00FC;hren"/>
+  <Text Id="120" xml:lang="DE" Des="Nutzungs-Geb&#x00FC;hren"/>
+  <Text Id="121" xml:lang="DE" Des="Geb&#x00FC;hren (netto)"/>
+  <Text Id="122" xml:lang="DE" Des="Geb&#x00FC;hren (netto, unrab.)"/>
+  <Text Id="123" xml:lang="DE" Des="Geb&#x00FC;hren (brutto)"/>
+  <Text Id="124" xml:lang="DE" Des="Geb&#x00FC;hren (brutto, unrab.)"/>
+  <Text Id="125" xml:lang="DE" Des="Menge"/>
+  <Text Id="126" xml:lang="DE" Des="Tage"/>
+  <!-- billing account -->
+  <Text Id="127" xml:lang="DE" Des="Rechnungs-Beschreibung"/>
+  <Text Id="128" xml:lang="DE" Des="Zahlungs-Methode"/>
+  <!-- will be mapped -->
+  <Text Id="129" xml:lang="DE" Des=""/>
+  <Text Id="130" xml:lang="DE" Des=""/>
+  <Text Id="131" xml:lang="DE" Des=""/>
+  <Text Id="132" xml:lang="DE" Des=""/>
+  <Text Id="133" xml:lang="DE" Des=""/>
+  <Text Id="134" xml:lang="DE" Des=""/>
+  <Text Id="135" xml:lang="DE" Des="Rechnungs-Format"/>
+  <Text Id="136" xml:lang="DE" Des="Anzahl Kopien"/>
+  <!-- sum sheet -->
+  <Text Id="137" xml:lang="DE" Des="Geb&#x00FC;hren (netto, ATM)"/>
+  <Text Id="138" xml:lang="DE" Des="Geb&#x00FC;hren (brutto, ATM)"/>
+  <Text Id="139" xml:lang="DE" Des="Profil"/>
+  <Text Id="140" xml:lang="DE" Des="Dienst"/>
+  <Text Id="141" xml:lang="DE" Des="Paket"/>
+  <Text Id="142" xml:lang="DE" Des="Tarif-Modell"/>
+  <Text Id="143" xml:lang="DE" Des="Geb&#x00FC;hr"/>
+  <Text Id="144" xml:lang="DE" Des="Preis / Periode"/>
+  <Text Id="145" xml:lang="DE" Des="Periode"/>
+  <Text Id="146" xml:lang="DE" Des="Bemerkung"/>
+  <Text Id="147" xml:lang="DE" Des="Geb&#x00FC;hr/Tage"/>
+  <Text Id="148" xml:lang="DE" Des="Discount"/>
+  <Text Id="149" xml:lang="DE" Des="BOP"/>
+  <Text Id="150" xml:lang="DE" Des=""/>
+  <!-- FUoM -->
+  <Text Id="151" xml:lang="DE" Des="Rabatt-Konten"/>
+  <Text Id="152" xml:lang="DE" Des="Konto"/>
+  <Text Id="153" xml:lang="DE" Des="Paket / Element / Version"/>
+  <Text Id="154" xml:lang="DE" Des=""/>
+  <Text Id="155" xml:lang="DE" Des="Periode"/>
+  <Text Id="156" xml:lang="DE" Des="&#x00DC;bertrag-Verfall"/>
+  <Text Id="157" xml:lang="DE" Des="diskontierbarer Betrag"/>
+  <Text Id="158" xml:lang="DE" Des="Rabatt"/>
+  <Text Id="159" xml:lang="DE" Des="Verwen."/>
+  <Text Id="160" xml:lang="DE" Des="insg. Verwen."/>
+  <Text Id="161" xml:lang="DE" Des="&#x00DC;bertrag"/>
+  <Text Id="162" xml:lang="DE" Des="Vermin."/>
+  <Text Id="163" xml:lang="DE" Des="insg. Vermin."/>
+  <Text Id="164" xml:lang="DE" Des="Urspr&#x00FC;nglich"/>
+  <Text Id="165" xml:lang="DE" Des="Gew&#x00E4;hrt"/>
+  <Text Id="166" xml:lang="DE" Des="&#x00DC;bertrag"/>
+  <!-- balance snapshot -->
+  <Text Id="167" xml:lang="DE" Des="Zwischen-Bilanzen"/>
+  <Text Id="168" xml:lang="DE" Des="Bilanz-Datum"/>
+  <Text Id="169" xml:lang="DE" Des="Reset-Datum"/>
+  <Text Id="170" xml:lang="DE" Des="Dienst"/>
+  <Text Id="171" xml:lang="DE" Des="Profil"/>
+  <Text Id="172" xml:lang="DE" Des=""/>
+  <Text Id="173" xml:lang="DE" Des="Bilanz-Wert"/>
+  <Text Id="174" xml:lang="DE" Des="Verf&#x00FC;gbarer Kredit"/>
+  <Text Id="175" xml:lang="DE" Des="Verbleibender Kredit"/>
+  <Text Id="176" xml:lang="DE" Des=""/>
+  <!-- balance -->
+  <Text Id="177" xml:lang="DE" Des="Bilanz"/>
+  <Text Id="178" xml:lang="DE" Des="Transaktionen ber&#x00FC;cksichtigt bis"/>
+  <Text Id="179" xml:lang="DE" Des="Transaktionen"/>
+  <Text Id="180" xml:lang="DE" Des="Vorherige Bilanz"/>
+  <Text Id="181" xml:lang="DE" Des="erhaltene Zahlungen"/>
+  <Text Id="182" xml:lang="DE" Des="Abschreibungen"/>
+  <Text Id="183" xml:lang="DE" Des="andere Rechnungen"/>
+  <Text Id="184" xml:lang="DE" Des="Anpassungen"/>
+  <Text Id="185" xml:lang="DE" Des="zuviel bezahlte Betr&#x00E4;ge"/>
+  <Text Id="186" xml:lang="DE" Des="Rechnungs-Gutschriften"/>
+  <Text Id="187" xml:lang="DE" Des="R&#x00FC;ckzahlungen"/>
+  <Text Id="188" xml:lang="DE" Des="Einzahlungen"/>
+  <Text Id="189" xml:lang="DE" Des="abgehende Rechnungs-Betr&#x00E4;ge"/>
+  <Text Id="190" xml:lang="DE" Des="eingehende Rechnungs-Betr&#x00E4;ge"/>
+  <Text Id="191" xml:lang="DE" Des="abgehende Zahlungs-Betr&#x00E4;ge"/>
+  <Text Id="192" xml:lang="DE" Des="eingehende Zahlungs-Betr&#x00E4;ge"/>
+  <Text Id="193" xml:lang="DE" Des="Kunden-Gutschriften"/>
+  <Text Id="194" xml:lang="DE" Des="fehlgeschlagene Transaktionen"/>
+  <Text Id="195" xml:lang="DE" Des="Ausgleichs-Zahlungen"/>
+  <Text Id="196" xml:lang="DE" Des="Kautions-Bilanz"/>
+  <Text Id="197" xml:lang="DE" Des="Rechnungs-Betrag"/>
+  <Text Id="198" xml:lang="DE" Des="Gegenw&#x00E4;rtige Bilanz"/>
+  <Text Id="199" xml:lang="DE" Des="Bilanz (Rechnungs-Datum)"/>
+  <Text Id="200" xml:lang="DE" Des="Datum"/>
+  <Text Id="201" xml:lang="DE" Des="Transaktions-Typ"/>
+  <Text Id="202" xml:lang="DE" Des="Referenz-Nr."/>
+  <Text Id="203" xml:lang="DE" Des="Betrag"/>
+  <Text Id="204" xml:lang="DE" Des="Ausgleichs-Betrag"/>
+  <!-- transactions (will be mapped) -->
+  <Text Id="205" xml:lang="DE" Des=""/>
+  <Text Id="206" xml:lang="DE" Des=""/>
+  <Text Id="207" xml:lang="DE" Des=""/>
+  <Text Id="208" xml:lang="DE" Des=""/>
+  <Text Id="209" xml:lang="DE" Des=""/>
+  <Text Id="210" xml:lang="DE" Des=""/>
+  <Text Id="211" xml:lang="DE" Des=""/>
+  <Text Id="212" xml:lang="DE" Des=""/>
+  <Text Id="213" xml:lang="DE" Des=""/>
+  <Text Id="214" xml:lang="DE" Des=""/>
+  <Text Id="215" xml:lang="DE" Des=""/>
+  <Text Id="216" xml:lang="DE" Des=""/>
+  <Text Id="217" xml:lang="DE" Des=""/>
+  <Text Id="218" xml:lang="DE" Des=""/>
+  <!-- deposit request -->
+  <Text Id="219" xml:lang="DE" Des="Datum der Zahlungs-Aufforderung"/>
+  <Text Id="220" xml:lang="DE" Des="Vertrag"/>
+  <Text Id="221" xml:lang="DE" Des="Dienst"/>
+  <Text Id="222" xml:lang="DE" Des="Paket"/>
+  <Text Id="223" xml:lang="DE" Des="Tarif-Modell"/>
+  <Text Id="224" xml:lang="DE" Des="Profil"/>
+  <Text Id="225" xml:lang="DE" Des="Betrag"/>
+  <Text Id="226" xml:lang="DE" Des="Betrag"/>
+  <!-- balance snapshot -->
+  <Text Id="227" xml:lang="DE" Des="Deaktiv.-Datum"/>
+  <Text Id="228" xml:lang="DE" Des="Profil"/>
+  <Text Id="229" xml:lang="DE" Des="Preis-Typ"/>
+  <Text Id="230" xml:lang="DE" Des="netto"/>
+  <Text Id="231" xml:lang="DE" Des="brutto"/>
+  <!-- balance (will be mapped) -->
+  <Text Id="232" xml:lang="DE" Des=""/>
+  <Text Id="233" xml:lang="DE" Des=""/>
+  <!-- invoice -->
+  <Text Id="234" xml:lang="DE" Des="Regul&#x00E4;re Rechnung"/>
+  <Text Id="235" xml:lang="DE" Des="Simulierte Rechnung"/>
+  <Text Id="236" xml:lang="DE" Des="Info-Rechnung"/>
+  <Text Id="237" xml:lang="DE" Des="Gebuchte Rechnung"/>
+  <Text Id="238" xml:lang="DE" Des="Info-Rechnung"/>
+  <Text Id="239" xml:lang="DE" Des="Artikel"/>
+  <Text Id="240" xml:lang="DE" Des="F&#x00E4;lligkeits-Datum"/>
+  <!-- call details -->
+  <Text Id="241" xml:lang="DE" Des="Verbindungs-&#x00DC;bersicht"/>
+  <!-- balance requests -->
+  <Text Id="242" xml:lang="DE" Des="Bilanz-Aktionen"/>
+  <Text Id="243" xml:lang="DE" Des="Nr."/>
+  <Text Id="244" xml:lang="DE" Des="Datum"/>
+  <Text Id="245" xml:lang="DE" Des="Typ"/>
+  <Text Id="246" xml:lang="DE" Des="Anpassungs-Betrag"/>
+  <Text Id="247" xml:lang="DE" Des="Ursache"/>
+  <Text Id="248" xml:lang="DE" Des="Bemerkung"/>
+  <Text Id="249" xml:lang="DE" Des="Dienst"/>
+  <Text Id="250" xml:lang="DE" Des="Profil"/>
+  <Text Id="251" xml:lang="DE" Des="Paket-Produkt"/>
+  <Text Id="252" xml:lang="DE" Des="Sequenz-Nr."/>
+  <Text Id="253" xml:lang="DE" Des="Preis-Typ"/>
+  <Text Id="254" xml:lang="DE" Des="Bilanz-Wert"/>
+  <Text Id="255" xml:lang="DE" Des="Verf&#x00FC;gbarer Kredit"/>
+  <Text Id="256" xml:lang="DE" Des="Verbleibender Kredit"/>
+  <Text Id="257" xml:lang="DE" Des="Gemeinsames Konto"/>
+  <Text Id="258" xml:lang="DE" Des=""/>
+  <Text Id="259" xml:lang="DE" Des=""/>
+  <!-- call details -->
+  <Text Id="260" xml:lang="DE" Des="Verbindungs-&#x00DC;bersicht"/>
+  <Text Id="261" xml:lang="DE" Des=""/>
+  <Text Id="262" xml:lang="DE" Des=""/>
+  <Text Id="263" xml:lang="DE" Des="intern"/>
+  <Text Id="264" xml:lang="DE" Des="extern"/>
+  <Text Id="265" xml:lang="DE" Des="Aufpreis"/>
+  <Text Id="266" xml:lang="DE" Des="Nochmals abgerechnet"/>
+  <Text Id="267" xml:lang="DE" Des="Auslage"/>
+  <Text Id="268" xml:lang="DE" Des=""/>
+  <Text Id="269" xml:lang="DE" Des=""/>
+  <Text Id="270" xml:lang="DE" Des=""/>
+  <Text Id="271" xml:lang="DE" Des=""/>
+  <Text Id="272" xml:lang="DE" Des=""/>
+  <Text Id="273" xml:lang="DE" Des=""/>
+  <Text Id="274" xml:lang="DE" Des=""/>
+  <Text Id="275" xml:lang="DE" Des=""/>
+  <Text Id="276" xml:lang="DE" Des=""/>
+  <Text Id="277" xml:lang="DE" Des=""/>
+  <!-- sum sheet -->
+  <Text Id="278" xml:lang="DE" Des=""/>
+  <Text Id="279" xml:lang="DE" Des=""/>
+  <Text Id="280" xml:lang="DE" Des="Verwendeter Betrag"/>
+  <Text Id="281" xml:lang="DE" Des=""/>
+  <Text Id="282" xml:lang="DE" Des=""/>
+  <Text Id="283" xml:lang="DE" Des=""/>
+  <Text Id="284" xml:lang="DE" Des="Rufnummern Beginn-Ende"/>
+  <Text Id="285" xml:lang="DE" Des="Service/Profil"/>
+  <Text Id="286" xml:lang="DE" Des="(prepaid)"/>
+  <Text Id="287" xml:lang="DE" Des="Artikel"/>
+  <Text Id="288" xml:lang="DE" Des="Bemerkung"/>
+  <Text Id="289" xml:lang="DE" Des="Service Info"/>
+  <Text Id="290" xml:lang="DE" Des="Status"/>
+  <!-- invoice -->
+  <Text Id="291" xml:lang="DE" Des="Typ"/>
+  <Text Id="292" xml:lang="DE" Des="Wiederkehrend"/>
+  <Text Id="293" xml:lang="DE" Des="Weitere"/>
+  <Text Id="294" xml:lang="DE" Des="Einmal"/>
+  <Text Id="295" xml:lang="DE" Des="Nutzung"/>
+  <Text Id="296" xml:lang="DE" Des="Rabatt"/>
+  <!-- sum sheet -->
+  <Text Id="297" xml:lang="DE" Des="Vertrag"/>
+  <Text Id="298" xml:lang="DE" Des="Vertrag"/>
+  <Text Id="299" xml:lang="DE" Des=""/>
+  <Text Id="300" xml:lang="DE" Des=""/>
+  <!-- call details -->
+  <Text Id="301" xml:lang="DE" Des="Rabatte"/>
+  <!-- sum sheet -->
+  <Text Id="302" xml:lang="DE" Des="Kunden-Nr."/>
+  <Text Id="303" xml:lang="DE" Des="Kunden-Kennzahl"/>
+  <!-- invoice -->
+  <Text Id="304" xml:lang="DE" Des="Sender"/>
+  <Text Id="305" xml:lang="DE" Des="Kennung"/>
+  <Text Id="306" xml:lang="DE" Des="Rechnungs-Konto"/>
+  <!-- sum sheet -->
+  <Text Id="307" xml:lang="DE" Des="&#8721;"/>
+  <Text Id="308" xml:lang="DE" Des="Wiederverk&#x00E4;ufer"/>
+  <!-- promo details -->
+  <Text Id="309" xml:lang="DE" Des="Rabatt"/>
+  <Text Id="310" xml:lang="DE" Des="Kunde"/>
+  <Text Id="311" xml:lang="DE" Des="Sequenz-Nr."/>
+  <Text Id="312" xml:lang="DE" Des="Vertrag"/>
+  <Text Id="313" xml:lang="DE" Des="Paket"/>
+  <Text Id="314" xml:lang="DE" Des="Modell"/>
+  <Text Id="315" xml:lang="DE" Des="Element"/>
+  <Text Id="316" xml:lang="DE" Des="Version"/>
+  <Text Id="317" xml:lang="DE" Des="Bewertung"/>
+  <Text Id="318" xml:lang="DE" Des="Mechanismus"/>
+  <Text Id="319" xml:lang="DE" Des="Ergebnis"/>
+  <Text Id="320" xml:lang="DE" Des="Beendet"/>
+  <Text Id="321" xml:lang="DE" Des="Anwendung"/>
+  <Text Id="322" xml:lang="DE" Des="Mechanismus"/>
+  <Text Id="323" xml:lang="DE" Des="Wert"/>
+  <Text Id="324" xml:lang="DE" Des="Typ"/>
+  <Text Id="325" xml:lang="DE" Des="Beendet"/>
+  <!-- address page -->
+  <Text Id="326" xml:lang="DE" Des="EMail"/>
+  <Text Id="327" xml:lang="DE" Des="Dokument-Nr."/>
+  <Text Id="328" xml:lang="DE" Des="Rechnungs-Infos"/>
+  <Text Id="329" xml:lang="DE" Des="Geb&#x00FC;hren"/>
+  <Text Id="330" xml:lang="DE" Des="Transaktionen"/>
+  <!-- invoice promo details -->
+  <Text Id="331" xml:lang="DE" Des="Tarif-Modell"/>
+  <Text Id="332" xml:lang="DE" Des="Freieinheiten-Paket"/>
+  <Text Id="333" xml:lang="DE" Des="Promotions-Paket"/>
+  <Text Id="334" xml:lang="DE" Des="neu"/>
+  <Text Id="335" xml:lang="DE" Des="l&#x00F6;schen"/>
+  <Text Id="336" xml:lang="DE" Des="&#x00E4;ndern"/>
+  <Text Id="337" xml:lang="DE" Des="aktivieren"/>
+  <Text Id="338" xml:lang="DE" Des="deaktivieren"/>
+  <Text Id="339" xml:lang="DE" Des="Discount - Details"/>
+  <!-- invoice tax -->
+  <Text Id="340" xml:lang="DE" Des="Kategorie"/>
+  <Text Id="341" xml:lang="DE" Des="Name"/>
+  <Text Id="342" xml:lang="DE" Des="Code"/>
+  <Text Id="343" xml:lang="DE" Des="Rate (%)"/>
+  <Text Id="344" xml:lang="DE" Des="Methode"/>
+  <Text Id="345" xml:lang="DE" Des="Steuer-Freiheit"/>
+  <Text Id="346" xml:lang="DE" Des="Betrag"/>
+  <Text Id="347" xml:lang="DE" Des="absolut"/>
+  <Text Id="348" xml:lang="DE" Des="relativ"/>
+  <Text Id="349" xml:lang="DE" Des="gemischt"/>
+  <Text Id="350" xml:lang="DE" Des=""/>
+  <Text Id="351" xml:lang="DE" Des=""/>
+  <Text Id="352" xml:lang="DE" Des=""/>
+  <Text Id="353" xml:lang="DE" Des=""/>
+  <Text Id="354" xml:lang="DE" Des=""/>
+  <Text Id="355" xml:lang="DE" Des=""/>
+  <Text Id="356" xml:lang="DE" Des=""/>
+  <Text Id="357" xml:lang="DE" Des=""/>
+  <Text Id="358" xml:lang="DE" Des=""/>
+  <Text Id="359" xml:lang="DE" Des=""/>
+  <Text Id="360" xml:lang="DE" Des=""/>
+  <Text Id="361" xml:lang="DE" Des=""/>
+  <Text Id="362" xml:lang="DE" Des=""/>
+  <!-- best option plan -->
+  <Text Id="363" xml:lang="DE" Des="alt."/>
+  <Text Id="364" xml:lang="DE" Des="vereinb."/>
+  <Text Id="365" xml:lang="DE" Des="ber."/>
+  <Text Id="366" xml:lang="DE" Des="ja"/>
+  <Text Id="367" xml:lang="DE" Des="nein"/>
+  <!-- deposit request -->
+  <Text Id="368" xml:lang="DE" Des="Zahlungs-Aufforderung"/>
+  <!-- best option plan -->
+  <Text Id="369" xml:lang="DE" Des="Alt. Tarif Modell"/>
+  <Text Id="370" xml:lang="DE" Des="Alt. Service Paket"/>
+  <Text Id="371" xml:lang="DE" Des="vereinb."/>
+  <Text Id="372" xml:lang="DE" Des="ber."/>
+  <Text Id="373" xml:lang="DE" Des="ja"/>
+  <Text Id="374" xml:lang="DE" Des="nein"/>
+  <!-- call details -->
+  <Text Id="375" xml:lang="DE" Des="Vertrag"/>
+  <!-- best option plan -->
+  <Text Id="376" xml:lang="DE" Des="nicht vereinb."/>
+  <Text Id="377" xml:lang="DE" Des="nicht ber."/>
+  <Text Id="378" xml:lang="DE" Des="&#x00DC;bertrag"/>
+  <!-- FUoM -->
+  <Text Id="380" xml:lang="DE" Des="&#x00DC;bertrag ist verwendbar"/>
+  <!-- best option plan -->
+  <Text Id="381" xml:lang="DE" Des="Sequenz - Nr."/>
+  <Text Id="382" xml:lang="DE" Des="BOP Paket"/>
+  <Text Id="383" xml:lang="DE" Des="BOP Zweck"/>
+  <Text Id="384" xml:lang="DE" Des="Anzahl der Alternativen"/>
+  <!-- page x from y -->
+  <Text Id="385" xml:lang="DE" Des="Seite"/>
+  <Text Id="386" xml:lang="DE" Des="von"/>
+  <Text Id="387" xml:lang="DE" Des="Kosten der Kunden"/>
+  <!-- sum sheet -->
+  <Text Id="388" xml:lang="DE" Des="Vertrags-Nr"/>
+  <!-- promo details -->
+  <Text Id="389" xml:lang="DE" Des="absolut"/>
+  <Text Id="390" xml:lang="DE" Des="relativ"/>
+  <Text Id="391" xml:lang="DE" Des="ja"/>
+  <Text Id="392" xml:lang="DE" Des="nein"/>
+  <Text Id="393" xml:lang="DE" Des="M&#x00F6;glicher Wert"/>
+  <Text Id="394" xml:lang="DE" Des="Verwendeter Wert"/>
+  <!-- call details -->
+  <Text Id="395" xml:lang="DE" Des="Verbindungs&#x00FC;bersicht"/>
+  <!-- reconciliation -->
+  <Text Id="396" xml:lang="DE" Des="Rechnung zur Abstimmung"/>
+  <!-- discount info -->
+  <Text Id="397" xml:lang="DE" Des="Discount - &#x00DC;bersicht"/>
+  <Text Id="398" xml:lang="DE" Des="Discount Info"/>
+  <Text Id="399" xml:lang="DE" Des="diskontierbarer Betrag"/>
+  <Text Id="400" xml:lang="DE" Des="Rabatt"/>
+  <Text Id="401" xml:lang="DE" Des="Discount Info (Kostenkontrolle)"/>
+  <!-- call detail statement -->
+  <Text Id="402" xml:lang="DE" Des="Einzelverbindungs-Nachweis"/>
+  <Text Id="403" xml:lang="DE" Des="Vertrag"/>
+  <Text Id="404" xml:lang="DE" Des="Letztes Rechnungs-Datum"/>
+  <Text Id="405" xml:lang="DE" Des="Periode"/>
+  <Text Id="406" xml:lang="DE" Des="Anzahl der Alternativen"/>
+  <Text Id="407" xml:lang="DE" Des="BOP Paket"/>
+  <Text Id="408" xml:lang="DE" Des="BOP Zweck"/>
+  <Text Id="409" xml:lang="DE" Des="Alt. Tarif Modell"/>
+  <Text Id="410" xml:lang="DE" Des="Alt. Service Paket"/>
+  <Text Id="411" xml:lang="DE" Des="vereinb."/>
+  <Text Id="412" xml:lang="DE" Des="nicht vereinb."/>
+  <Text Id="413" xml:lang="DE" Des="ber."/>
+  <Text Id="414" xml:lang="DE" Des="nicht ber."/>
+  <Text Id="415" xml:lang="DE" Des="Sequenz - Nr."/>
+  <Text Id="416" xml:lang="DE" Des="Markt"/>
+  <Text Id="417" xml:lang="DE" Des="SIM-Nr."/>
+  <!-- content product info -->
+  <Text Id="418" xml:lang="DE" Des="Katalog"/>
+  <Text Id="419" xml:lang="DE" Des="Element"/>
+  <Text Id="420" xml:lang="DE" Des="Preis-Liste"/>
+  <Text Id="421" xml:lang="DE" Des="Tarif-Zeit"/>
+  <Text Id="422" xml:lang="DE" Des="Tarif-Zone"/>
+  <!-- call detail statement -->
+  <Text Id="423" xml:lang="DE" Des="Gesamt-Periode"/>
+  <!-- prepaid balance -->
+  <Text Id="425" xml:lang="DE" Des="Zahlart"/>
+  <Text Id="426" xml:lang="DE" Des="Trans.-Typ"/>
+  <Text Id="427" xml:lang="DE" Des="Prepaid Gutschrift"/>
+  <Text Id="428" xml:lang="DE" Des="Prepaid Belastung"/>
+  <Text Id="429" xml:lang="DE" Des="Prepaid Bilanz&#x00E4;nderung"/>
+  <Text Id="430" xml:lang="DE" Des="Gew&#x00E4;hrte Gutschrift auf die Prepaid Bilanz"/>
+  <Text Id="431" xml:lang="DE" Des="Gutschrift"/>
+  <!-- collection report -->
+  <Text Id="432" xml:lang="DE" Des="Sammel-&#x00DC;bersicht"/>
+  <Text Id="433" xml:lang="DE" Des="Periode"/>
+  <Text Id="434" xml:lang="DE" Des="Kunde"/>
+  <Text Id="435" xml:lang="DE" Des="Vertrag"/>
+  <Text Id="436" xml:lang="DE" Des="berechneter Betrag"/>
+  <Text Id="437" xml:lang="DE" Des="bezahlter Betrag"/>
+  <Text Id="438" xml:lang="DE" Des="offener Betrag"/>
+  <Text Id="439" xml:lang="DE" Des="Artikel"/>
+  <Text Id="440" xml:lang="DE" Des="Service"/>
+  <!-- partner credit memo -->
+  <Text Id="441" xml:lang="DE" Des="Gutschrift"/>
+  <!-- invoice -->
+  <Text Id="442" xml:lang="DE" Des="Eigener Betrag"/>
+  <Text Id="443" xml:lang="DE" Des="Betrag anderer Anbieter"/>
+  <!-- content product info -->
+  <Text Id="444" xml:lang="DE" Des="Typ"/>
+  <!-- usage bundles -->
+  <Text Id="445" xml:lang="DE" Des="Paket-Produkt"/>
+  <Text Id="446" xml:lang="DE" Des="Pakete"/>
+  <Text Id="447" xml:lang="DE" Des="Einkauf"/>
+  <Text Id="448" xml:lang="DE" Des="Verbrauchs-Periode"/>
+  <Text Id="449" xml:lang="DE" Des="Paket-Produkte"/>
+  <Text Id="450" xml:lang="DE" Des=""/>
+  <Text Id="451" xml:lang="DE" Des=""/>
+  <Text Id="452" xml:lang="DE" Des="Preis"/>
+  <Text Id="453" xml:lang="DE" Des=""/>
+  <Text Id="454" xml:lang="DE" Des=""/>
+  <Text Id="455" xml:lang="DE" Des="Paket-Name"/>
+  <Text Id="456" xml:lang="DE" Des=""/>
+  <Text Id="457" xml:lang="DE" Des=""/>
+  <Text Id="458" xml:lang="DE" Des=""/>
+  <Text Id="459" xml:lang="DE" Des="Nutzungs-Geb&#x00FC;hren"/>
+  <Text Id="460" xml:lang="DE" Des=""/>
+  <Text Id="461" xml:lang="DE" Des="Paket-Verbrauch"/>
+  <Text Id="462" xml:lang="DE" Des="Einkaufs-Datum"/>
+  <!-- tap/rap -->
+  <Text Id="463" xml:lang="DE" Des="TAP"/>
+  <Text Id="464" xml:lang="DE" Des="Typ"/>
+  <Text Id="465" xml:lang="DE" Des="RAP"/>
+  <!-- flexible payment term -->
+  <Text Id="466" xml:lang="DE" Des="Zahlungsrabatt-Datum"/>
+  <Text Id="467" xml:lang="DE" Des="Rabatt"/>
+  <!-- charge notification -->
+  <Text Id="468" xml:lang="DE" Des="Benachrichtigung"/>
+  <Text Id="469" xml:lang="DE" Des="Unzureichendes Guthaben"/>
+  <Text Id="470" xml:lang="DE" Des="Verbuchte Aufladung"/>
+  <Text Id="471" xml:lang="DE" Des="Konto&#x00FC;berziehungs-Bereinigung"/>
+  <Text Id="472" xml:lang="DE" Des="Kurznachricht"/>
+  <Text Id="473" xml:lang="DE" Des="Aktionen"/>
+  <Text Id="474" xml:lang="DE" Des="Ereignis"/>
+  <Text Id="475" xml:lang="DE" Des="Service"/>
+  <Text Id="476" xml:lang="DE" Des="Profil"/>
+  <Text Id="477" xml:lang="DE" Des="Typ"/>
+  <Text Id="478" xml:lang="DE" Des="Aktivierung"/>
+  <Text Id="479" xml:lang="DE" Des="Deaktivierung"/>
+  <Text Id="480" xml:lang="DE" Des="Aufhebung"/>
+  <Text Id="481" xml:lang="DE" Des="Service-Zuordnung"/>
+  <!-- charge details -->
+  <Text Id="482" xml:lang="DE" Des="Wiederkehrende Geb&#x00FC;hren"/>
+  <Text Id="483" xml:lang="DE" Des="Einmalige Geb&#x00FC;hren"/>
+  <!-- SMS -->
+  <Text Id="484" xml:lang="DE" Des="f&#x00FC;r"/>
+  <Text Id="485" xml:lang="DE" Des="MSISDN"/>
+  <Text Id="486" xml:lang="DE" Des="Email"/>
+  <!-- collection letter -->
+  <Text Id="487" xml:lang="DE" Des="Sammelbrief"/>
+  <Text Id="488" xml:lang="DE" Des="Kunden-Nr."/>
+  <Text Id="489" xml:lang="DE" Des="Datum"/>
+  <Text Id="490" xml:lang="DE" Des="Tarifmodell-Version"/>
+  <Text Id="491" xml:lang="DE" Des=""/>
+  <Text Id="492" xml:lang="DE" Des=""/>
+  <Text Id="493" xml:lang="DE" Des=""/>
+  <Text Id="494" xml:lang="DE" Des=""/>
+  <Text Id="495" xml:lang="DE" Des="Gesch&#x00E4;ftsbereich"/>
+  <!-- accounts payable -->
+  <Text Id="496" xml:lang="DE" Des="Eingehende Rechnungs-Betr&#x00E4;ge"/>
+  <Text Id="497" xml:lang="DE" Des="Eingehende Gutschriften"/>
+  <Text Id="498" xml:lang="DE" Des="Abgehende Zahlungen"/>
+  <Text Id="499" xml:lang="DE" Des=""/>
+  <Text Id="500" xml:lang="DE" Des="Benachrichtigung"/>
+  <Text Id="501" xml:lang="DE" Des="Zahlungsvereinbarungs - Paket"/>
+  <Text Id="502" xml:lang="DE" Des="Jahre"/>
+  <Text Id="503" xml:lang="DE" Des="Monate"/>
+  <Text Id="504" xml:lang="DE" Des="Tage"/>
+  <Text Id="505" xml:lang="DE" Des="Zahlung"/>
+  <Text Id="506" xml:lang="DE" Des=""/>
+  <Text Id="507" xml:lang="DE" Des=""/>
+  <Text Id="508" xml:lang="DE" Des=""/>
+  <Text Id="509" xml:lang="DE" Des=""/>
+  <Text Id="510" xml:lang="DE" Des=""/>
+  <Text Id="511" xml:lang="DE" Des=""/>
+  <!-- payment method -->
+  <Text Id="512" xml:lang="DE" Des="Zahlungs-Methode"/>
+  <!-- top up requests -->
+  <Text Id="513" xml:lang="DE" Des="Gutschriften-Events"/>
+  <Text Id="514" xml:lang="DE" Des=""/>
+  <Text Id="515" xml:lang="DE" Des=""/>
+  <Text Id="516" xml:lang="DE" Des=""/>
+  <Text Id="517" xml:lang="DE" Des=""/>
+  <Text Id="518" xml:lang="DE" Des=""/>
+  <Text Id="519" xml:lang="DE" Des=""/>
+  <Text Id="520" xml:lang="DE" Des=""/>
+  <Text Id="521" xml:lang="DE" Des=""/>
+  <!-- prepaid accounting -->
+  <Text Id="522" xml:lang="DE" Des="Prepaid Credits"/>
+  <Text Id="523" xml:lang="DE" Des="Prepaid Debits"/>
+  <Text Id="524" xml:lang="DE" Des="Transaktions-Typ"/>
+  <!-- copy of a bill -->
+  <Text Id="525" xml:lang="DE" Des="Kopie"/>
+  <!-- bank account of the customer -->
+  <Text Id="526" xml:lang="DE" Des="Ihre Bankverbindung"/>
+  <!-- target currency -->
+  <Text Id="527" xml:lang="DE" Des="Typ (Zielw&#x00E4;hrung)"/>
+  <Text Id="528" xml:lang="DE" Des="Zielw&#x00E4;hrung"/>
+  <!-- debit notes -->
+  <Text Id="529" xml:lang="DE" Des="Belastungsanzeige"/>
+  <Text Id="530" xml:lang="DE" Des="Zweck der Belastungsanzeige"/>
+  <Text Id="531" xml:lang="DE" Des="Referenzierte Dokumente"/>
+  <Text Id="532" xml:lang="DE" Des="Belastungsanzeigen"/>
+  <Text Id="533" xml:lang="DE" Des="Stornierte Belastungsanzeigen"/>
+  <Text Id="534" xml:lang="DE" Des="Stornierte eingehende Rechnungs-Betr&#x00E4;ge"/>
+  <Text Id="535" xml:lang="DE" Des="Stornierte eingehende Gutschriften"/>
+  <Text Id="536" xml:lang="DE" Des="Stornierung"/>
+  <!-- reversals of financial transactions -->
+  <Text Id="537" xml:lang="DE" Des="Gesamtbetrag"/>
+  <Text Id="538" xml:lang="DE" Des="Offener Betrag"/>
+  <Text Id="539" xml:lang="DE" Des=""/>
+  <!-- pie chart header -->
+  <Text Id="540" xml:lang="DE" Des="Geb&#x00FC;hren-Verteilung"/>
+  <!-- price plans -->
+  <Text Id="541" xml:lang="DE" Des="Typ"/>
+  <Text Id="542" xml:lang="DE" Des="Geb&#x00FC;hren-Plan"/>
+  <Text Id="543" xml:lang="DE" Des="Zusatz-Geb&#x00FC;hr"/>
+  <!-- account type -->
+  <Text Id="544" xml:lang="DE" Des="Frei-Einheiten"/>
+  <Text Id="545" xml:lang="DE" Des="skalierter Preis-Plan"/>
+  <Text Id="546" xml:lang="DE" Des="gestaffelter Preis-Plan"/>
+  <!-- external discounts -->
+  <Text Id="547" xml:lang="DE" Des="Discount Info (Charging System)"/>
+  <Text Id="548" xml:lang="DE" Des="Discount-Art"/>  
+  <Text Id="549" xml:lang="DE" Des="Zusatz-Geb&#x00FC;hren"/>
+  <!-- large account subtree billing -->
+  <Text Id="550" xml:lang="DE" Des="Anfrage-Nr."/>
+  <Text Id="551" xml:lang="DE" Des="Billing-Periode"/>
+  <Text Id="552" xml:lang="DE" Des="G&#x00FC;ltig ab"/>
+  <Text Id="553" xml:lang="DE" Des="G&#x00FC;ltig bis"/>
+  <Text Id="554" xml:lang="DE" Des="Verfall"/>
+  <Text Id="555" xml:lang="DE" Des="Anpassung"/>
+  <!-- bill suppression -->
+  <Text Id="556" xml:lang="DE" Des="Sehr geehrte(r) Frau/Herr."/>
+  <Text Id="557" xml:lang="DE" Des="Diesen Monat hat Ihre Rechnung den Mindestbetrag von"/>
+  <Text Id="558" xml:lang="DE" Des="nicht &#x00FC;bertroffen"/>
+  <Text Id="559" xml:lang="DE" Des="Es entstehen Ihnen daher keinerlei Kosten f&#x00FC;r den letzten Abrechnungszeitraum."/>
+  <Text Id="560" xml:lang="DE" Des="Der offene Betrag wird daher erst im n&#x00E4;chsten Abrechnungszeitraum verrechnet und entsprechend auf Ihrer n&#x00E4;chsten Rechnung ausgewiesen."/>  
+  <Text Id="561" xml:lang="DE" Des="Wir bedanken uns f&#x00FC;r Ihr Vertrauen."/>
+  <Text Id="562" xml:lang="DE" Des="Mit freundlichen Gr&#x00FC;&#223;en,"/>
+  <!-- shared accounts -->
+  <Text Id="563" xml:lang="DE" Des="Gemeinsame Konten"/>
+  <Text Id="564" xml:lang="DE" Des="Eigent&#x00FC;mer"/>
+  <Text Id="565" xml:lang="DE" Des="Konsument"/>
+  <Text Id="566" xml:lang="DE" Des="Gemeinsames Konto"/>
+  <Text Id="567" xml:lang="DE" Des="Periode"/>
+  <Text Id="568" xml:lang="DE" Des="Konto-Typ"/>
+</Fix>
